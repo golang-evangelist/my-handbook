@@ -1,4 +1,4 @@
-# Pipelines (Deo 1)
+# Pipelines
 
 > **Modul:** #2 — Lako → Srednje
 >
@@ -9,7 +9,7 @@
 
 ---
 
-# 📚 Sadržaj (Deo 1)
+# 📚 Sadržaj
 
 - Šta je Pipeline?
 - Zašto postoji?
