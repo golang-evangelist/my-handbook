@@ -1,4 +1,4 @@
-# Worker Pools (Deo 1)
+# Worker Pools
 
 > **Modul:** #2 — Lako → Srednje
 >
@@ -8,7 +8,7 @@
 
 ---
 
-# 📚 Sadržaj (Deo 1)
+# 📚 Sadržaj
 
 - Šta je Worker Pool?
 - Problem koji rešava
