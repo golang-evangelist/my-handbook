@@ -4941,7 +4941,7 @@ Parallelism vs Concurrency
 
 ---
 
-### ➡️ Sledeća lekcija **[**Summary i Exercises**](09-module-3-summary-and-exercises.md)**
+### ➡️ Sledeća lekcija **[**Modul #3 - Sumiranje i Zadaci**](09-module-3-summary-and-exercises.md)**
 
 Obuhvatiće:
 
