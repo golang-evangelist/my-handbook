@@ -145,12 +145,12 @@ Svaki modul predstavlja jedan nivo znanja i prirodno se nadovezuje na prethodni.
 
 U trenutnoj verziji projekta planirani su sledeći moduli:
 
-```text
+```
 docs/
 ├── basic/
 ├── intermediate/
 └── ...
-
+```
 ---
 
 # 📘 Modul: `docs/basic`
@@ -204,7 +204,7 @@ Na taj način svaka tema ostaje pregledna, lako pretraživa i jednostavna za odr
 
 Planirana struktura modula izgleda ovako:
 
-```text
+```
 docs/
 └── basic/
     ├── 01-getting-started/
@@ -216,6 +216,7 @@ docs/
     ├── 07-the-go-standard-library/
     ├── 08-creating-custom-data-types/
     └── 09-advanced-branching-and-looping/
+```
 
 Svaka oblast će biti detaljno obrađena kroz teoriju, praktične primere i vežbe.
 
@@ -502,8 +503,7 @@ Drugim rečima, fokus ovog modula jeste prelazak sa razumevanja jezika na razume
 # 🗂 Organizacija modula
 
 Planirana struktura modula izgleda ovako:
-
-```text
+```
 docs/
 └── intermediate/
     ├── 01-deep-dive-into-go-packages/
@@ -526,7 +526,7 @@ docs/
     ├── 18-profiling-go-applications/
     ├── 19-go-cli-playbook-v1/
     └── 20-go-cli-playbook-v2/
-
+```
 «Napomena
 
 Pojedine oblasti predstavljaju laganije (v1) i ozbiljnije (v2) verzije istih tema.
