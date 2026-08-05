@@ -222,7 +222,7 @@ Svaka oblast će biti detaljno obrađena kroz teoriju, praktične primere i vež
 
 ---
 
-📖 Oblast 01 — Getting Started
+## 📖 Oblast 01 — Getting Started
 
 Prva oblast predstavlja uvod u Go jezik.
 
@@ -245,7 +245,7 @@ Ova oblast predstavlja osnovu za razumevanje svih narednih oblasti.
 
 ---
 
-📖 Oblast 02 — Go Fundamentals v1
+## 📖 Oblast 02 — Go Fundamentals v1
 
 Druga oblast produbljuje razumevanje jezika.
 
@@ -265,7 +265,7 @@ Cilj ove oblasti jeste da čitalac počne da razmišlja kao Go programer, a ne s
 
 ---
 
-📖 Oblast 03 — Go Fundamentals v2
+## 📖 Oblast 03 — Go Fundamentals v2
 
 Treća oblast predstavlja dodatno proširenje prethodne oblasti.
 
@@ -284,7 +284,7 @@ Na taj način čitalac će steći mnogo dublje razumevanje osnovnih koncepata pr
 
 ---
 
-# 📖 Oblast 04 — Debugging in Go
+## 📖 Oblast 04 — Debugging in Go
 
 Pisanje kvalitetnog koda podrazumeva mnogo više od samog razvoja aplikacije.
 
@@ -309,7 +309,7 @@ Na kraju ove oblasti čitalac će biti sposoban da samostalno analizira i rešav
 
 ---
 
-# 📖 Oblast 05 — Debugging Go Applications with Delve
+## 📖 Oblast 05 — Debugging Go Applications with Delve
 
 Nakon upoznavanja sa osnovama debagovanja, naredna oblast u potpunosti je posvećena najvažnijem debugger-u za Go — **Delve (DLV)**.
 
@@ -334,7 +334,7 @@ Cilj ove oblasti jeste da čitalac stekne sigurnost u korišćenju debugger-a to
 
 ---
 
-# 📖 Oblast 06 — Exploring Go Modules
+## 📖 Oblast 06 — Exploring Go Modules
 
 Savremeni razvoj softvera nije moguće zamisliti bez kvalitetnog sistema za upravljanje zavisnostima.
 
@@ -361,7 +361,7 @@ Po završetku ove oblasti čitalac će biti sposoban da organizuje i održava pr
 
 ---
 
-# 📖 Oblast 07 — The Go Standard Library
+## 📖 Oblast 07 — The Go Standard Library
 
 Jedna od najvećih prednosti Go jezika jeste izuzetno bogata i kvalitetno dizajnirana standardna biblioteka.
 
@@ -385,7 +385,7 @@ Cilj nije samo upoznavanje API-ja pojedinačnih paketa, već razumevanje njihove
 
 ---
 
-# 📖 Oblast 08 — Creating Custom Data Types
+## 📖 Oblast 08 — Creating Custom Data Types
 
 Jedna od karakteristika Go jezika jeste jednostavan, ali veoma moćan sistem tipova.
 
@@ -408,7 +408,7 @@ Po završetku ove oblasti čitalac će razumeti kako se u Go jeziku modeluju slo
 
 ---
 
-# 📖 Oblast 09 — Advanced Branching and Looping
+## 📖 Oblast 09 — Advanced Branching and Looping
 
 Poslednja oblast modula predstavlja praktično produbljivanje znanja o kontroli toka programa.
 
@@ -527,15 +527,14 @@ docs/
     ├── 19-go-cli-playbook-v1/
     └── 20-go-cli-playbook-v2/
 ```
-«Napomena
-
-Pojedine oblasti predstavljaju laganije (v1) i ozbiljnije (v2) verzije istih tema.
+> [!NOTE]
+> Pojedine oblasti predstavljaju laganije (v1) i ozbiljnije (v2) verzije istih tema.
 Tokom pisanja tutorijala njihov sadržaj neće biti mehanički ponavljan.
 Umesto toga, biće objedinjeni najbolji delovi obe verzije kako bi svaka oblast bila što kvalitetnija, potpunija i savremenija.»
 
 ---
 
-📖 Oblast 01 — Deep Dive into Go Packages
+## 📖 Oblast 01 — Deep Dive into Go Packages
 
 Jedna od najvećih razlika između manjih i velikih Go projekata jeste kvalitet organizacije paketa.
 
@@ -555,7 +554,7 @@ Poseban akcenat biće stavljen na način razmišljanja prilikom dizajniranja pak
 
 ---
 
-📖 Oblast 02 — Deep Dive into Go Functions
+## 📖 Oblast 02 — Deep Dive into Go Functions
 
 Iako funkcije predstavljaju osnovni građevinski blok svakog Go programa, njihova pravilna upotreba ima veliki uticaj na čitljivost i održavanje aplikacije.
 
@@ -578,7 +577,7 @@ Poseban fokus biće na pisanju funkcija koje su jednostavne za testiranje, ponov
 
 ---
 
-📖 Oblast 03 — Accessing Relational Databases in Go
+## 📖 Oblast 03 — Accessing Relational Databases in Go
 
 Razvoj ozbiljnih aplikacija gotovo uvek podrazumeva rad sa bazom podataka.
 
@@ -600,7 +599,7 @@ Poseban fokus biće na pravilnom dizajniranju Data Access sloja i pisanju čitlj
 
 ---
 
-📖 Oblast 04 — Managing Go Projects
+## 📖 Oblast 04 — Managing Go Projects
 
 Kako projekat raste, njegova organizacija postaje jednako važna kao i sam kod.
 
@@ -620,7 +619,7 @@ Cilj nije da postoji samo jedna "ispravna" struktura projekta, već da čitalac 
 
 ---
 
-# 📖 Oblast 05 — Creating Web Services with Go
+## 📖 Oblast 05 — Creating Web Services with Go
 
 Savremene aplikacije u velikoj meri komuniciraju putem HTTP servisa i REST API-ja.
 
@@ -643,7 +642,7 @@ Na kraju ove oblasti čitalac će biti sposoban da razvije kompletan REST servis
 
 ---
 
-# 📖 Oblast 06 — Creating Web Applications with Go
+## 📖 Oblast 06 — Creating Web Applications with Go
 
 Nakon razvoja web servisa, fokus se pomera na razvoj kompletnih web aplikacija.
 
@@ -665,7 +664,7 @@ Naglasak će biti na razumevanju celokupnog životnog ciklusa jedne web aplikaci
 
 ---
 
-# 📖 Oblasti 07 i 08 — Gin Framework
+## 📖 Oblasti 07 i 08 — Gin Framework
 
 Gin predstavlja jedan od najpopularnijih framework-a za razvoj web aplikacija u Go ekosistemu.
 
@@ -691,7 +690,7 @@ Posebna pažnja biće posvećena razlikama između razvoja aplikacija korišćen
 
 ---
 
-# 📖 Oblasti 09 i 10 — Concurrent Programming
+## 📖 Oblasti 09 i 10 — Concurrent Programming
 
 Konkurentno programiranje predstavlja jednu od najvažnijih karakteristika Go jezika.
 
@@ -724,7 +723,7 @@ Naglasak neće biti samo na sintaksi, već na pravilnom načinu razmišljanja pr
 
 ---
 
-# 📖 Oblast 11 — Building Go Web Services and Applications
+## 📖 Oblast 11 — Building Go Web Services and Applications
 
 Ova oblast predstavlja objedinjavanje prethodno stečenog znanja kroz razvoj kompletne aplikacije.
 
@@ -741,7 +740,7 @@ Poseban akcenat biće na povezivanju više prethodno naučenih oblasti u jednu f
 
 ---
 
-# 📖 Oblasti 12–20
+## 📖 Oblasti 12–20
 
 Preostale oblasti predstavljaju teme koje svaki profesionalni Go developer koristi tokom svakodnevnog rada.
 
