@@ -1,7 +1,7 @@
 # 03. Working with Primitive Data Types
 
-> **Go Mastery**<br\>  
-> **Basic → 01 Getting Started**<br\>  
+> **Go Mastery**
+> **Basic → 01 Getting Started**
 > Poglavlje: **03 Working with Primitive Data Types**
 
 ---
