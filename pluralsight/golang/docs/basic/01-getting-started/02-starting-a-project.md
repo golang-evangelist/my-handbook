@@ -1,7 +1,7 @@
 # 02. Starting a Project
 
-> **Go Mastery**
-> **Basic → 01 Getting Started**
+> **Go Mastery**<br/>
+> **Basic → 01 Getting Started**<br/>
 > Poglavlje: **02 Starting a Project**  
 
 ---
