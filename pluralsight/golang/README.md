@@ -512,10 +512,10 @@ docs/
     ├── 04-managing-go-projects/
     ├── 05-creating-web-services/
     ├── 06-creating-web-applications/
-    ├── 07-gin-framework-old/
+    ├── 07-gin-framework/
     ├── 08-gin-fundamentals/
-    ├── 09-concurrent-programming-old/
-    ├── 10-concurrent-programming/
+    ├── 09-concurrent-programming-v1/
+    ├── 10-concurrent-programming-v2/
     ├── 11-building-go-web-services-and-applications/
     ├── 12-secure-coding/
     ├── 13-creating-well-tested-applications/
@@ -524,12 +524,12 @@ docs/
     ├── 16-building-distributed-applications/
     ├── 17-managing-errors/
     ├── 18-profiling-go-applications/
-    ├── 19-go-cli-playbook-old/
-    └── 20-go-cli-playbook/
+    ├── 19-go-cli-playbook-v1/
+    └── 20-go-cli-playbook-v2/
 
 «Napomena
 
-Pojedine oblasti predstavljaju starije (OLD) i novije (NEW) verzije istih tema.
+Pojedine oblasti predstavljaju laganije (v1) i ozbiljnije (v2) verzije istih tema.
 Tokom pisanja tutorijala njihov sadržaj neće biti mehanički ponavljan.
 Umesto toga, biće objedinjeni najbolji delovi obe verzije kako bi svaka oblast bila što kvalitetnija, potpunija i savremenija.»
 
@@ -669,7 +669,7 @@ Naglasak će biti na razumevanju celokupnog životnog ciklusa jedne web aplikaci
 
 Gin predstavlja jedan od najpopularnijih framework-a za razvoj web aplikacija u Go ekosistemu.
 
-Pošto postoje dve verzije kursa (OLD i Fundamentals), sadržaj će biti objedinjен u jednu celinu.
+Pošto postoje dve verzije kursa, sadržaj će biti objedinjен u jednu celinu.
 
 Biće obrađene sledeće teme:
 
