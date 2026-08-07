@@ -2737,7 +2737,8 @@ U ovoj lekciji naučili smo:
 
 ### ➡️ Sledeća lekcija **[**Go Memory Model**](03-go-memory-model.md)**
 
-[!NOTE] Sledeći modul je jedan od najvažnijih u celom kursu:
+> [!NOTE]
+> Sledeći modul je jedan od najvažnijih u celom kursu:
 
 Obuhvatiće:
 
