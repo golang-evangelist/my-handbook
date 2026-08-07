@@ -3929,7 +3929,7 @@ Ovo predstavlja osnovu za razumevanje naprednih tema kao što su:
 
 ---
 
-### ➡️ Sledeća lekcija **[**Modul #4 - Atomic Operations Patterns**](02-atomic-operations-patterns.md)**
+### ➡️ Sledeća lekcija **[**Atomic Operations Patterns**](02-atomic-operations-patterns.md)**
 
 Obuhvatiće:
 
