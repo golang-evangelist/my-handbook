@@ -1,4 +1,4 @@
-# Concurrency Patterns — Uvod i pregled
+# Concurrency Patterns
 
 > **Modul:** #4 — Advanced Go Concurrency
 >
