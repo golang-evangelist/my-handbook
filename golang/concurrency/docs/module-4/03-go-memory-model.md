@@ -1,5 +1,4 @@
-# Go Memory Model — Uvod
-
+# Go Memory Model
 > **Modul:** #4 — Advanced Go Concurrency
 >
 > **Fajl:** `docs/module-4/03-go-memory-model.md`
