@@ -1,4 +1,4 @@
-# sync/atomic — Uvod u Atomic Operations
+# sync/atomic — Atomic Operations
 
 > **Modul:** #4 — Advanced Go Concurrency  
 >
