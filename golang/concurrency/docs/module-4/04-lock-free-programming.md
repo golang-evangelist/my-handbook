@@ -1,4 +1,4 @@
-# Lock-Free Programming — Uvod
+# Lock-Free Programming
 
 > **Modul:** #4 — Advanced Go Concurrency
 >
