@@ -4702,4 +4702,3 @@ Obuhvatiće:
 - ABA problem
 - memory reclamation
 - production lock-free patterns
-```
