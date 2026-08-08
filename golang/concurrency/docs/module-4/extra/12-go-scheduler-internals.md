@@ -8,8 +8,6 @@
 >
 > Level: Advanced / Senior
 
-> Razumevanje načina na koji Go Runtime izvršava goroutine predstavlja jedan od najvažnijih koraka ka pisanju visokoperformantnih konkurentnih aplikacija.
-
 ---
 
 # 📚 Sadržaj
@@ -33,6 +31,8 @@ Go Scheduler je deo Go Runtime-a koji odlučuje:
 - na kom operativnom thread-u će se izvršavati
 - kada će biti pauzirana
 - kada će biti nastavljena
+
+> Razumevanje načina na koji Go Runtime izvršava goroutine predstavlja jedan od najvažnijih koraka ka pisanju visokoperformantnih konkurentnih aplikacija.
 
 ---
 
