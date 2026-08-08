@@ -4902,4 +4902,3 @@ Obuhvatiće:
 - buffered channel internals
 - scheduler interakcija
 - performance analiza
-```
