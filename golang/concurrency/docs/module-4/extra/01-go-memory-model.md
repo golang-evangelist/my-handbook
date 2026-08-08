@@ -4363,4 +4363,3 @@ Obuhvatiće:
 - atomic state machines
 - performance tradeoffs
 - production patterns
-```
