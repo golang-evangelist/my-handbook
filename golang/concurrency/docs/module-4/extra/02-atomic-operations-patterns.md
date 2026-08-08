@@ -4787,4 +4787,3 @@ Obuhvatiće:
 - compiler reorderings
 - CPU memory effects
 - real-world race bugovi
-```
