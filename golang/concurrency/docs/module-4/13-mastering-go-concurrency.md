@@ -4906,11 +4906,17 @@ Advanced Go Concurrency
 Stečeno znanje:
 
 ✅ Good Go Concurrency
+
 ✅ Correctness  
+
 ✅ Ownership
+
 ✅ Lifecycle
+
 ✅ Bounded Resources
+
 ✅ Failure Handling
+
 ✅ Observability
 
 ---
