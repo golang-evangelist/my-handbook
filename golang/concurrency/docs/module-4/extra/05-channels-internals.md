@@ -5242,4 +5242,3 @@ Obuhvatiće:
 - Nil Channel Pattern
 - Channel Ownership
 - Graceful Shutdown obrasci
-```
