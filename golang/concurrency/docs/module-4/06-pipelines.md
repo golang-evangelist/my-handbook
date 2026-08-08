@@ -1,4 +1,4 @@
-# Pipelines — Uvod
+# Pipelines
 
 > **Modul:** #4 — Advanced Go Concurrency
 >
