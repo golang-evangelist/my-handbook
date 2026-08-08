@@ -4103,4 +4103,3 @@ Obuhvatiće:
 - Context u HTTP serverima
 - Context u bazama podataka
 - Anti-patterns i production best practices
-```
