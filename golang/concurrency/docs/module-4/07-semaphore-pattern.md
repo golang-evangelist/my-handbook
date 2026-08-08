@@ -1,4 +1,4 @@
-# Semaphore Pattern — Uvod
+# Semaphore Pattern
 
 > **Modul:** #4 — Advanced Go Concurrency
 >
