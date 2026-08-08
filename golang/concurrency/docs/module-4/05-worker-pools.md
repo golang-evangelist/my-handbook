@@ -1,4 +1,4 @@
-# Worker Pools — Uvod
+# Worker Pools
 
 > **Modul:** #4 — Advanced Go Concurrency
 >
