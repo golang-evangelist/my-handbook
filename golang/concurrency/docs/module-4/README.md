@@ -9588,9 +9588,3 @@ i predstavlja završetak:
 ```text
 golang/concurrency/
 ```
-
----
-
-
-
-

@@ -3676,8 +3676,3 @@ What happens under load?
 Kada se ova pitanja mogu sistematski odgovoriti, concurrency postaje predvidiviji, testabilniji i lakši za projektovanje.
 
 **Go Concurrency curriculum počinje sa goroutine-ama, ali se završava sposobnošću da se projektuju pouzdani concurrent sistemi.**
-
----
-
-
-
