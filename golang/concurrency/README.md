@@ -644,9 +644,9 @@ Kompletan concurrency curriculum organizovan je kao progresija od osnovnih mehan
              │                         │
           Patterns                 Lifecycle
              │                         │
-       Worker Pools              Cancellation
-       Pipelines                 Timeouts
-       Fan-Out/Fan-In             Shutdown
+       Worker Pools               Cancellation
+       Pipelines                    Timeouts
+       Fan-Out/Fan-In               Shutdown
              │                         │
              └────────────┬────────────┘
                           │
@@ -991,7 +991,7 @@ Work
   ├───────────────┐
   │               │
   ▼               ▼
-Success         Cancellation
+Success      Cancellation
   │               │
   │               ▼
   │            Cleanup
@@ -1038,10 +1038,10 @@ Možemo ga predstaviti kao:
           │           │           │
           └───────────┼───────────┘
                       ▼
-                     P
+                      P
                       │
                       ▼
-                     M
+                      M
                       │
                       ▼
                      CPU
@@ -1154,8 +1154,8 @@ Konceptualno:
        │             │             │
        ▼             ▼             ▼
    Ordering       CAS/etc.      Channels
-   Visibility     Lock-free      Scheduler
-   Happens-before               Runtime
+   Visibility     Lock-free     Scheduler
+   Happens-before                Runtime
        │             │             │
        └─────────────┼─────────────┘
                      │
@@ -1294,7 +1294,7 @@ Goroutine A              Goroutine B
      │                        │
      │ Write(x)               │
      │                        │
-     │                  Read(x)
+     │                Read(x) │
      │                        │
      └──────────┬─────────────┘
                 │
@@ -1378,10 +1378,10 @@ Compute new value
        │
        ▼
 CAS(old, new)
-   │         │
-success    failure
-   │         │
-   ▼         └── retry
+   │       │
+success  failure
+   │       │
+   ▼       └── retry
 Done
 ```
 
@@ -1534,12 +1534,12 @@ Da li goroutine-i treba da razmenjuju podatke?
         ▼
      Channel
         │
-       NE
+        NE
         │
         ▼
 Da li dele mutable state?
         │
-       DA
+        DA
         │
         ▼
    Synchronization
@@ -1581,40 +1581,40 @@ Go concurrency treba posmatrati kao slojevit sistem:
                       Select
                          │
                          ▼
-                 Coordination
+                    Coordination
                          │
                          ▼
-              Synchronization
+                  Synchronization
                          │
                          ▼
                 Concurrency Patterns
                          │
                          ▼
-                 Lifecycle Control
+                  Lifecycle Control
                          │
                          ▼
-                   Go Scheduler
+                    Go Scheduler
                          │
                          ▼
              Concurrency / Parallelism
                          │
                          ▼
-                  Memory Model
+                    Memory Model
                          │
                          ▼
-                    Atomics
+                      Atomics
                          │
                          ▼
-                  Lock-Free Code
+                   Lock-Free Code
                          │
                          ▼
-                Runtime Internals
+                  Runtime Internals
                          │
                          ▼
-             Performance Engineering
+               Performance Engineering
                          │
                          ▼
-             Production Architecture
+               Production Architecture
 ```
 
 Svaki sledeći modul koristi mentalne modele iz prethodnog.
@@ -1751,7 +1751,7 @@ Na primer:
 ```text
                 ┌── Goroutine A owns state
                 │
-Shared State ────┼── Goroutine B accesses state
+Shared State ───┼── Goroutine B accesses state
                 │
                 └── Goroutine C accesses state
 ```
@@ -2721,7 +2721,7 @@ Na kraju kompletnog curriculum-a čitalac treba da može da poveže sledeće kon
           │              │            Atomic
           └──────────────┼──────────────┘
                          ▼
-                  Coordination
+                   Coordination
                          │
           ┌──────────────┼──────────────┐
           ▼              ▼              ▼
@@ -2729,7 +2729,7 @@ Na kraju kompletnog curriculum-a čitalac treba da može da poveže sledeće kon
           │              │              │
           └──────────────┼──────────────┘
                          ▼
-                   Lifecycle
+                     Lifecycle
                          │
                 ┌────────┼────────┐
                 ▼        ▼        ▼
@@ -2737,7 +2737,7 @@ Na kraju kompletnog curriculum-a čitalac treba da može da poveže sledeće kon
                 │        │        │
                 └────────┼────────┘
                          ▼
-                     Runtime
+                      Runtime
                          │
                 ┌────────┴────────┐
                 ▼                 ▼
@@ -3025,7 +3025,7 @@ Scheduler
 Processors / Threads
      │
      ▼
-CPU
+    CPU
 ```
 
 ---
@@ -3105,35 +3105,35 @@ Preporučeni redosled učenja:
                     START
                       │
                       ▼
-              Module 1
-              Fundamentals
+                   Module 1
+                 Fundamentals
                       │
                       ▼
               Module 1 Exercises
                       │
                       ▼
-              Module 2
-          Coordination & Patterns
+                  Module 2
+            Coordination & Patterns
                       │
                       ▼
               Module 2 Exercises
                       │
                       ▼
-              Module 3
-      Synchronization & Runtime
+                  Module 3
+           Synchronization & Runtime
                       │
                       ▼
               Module 3 Exercises
                       │
                       ▼
-              Module 4
-        Advanced Concurrency
+                   Module 4
+            Advanced Concurrency
                       │
                       ▼
-          Module 4 Core Exercises
+            Module 4 Core Exercises
                       │
                       ▼
-             Extra Deep Dives
+               Extra Deep Dives
                       │
                       ▼
                     MASTER
@@ -3486,19 +3486,19 @@ Concurrent Programming
 Multiple Activities
         │
         ▼
-Coordination
+   Coordination
         │
         ▼
-Synchronization
+  Synchronization
         │
         ▼
-Correctness
+   Correctness
         │
         ▼
-Performance
+    Performance
         │
         ▼
-Reliable Systems
+ Reliable Systems
 ```
 
 Goroutines daju mogućnost concurrent execution-a.
@@ -3592,32 +3592,32 @@ Za duboko razumevanje Go concurrency-ja preporučuje se da se Module 4 ne posmat
       Message Passing           Shared State
              │                       │
              ▼                       ▼
-         Channels               Mutex/RWMutex
+          Channels             Mutex/RWMutex
              │                       │
              └───────────┬───────────┘
                          ▼
-                    Synchronization
+                  Synchronization
                          │
                          ▼
-                  Concurrency Patterns
+               Concurrency Patterns
                          │
                          ▼
-                  Lifecycle Management
+                Lifecycle Management
                          │
                          ▼
-                    Go Scheduler
+                   Go Scheduler
                          │
                          ▼
                 Parallel Execution
                          │
                          ▼
-                   Memory Model
+                    Memory Model
                          │
                          ▼
                    Happens-Before
                          │
                          ▼
-                     Atomics
+                      Atomics
                          │
                          ▼
                  Lock-Free Algorithms
