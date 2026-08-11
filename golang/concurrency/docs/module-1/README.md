@@ -1708,7 +1708,6 @@ Drugim rečima:
 |  6 | [Range Over Channels](./06-range-over-channels.md)            | Stream consumption           |
 |  7 | [Close Channel](./07-close-channel.md)                        | Channel lifecycle            |
 |  8 | [Summary & Exercises](./08-module-1-summary-and-exercises.md) | Consolidation                |
-| -: | ------------------------------------------------------------- | ---------------------------- |
 
 ---
 
@@ -4761,5 +4760,4 @@ To je fundamentalna osnova potrebna za razumevanje naprednijeg Go concurrency-ja
 |  6 | [Range Over Channels](./06-range-over-channels.md)            | Stream consumption           |
 |  7 | [Close Channel](./07-close-channel.md)                        | Lifecycle & ownership        |
 |  8 | [Summary & Exercises](./08-module-1-summary-and-exercises.md) | Consolidation                |
-| -: | ------------------------------------------------------------- | ---------------------------- |
 
