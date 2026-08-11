@@ -203,11 +203,11 @@ Na primer:
 ```text
 Producer Goroutine
        │
-       │ send
+       │ send()
        ▼
     Channel
        │
-       │ receive
+       │ receive()
        ▼
 Consumer Goroutine
 ```
@@ -386,13 +386,13 @@ Pojednostavljen model:
 Many Goroutines
        │
        ▼
-Go Runtime
+  Go Runtime
        │
        ▼
-Scheduler
+   Scheduler
        │
        ▼
-OS Threads
+  OS Threads
 ```
 
 U Module 1 nije potrebno ulaziti u detalje scheduler-a.
@@ -549,11 +549,11 @@ Channel treba posmatrati kao boundary između concurrent activities.
 ```text
 Goroutine A
      │
-     │ send
+     │ send()
      ▼
   CHANNEL
      │
-     │ receive
+     │ receive()
      ▼
 Goroutine B
 ```
@@ -821,15 +821,15 @@ capacity = 3
 Mentalni model:
 
 ```text
-Sender
-   │
-   ▼
+     Sender
+       │
+       ▼
 ┌───────────────┐
 │ 42 │ 43 │ 44  │
 └───────────────┘
-   │
-   ▼
-Receiver
+       │
+       ▼
+    Receiver
 ```
 
 Sender ne mora odmah imati receiver-a sve dok postoji slobodan prostor u buffer-u.
@@ -955,13 +955,14 @@ len(ch) == 5
 Najvažnija razlika:
 
 | Property               |                   Unbuffered |                     Buffered |
-| ---------------------- | ---------------------------: | ---------------------------: |
+| ---------------------- | ---------------------------- | ---------------------------- |
 | Capacity               |                          `0` |                        `> 0` |
 | Internal queue         |                           Ne |                           Da |
 | Send without receiver  |                           Ne |      Da, dok buffer nije pun |
 | Receive without sender |                           Ne |   Da, dok buffer nije prazan |
 | Synchronization        |                     Direktna | Delimično odvojena buffer-om |
 | Typical use            | Rendezvous / synchronization |        Queueing / decoupling |
+| ---------------------- | ---------------------------- | ---------------------------- |
 
 Ne treba zaključiti:
 
@@ -1707,6 +1708,7 @@ Drugim rečima:
 |  6 | [Range Over Channels](./06-range-over-channels.md)            | Stream consumption           |
 |  7 | [Close Channel](./07-close-channel.md)                        | Channel lifecycle            |
 |  8 | [Summary & Exercises](./08-module-1-summary-and-exercises.md) | Consolidation                |
+| -: | ------------------------------------------------------------- | ---------------------------- |
 
 ---
 
@@ -1723,13 +1725,13 @@ Osnovni elementi su:
 │  Goroutine  │
 └──────┬──────┘
        │
-       │ communication
+       │ communication()
        ▼
 ┌─────────────┐
 │   Channel   │
 └──────┬──────┘
        │
-       │ communication
+       │ communication()
        ▼
 ┌─────────────┐
 │  Goroutine  │
@@ -1823,19 +1825,19 @@ Ovo daje sledeći konceptualni model:
               Is channel nil?
                 /       \
               yes        no
-              │           │
-              ▼           ▼
-           blocks     Is channel closed?
+               │          │
+               ▼          ▼
+            blocks    Is channel closed?
                           /       \
                         yes        no
-                        │           │
-                        ▼           ▼
-                      panic    Can send proceed?
+                         │          │
+                         ▼          ▼
+                       panic    Can send proceed?
                                   /      \
                                 yes       no
-                                │          │
-                                ▼          ▼
-                              send      blocks
+                                 │        │
+                                 ▼        ▼
+                                send    blocks
 ```
 
 Ovaj model je mnogo važniji od memorisanja pojedinačnih pravila.
@@ -1863,16 +1865,16 @@ postavljamo slična pitanja:
                  ▼           ▼
               blocks    Are values available?
                               /       \
-                            yes        no
-                            │           │
-                            ▼           ▼
-                         receive    Is channel closed?
-                                      /       \
-                                    yes        no
-                                    │           │
-                                    ▼           ▼
-                              zero value    blocks
-                              + ok=false
+                            yes         no
+                             │           │
+                             ▼           ▼
+                          receive    Is channel closed?
+                                       /       \
+                                     yes        no
+                                     │           │
+                                     ▼           ▼
+                               zero value    blocks
+                               + ok=false
 ```
 
 Ovo je osnovni model koji će biti posebno koristan kada se kasnije uvede `select`.
@@ -1927,6 +1929,7 @@ i nije isto što i zatvoren channel.
 | open, unbuffered | može blokirati                  | može blokirati                            | dozvoljeno |
 | open, buffered   | blokira samo kada je buffer pun | blokira samo kada nema dostupne vrednosti | dozvoljeno |
 | closed           | panic                           | zero value + `ok=false` kada je drained   | panic      |
+| ---------------- | ------------------------------- | ----------------------------------------- | ---------- |
 
 Ova tabela je jedna od najvažnijih referenci u Module 1.
 
@@ -2125,10 +2128,10 @@ Tipičan pattern:
                 ▼
              producer
                 │
-             sends
+              sends
                 │
                 ▼
-            channel
+             channel
                 │
              receives
                 │
@@ -2173,14 +2176,14 @@ Ovde je odgovornost jasna:
 ```text
 generate()
    │
-   ├── creates
-   ├── sends
-   └── closes
+   ├── creates()
+   ├── sends()
+   └── closes()
         │
         ▼
 caller
    │
-   ├── receives
+   ├── receives()
    └── ranges
 ```
 
@@ -2195,7 +2198,7 @@ Ako consumer zatvori channel dok producer još može slati:
 ```text
 Producer
    │
-   │ send
+   │ send()
    ▼
 Channel ← closed by consumer
 ```
@@ -2382,15 +2385,15 @@ To predstavlja vrlo direktan oblik backpressure-a.
 Kod buffered channel-a:
 
 ```text
-Producer
-   │
-   ▼
+  Producer
+     │
+     ▼
 ┌───────────┐
 │  Buffer   │
 └───────────┘
-   │
-   ▼
-Consumer
+     │
+     ▼
+  Consumer
 ```
 
 Producer može da "pretekne" consumer-a dok se buffer ne napuni.
@@ -2980,7 +2983,7 @@ Goroutine A ──┐
               │
 Goroutine B ──┘
        +
-    Mutex
+     Mutex
 ```
 
 Module 1 se fokusira na message-passing model.
@@ -3204,6 +3207,7 @@ Module 1 exercises treba da pokriju:
 | Design          | producer/consumer       |
 | Debugging       | explain execution       |
 | Refactoring     | improve unsafe code     |
+| --------------- | ----------------------- |
 
 ---
 
@@ -3416,13 +3420,13 @@ Sada imamo osnovni communication model:
 ```text
               Goroutine A
                    │
-                   │ send
+                   │ send()
                    ▼
               ┌─────────┐
               │ Channel │
               └────┬────┘
                    │
-                   │ receive
+                   │ receive()
                    ▼
               Goroutine B
 ```
@@ -3430,19 +3434,19 @@ Sada imamo osnovni communication model:
 i lifecycle model:
 
 ```text
-create
+create()
   │
   ▼
-send
+send()
   │
   ▼
-receive
+receive()
   │
   ▼
-close
+close()
   │
   ▼
-range terminates
+range terminates()
 ```
 
 Takođe razumemo da svaki blocking operation mora imati smislen lifecycle:
@@ -3550,6 +3554,7 @@ To je predmet **Module 2 — Coordination & Concurrency Patterns**.
 |  6 | [Range Over Channels](./06-range-over-channels.md)            | Stream consumption     |
 |  7 | [Close Channel](./07-close-channel.md)                        | Lifecycle              |
 |  8 | [Summary & Exercises](./08-module-1-summary-and-exercises.md) | Consolidation          |
+| -: | ------------------------------------------------------------- | ---------------------- |
 
 ---
 
@@ -4013,7 +4018,7 @@ Time ─────────────────────────
 Main:     create ───── receive ───────── done
                          ▲
                          │
-Worker:        start ─ send ───────────── done
+Worker:   start ────── send ───────────── done
 ```
 
 Za buffered channel:
@@ -4031,10 +4036,10 @@ worker može završiti send pre nego što main izvrši receive:
 ```text
 Time ───────────────────────────────►
 
-Worker:  start ─ send ─ done
-                 │
-Buffer:          [42]
-                        │
+Worker:     start ───── send ───── done
+                         │
+Buffer:                 [42]
+                         │
 Main:     create ───── receive ─ done
 ```
 
@@ -4454,26 +4459,26 @@ Kompletan module architecture:
 ```text
                     MODULE 1
                         │
-        ┌───────────────┼────────────────┐
-        │               │                │
-        ▼               ▼                ▼
-   Execution       Communication      Lifecycle
-        │               │                │
-        ▼               ▼                ▼
-   Goroutines        Channels           Close
-                        │                 │
-             ┌──────────┴──────────┐      │
-             │                     │      │
-             ▼                     ▼      ▼
-        Unbuffered             Buffered  Range
+        ┌───────────────┼───────────────────┐
+        │               │                   │
+        ▼               ▼                   ▼
+   Execution       Communication         Lifecycle
+        │               │                   │
+        ▼               ▼                   ▼
+   Goroutines        Channels             Close
+                        │                   │
+             ┌──────────┴──────────┐        │
+             │                     │        │
+             ▼                     ▼        ▼
+        Unbuffered             Buffered   Range
              │                     │
              └──────────┬──────────┘
                         │
                         ▼
-               Channel Directions
+                 Channel Directions
                         │
                         ▼
-                 API / Ownership
+                  API / Ownership
 ```
 
 Ovo predstavlja conceptual map celog modula.
@@ -4616,22 +4621,22 @@ Na kraju Module 1 treba da postoji sledeća mentalna slika:
                               └────────────┬────────────┘
                                            │
                                            ▼
-                                  Blocking Semantics
+                                   Blocking Semantics
                                            │
                                            ▼
                                     Channel Direction
                                            │
                                            ▼
-                                    Stream / Range
+                                     Stream / Range
                                            │
                                            ▼
-                                       Close
+                                         Close
                                            │
                                            ▼
-                                      Lifecycle
+                                       Lifecycle
                                            │
                                            ▼
-                                      Ownership
+                                       Ownership
                                            │
                                            ▼
                                   Concurrency Patterns
@@ -4725,19 +4730,19 @@ već razmišlja o:
 goroutine lifetime
         │
         ▼
-communication
+  communication
         │
         ▼
-blocking
+    blocking
         │
         ▼
-ownership
+    ownership
         │
         ▼
-shutdown
+    shutdown
         │
         ▼
-correctness
+   correctness
 ```
 
 To je fundamentalna osnova potrebna za razumevanje naprednijeg Go concurrency-ja.
@@ -4756,4 +4761,5 @@ To je fundamentalna osnova potrebna za razumevanje naprednijeg Go concurrency-ja
 |  6 | [Range Over Channels](./06-range-over-channels.md)            | Stream consumption           |
 |  7 | [Close Channel](./07-close-channel.md)                        | Lifecycle & ownership        |
 |  8 | [Summary & Exercises](./08-module-1-summary-and-exercises.md) | Consolidation                |
+| -: | ------------------------------------------------------------- | ---------------------------- |
 
