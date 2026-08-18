@@ -1,10 +1,10 @@
 # Module 1 — Interview Questions
 
-## Junior → Medior
-
+> **Fajl:** `extras/01-interview-questions/module-1/03-junior-to-medior.md`
+>
 > **Nivo:** Junior → Medior
-> 
-> **Oblast:** Go Concurrency — Goroutines, Channels i njihovo ponašanje
+>
+> **Oblast:** #1 — Concurrency Fundamentals
 
 ---
 
@@ -1429,13 +1429,13 @@ To su potpuno različita stanja.
 Goroutine je završila svoje izvršavanje:
 
 ```text
-RUNNING
-   │
-   ▼
- RETURN
-   │
-   ▼
-DONE
+ RUNNING
+    │
+    ▼
+  RETURN
+    │
+    ▼
+   DONE
 ```
 
 Nema više posla.
@@ -1445,19 +1445,19 @@ Nema više posla.
 Goroutine još nije završila, ali trenutno ne može da nastavi:
 
 ```text
-RUNNING
-   │
-   ▼
+      RUNNING
+        │
+        ▼
 WAITING / BLOCKED
-   │
-   ▼
-event
-   │
-   ▼
-RUNNABLE
-   │
-   ▼
-RUNNING
+        │
+        ▼
+      event
+        │
+        ▼
+     RUNNABLE
+        │
+        ▼
+     RUNNING
 ```
 
 Ova razlika je ključna.
@@ -1723,9 +1723,9 @@ Producer
 ┌───────────────┐
 │ 1 │ 2 │ 3 │...│
 └───────────────┘
-        │
-        ▼
-    Consumer
+          │
+          ▼
+       Consumer
 ```
 
 Ali buffer nije beskonačan.
@@ -2093,6 +2093,8 @@ Producer
    └── close
         │
         ▼
+
+
 Consumer
    │
    └── range until closed
@@ -2258,7 +2260,7 @@ Channel created
 send / receive
      │
      ▼
-close
+   close
      │
      ▼
 drain remaining values
@@ -3511,9 +3513,9 @@ Sada postoje dva ishoda:
                /      \
               /        \
           ch receive   timeout
-              │           │
-              ▼           ▼
-           success      failure
+             │           │
+             ▼           ▼
+          success      failure
 ```
 
 Ako Channel ne postane spreman u definisanom vremenu, timeout grana omogućava Goroutine-i da nastavi.
@@ -4658,3 +4660,7 @@ Na ovom nivou trebalo bi da možeš da odgovoriš na sledeća pitanja:
 * Kako kombinovati više mehanizama za kontrolu lifecycle-a?
 
 Ovo je jedna od ključnih razlika između početnog korišćenja gorutina i **predvidivog concurrency dizajna**.
+
+---
+
+[Prelazak na **Medior — Interview Questions**](../04-medior.md)

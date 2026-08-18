@@ -4,7 +4,7 @@
 >
 > **Nivo:** Medior
 >
-> **Oblast:** Go Concurrency — Goroutines, Channels i upravljanje konkurentnim izvršavanjem
+> **Oblast:** #1 — Concurrency Fundamentals
 
 ---
 
@@ -2824,14 +2824,14 @@ Lifecycle sada izgleda:
                   │    worker    │
                   └──────┬───────┘
                          │
-                    select
-                    /       \
-                   /         \
-                  ▼           ▼
-               jobs        ctx.Done()
-                  │           │
-                  ▼           ▼
-               process       return
+                       select
+                     /       \
+                    /         \
+                   ▼           ▼
+                 jobs       ctx.Done()
+                  │             │
+                  ▼             ▼
+               process        return
 ```
 
 Goroutine više nije vezana isključivo za dolazak posla.
@@ -3406,7 +3406,7 @@ Realni Go sistemi sastoje se od više concurrent komponenti:
                │
        ┌───────┼───────┐
        ▼       ▼       ▼
-   Worker 1 Worker 2 Worker 3
+ Worker 1   Worker 2  Worker 3
        │       │       │
        └───────┼───────┘
                ▼
@@ -3414,7 +3414,7 @@ Realni Go sistemi sastoje se od više concurrent komponenti:
         │    Results   │
         └──────┬───────┘
                ▼
-           Consumer
+            Consumer
 ```
 
 Svaka komponenta pojedinačno može biti ispravna, a da njihov **sistem kao celina** ipak bude neispravan.
@@ -3459,16 +3459,16 @@ Problem nastaje kada njihove pretpostavke nisu kompatibilne.
 Na primer:
 
 ```text
-producer
+ producer
     │
     ▼
-jobs
+   jobs
     │
     ▼
-workers
+ workers
     │
     ▼
-results
+ results
     │
     ▼
 aggregator
@@ -4197,6 +4197,7 @@ Možemo ga prikazati:
 └──────┬───────┘
        │
        │ protocol
+       │
        ▼
 ┌──────────────┐
 │  Component B │
@@ -4228,21 +4229,21 @@ Za ozbiljan concurrency dizajn treba razmišljati kroz sledeći model:
              │   Producer   │
              └──────┬───────┘
                     │
-               DATA FLOW
+                DATA FLOW
                     │
                     ▼
              ┌──────────────┐
              │    Queue     │
              └──────┬───────┘
                     │
-             CONCURRENCY LIMIT
+            CONCURRENCY LIMIT
                     │
                     ▼
           ┌───────────────────┐
-          │   Worker Pool     │
+          │    Worker Pool    │
           └─────────┬─────────┘
                     │
-              RESULT FLOW
+               RESULT FLOW
                     │
                     ▼
              ┌──────────────┐
@@ -4273,3 +4274,7 @@ Ovo je mnogo korisniji mentalni model od pukog poznavanja individualnih concurre
 * Graceful shutdown zahteva kontrolisan lifecycle.
 * `context` i `WaitGroup` rešavaju različite probleme.
 * Dobar concurrency API kapsulira internu kompleksnost.
+
+---
+
+[Prelazak na **Medior → Senior — Interview Questions**](../05-medior-to-senior.md)

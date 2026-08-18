@@ -1,5 +1,13 @@
 # Interview Questions — Junior
 
+> **Fajl:** `extras/01-interview-questions/module-1/02-junior.md`
+>
+> **Nivo:** Junior
+>
+> **Oblast:** #1 — Concurrency Fundamentals
+
+---
+
 ## Deo #1/7
 
 ## 1. Buffered vs. Unbuffered Channels
@@ -478,8 +486,8 @@ Osnovni model treba da bude:
           │                   │
           │              ┌────┴────┐
           │              │         │
-      sender/receiver   capacity   queue
-       synchronization
+    sender/receiver   capacity   queue
+    synchronization
 ```
 
 I za svaku channel operaciju treba postaviti pitanje:
@@ -726,21 +734,20 @@ Tek nakon što se buffered vrednosti potroše, dalji receive vraća zero value u
 Dakle:
 
 ```text
-           close(ch)
-               │
-               ▼
-        ┌───────────────┐
-        │ channel closed│
-        └───────┬───────┘
+            close(ch)
                 │
-        postoje buffered
-           vrednosti?
+                ▼
+        ┌────────────────┐
+        │ channel closed │
+        └───────┬────────┘
+                │
+    postoje buffered vrednosti?
           /           \
         DA             NE
         │               │
         ▼               ▼
-    čitaj ih        receive dobija
-    normalno        zero value + false
+     čitaj ih      receive dobija
+     normalno    zero value + false
 ```
 
 Ovo je posebno važno kod producer/consumer obrazaca.
@@ -1543,8 +1550,8 @@ Producer
    │
    ▼
 ┌─────────────┐
-│   buffer    │
-│  [1] [2]    │
+│    buffer   │
+│   [1] [2]   │
 └──────┬──────┘
        │
        ▼
@@ -3633,3 +3640,7 @@ Nakon ovog nivoa, kandidat treba da bude sposoban da objasni:
 * kako pogrešno dizajniran channel protocol može dovesti do deadlock-a.
 
 Ovo je osnova za sledeći nivo razumevanja: **lifecycle goroutine-a, ownership kanala i sprečavanje goroutine leak-ova**.
+
+---
+
+[Prelazak na **Junior → Medior — Interview Questions**](../03-junior-to-medior.md)

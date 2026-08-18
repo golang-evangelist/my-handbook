@@ -1,9 +1,10 @@
 # Interview Questions — Beginner
 
-> Modul: #1 — Concurrency Fundamentals
-> Nivo: Beginner
-> Oblast: Interview Questions
-> Fajl: `extras/01-interview-questions/module-1/01-beginner.md`
+> **Fajl:** `extras/01-interview-questions/module-1/01-beginner.md`
+>
+> **Nivo:** Beginner
+>
+> **Oblast:** #1 — Concurrency Fundamentals
 
 ---
 
