@@ -2300,4 +2300,4 @@ Sledeći nivo uvodi složenije probleme i zahteva da kandidat ne samo koristi co
 
 ---
 
-[Prelazak na **Junior — Interview Questions**](/02-junior.md)
+[Prelazak na **Junior — Interview Questions**](02-junior.md)
