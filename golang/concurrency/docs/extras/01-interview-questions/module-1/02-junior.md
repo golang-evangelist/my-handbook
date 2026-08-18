@@ -3643,4 +3643,4 @@ Ovo je osnova za sledeći nivo razumevanja: **lifecycle goroutine-a, ownership k
 
 ---
 
-[Prelazak na **Junior → Medior — Interview Questions**](../03-junior-to-medior.md)
+[Prelazak na **Junior → Medior — Interview Questions**](03-junior-to-medior.md)

@@ -7592,4 +7592,4 @@ a zatim bira mehanizme koji te zahteve implementiraju.
 
 ---
 
-[Prelazak na **Senior+ — Interview Questions**](../07-senior-plus.md)
+[Prelazak na **Senior+ — Interview Questions**](07-senior-plus.md)

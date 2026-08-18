@@ -4663,4 +4663,4 @@ Ovo je jedna od ključnih razlika između početnog korišćenja gorutina i **pr
 
 ---
 
-[Prelazak na **Medior — Interview Questions**](../04-medior.md)
+[Prelazak na **Medior — Interview Questions**](04-medior.md)

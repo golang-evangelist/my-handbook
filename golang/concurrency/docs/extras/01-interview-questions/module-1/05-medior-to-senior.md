@@ -5081,4 +5081,4 @@ Poseban fokus bio je na:
 
 ---
 
-[Prelazak na **Senior — Interview Questions**](../06-senior.md)
+[Prelazak na **Senior — Interview Questions**](06-senior.md)

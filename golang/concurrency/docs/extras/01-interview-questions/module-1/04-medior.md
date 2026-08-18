@@ -4277,4 +4277,4 @@ Ovo je mnogo korisniji mentalni model od pukog poznavanja individualnih concurre
 
 ---
 
-[Prelazak na **Medior → Senior — Interview Questions**](../05-medior-to-senior.md)
+[Prelazak na **Medior → Senior — Interview Questions**](05-medior-to-senior.md)
