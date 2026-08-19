@@ -1,5 +1,3 @@
-Naravno — evo kompletnog prevoda na srpski, uz zadržavanje strukture lekcije.
-
 # Šta je Claude?
 
 **Procenjeno vreme: 15 minuta**
