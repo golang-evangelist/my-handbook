@@ -1355,3 +1355,1257 @@ U sledećem modulu naučićete kako da **organizujete svoj rad i znanje pomoću 
 
 ---
 
+# Uvod u Projects
+
+**Procenjeno vreme: 20 minuta**
+
+## Ciljevi učenja
+
+Na kraju ove lekcije moći ćete da:
+
+* Objasnite šta su **Projects** i kada ih treba koristiti.
+* Kreirate novi projekat sa nazivom, opisom i podešavanjima vidljivosti.
+* Dodate dokumente i fajlove u bazu znanja projekta.
+* Napišete efikasne instrukcije projekta kojima usmeravate Claudeovo ponašanje.
+* Delite projekte sa članovima tima *(za Claude for Work — Team i Enterprise korisnike).*
+
+---
+
+# Video
+
+**[Video: Uvod u Projects — početak rada sa projektima u Claude.ai]**
+
+## Ključne poruke
+
+### • Projects su samostalni radni prostori
+
+Svaki projekat ima sopstvene:
+
+* memoriju,
+* istoriju razgovora,
+* bazu znanja,
+* prilagođene instrukcije.
+
+Zamislite ih kao **posebna okruženja namenjena konkretnim vrstama posla**.
+
+### • Znanje projekta poboljšava Claudeovo razumevanje
+
+Možete otpremiti relevantne dokumente koje Claude zatim koristi kao referencu u **svim razgovorima unutar tog projekta**.
+
+Nema potrebe da iste fajlove ponovo uploadujete svaki put.
+
+### • Instrukcije projekta usmeravaju Claudeovo ponašanje
+
+Možete definisati:
+
+* ton,
+* nivo stručnosti,
+* stil odgovora,
+* i još mnogo toga.
+
+Ove instrukcije važe za **svaki razgovor unutar projekta**.
+
+### • Projects se automatski skaliraju
+
+Kada se vaša baza znanja približi ograničenju kontekstualnog prozora, Claude prelazi na pretragu znanja projekta i učitava samo ono što je relevantno.
+
+Na taj način kapacitet se može proširiti **do 10 puta**, uz očuvanje kvaliteta odgovora.
+
+### • Projects omogućavaju saradnju
+
+Za **Claude for Work** korisnike, projekti omogućavaju saradnju.
+
+Projekat možete podeliti sa članovima tima tako da svi koriste isti:
+
+* kontekst,
+* instrukcije,
+* akumulirano znanje.
+
+---
+
+# Šta su Projects?
+
+Projects su idealni za:
+
+* čuvanje znanja na koje Claude treba da se oslanja,
+* organizovanje povezanih razgovora oko određene teme ili oblasti rada,
+* saradnju sa članovima tima kojima je potreban isti kontekst.
+
+---
+
+# Kada koristiti Projects?
+
+Projects su posebno korisni kada radite na nečemu što traje duže vreme, a ne samo na jednom pitanju.
+
+Razmislite o kreiranju projekta kada vaš workflow ima:
+
+### • Materijale na koje ćete se više puta vraćati
+
+Na primer:
+
+* beleške sa sastanaka,
+* rezultate anketa,
+* izveštaje,
+* istorijske podatke.
+
+### • Dosledne zahteve za način na koji Claude treba da odgovara
+
+Na primer:
+
+* „Uvek koristi formalan jezik.“
+* „Uvek navedi izvore.“
+* „Uvek prati naš template.“
+
+### • Potrebu za timskom saradnjom
+
+Kada više ljudi treba da radi na osnovu **iste baze znanja i konteksta**.
+
+---
+
+# Kreiranje prvog projekta
+
+Postavljanje projekta traje svega nekoliko minuta.
+
+## Korak 1: Podesite projekat
+
+1. Pređite mišem preko leve bočne trake i kliknite **Projects**, ili direktno otvorite `claude.ai/projects`.
+
+2. Kliknite **+ New Project** u gornjem desnom uglu.
+
+3. Dajte projektu opisno ime, na primer:
+
+   * „Q4 Marketing Campaign“
+   * „Product Documentation“
+
+4. Dodajte kratak opis onoga na čemu radite.
+
+   Claude ovaj opis **ne vidi direktno**, ali pomaže vama i članovima tima da razumeju svrhu projekta.
+
+5. Izaberite podešavanje vidljivosti:
+
+   * **privatno**, ili
+   * podeljeno sa organizacijom *(za Claude for Work korisnike)*.
+
+---
+
+# Korak 2: Dodajte instrukcije projekta
+
+Instrukcije projekta govore Claudeu **kako treba da se ponaša u svim razgovorima unutar tog projekta**.
+
+Kliknite na **Instructions** da biste otvorili panel za instrukcije.
+
+Dobre instrukcije projekta obično sadrže:
+
+### • Kontekst onoga na čemu radite
+
+> „Ovaj projekat služi za kreiranje marketinškog sadržaja za naš B2B softverski proizvod.“
+
+### • Instrukcije o procesu
+
+> „Prvo razmotri strukturu bloga koja će privući ovu publiku, a zatim napiši nacrt.“
+
+### • Preferencije za ton i stil
+
+> „Koristi profesionalan, ali razgovoran ton. Izbegavaj žargon kad god je moguće.“
+
+### • Specifične zahteve
+
+> „Uvek dodaj poziv na akciju na kraju marketinškog teksta.“
+
+Kada napišete instrukcije, kliknite **Save instructions**.
+
+One će važiti za **svaki chat unutar tog projekta** i rade zajedno sa vašim korisničkim preferencijama i stilovima.
+
+---
+
+## Instrukcije kao automatizacija workflow-a
+
+Instrukcije projekta možete koristiti i za automatizovanje ponavljajućih procesa.
+
+Na primer:
+
+> „Kada uploadujem transkript sastanka, napravi strukturirani sažetak koristeći ovaj template.“
+
+Razmišljajte o instrukcijama projekta kao o načinu da **programirate Claudeovo ponašanje za određeni projekat**.
+
+---
+
+# Korak 3: Napravite bazu znanja
+
+Baza znanja projekta je mesto gde čuvate dokumente na koje Claude treba da se oslanja.
+
+Na desnoj strani glavne stranice projekta pronaći ćete meni za fajlove.
+
+Kliknite na **+** da dodate sadržaj.
+
+Možete otpremati različite vrste fajlova, uključujući:
+
+* PDF,
+* DOCX,
+* CSV,
+* TXT,
+* HTML,
+* i druge.
+
+Možete povezati i **Google Drive** kako biste direktno povezali dokumente.
+
+---
+
+# Šta uploadovati?
+
+### • Referentne dokumente
+
+Na primer:
+
+* brand guidelines,
+* style guides,
+* template-e.
+
+### • Pozadinske materijale
+
+Na primer:
+
+* istraživačke izveštaje,
+* beleške sa sastanaka,
+* dokumente sa zahtevima.
+
+### • Primere rada koji želite da Claude oponaša
+
+Na primer, nekoliko prethodnih dokumenata koji predstavljaju kvalitet koji očekujete.
+
+### • Tehničku dokumentaciju ili specifikacije
+
+Sve informacije koje Claudeu pomažu da razume oblast projekta.
+
+---
+
+## 💡 Koristan savet
+
+**Dajte fajlovima opisna imena.**
+
+Claude koristi nazive fajlova kako bi razumeo i pronašao odgovarajuće informacije.
+
+Zato je:
+
+> `Q4-2024-Brand-Guidelines.pdf`
+
+mnogo korisnije od:
+
+> `document1.pdf`
+
+---
+
+# Kako Projects rade sa velikim bazama znanja?
+
+Možda se pitate šta se dešava kada uploadujete **veliku količinu sadržaja**.
+
+Projects se automatski skaliraju kako bi mogli da obrađuju velike količine podataka koristeći proces koji se naziva:
+
+**Retrieval Augmented Generation — RAG**
+
+Na visokom nivou, to znači da Claude može automatski da pronađe i koristi **najrelevantnije delove vaših dokumenata** kada odgovara, bez potrebe da mu vi govorite koji fajl treba da pogleda.
+
+Kada se znanje projekta približi ograničenju kontekstualnog prozora, Claude prestaje da učitava sve odjednom.
+
+Umesto toga:
+
+1. pretražuje fajlove projekta,
+2. pronalazi relevantne informacije,
+3. koristi samo ono što je potrebno za vaše pitanje.
+
+Na taj način kapacitet projekta može da se proširi **do 10 puta**, uz očuvanje kvaliteta odgovora.
+
+Kada je RAG aktivan, videćete vizuelni indikator.
+
+Međutim, iskustvo korišćenja trebalo bi da ostane isto:
+
+* uploadujete dokumente,
+* razgovarate sa Claudeom,
+* dobijate odgovore koji uzimaju u obzir kontekst projekta.
+
+---
+
+# Rad unutar projekta
+
+Kada podesite projekat, možete početi da razgovarate sa Claudeom.
+
+Svaki razgovor unutar projekta automatski ima pristup:
+
+* vašoj bazi znanja,
+* instrukcijama projekta.
+
+To znači da ne morate svaki put ponovo da objašnjavate osnovni kontekst.
+
+---
+
+# Funkcije za saradnju
+
+Za korisnike **Claude for Work (Team i Enterprise)** planova, Projects postaju još moćniji zahvaljujući funkcijama za saradnju.
+
+---
+
+# Nivoi dozvola
+
+Kada delite projekat, možete izabrati jedan od tri nivoa dozvola.
+
+## 1. Can view — Može da vidi
+
+Članovi mogu:
+
+* da vide sadržaj projekta,
+* pristupe bazi znanja,
+* razgovaraju sa Claudeom.
+
+Ali ne mogu da menjaju projekat.
+
+Zamislite ovo kao **read-only pristup uz mogućnost diskusije**.
+
+## 2. Can edit — Može da uređuje
+
+Članovi imaju pune mogućnosti za saradnju.
+
+Mogu:
+
+* menjati instrukcije,
+* ažurirati bazu znanja,
+* upravljati drugim članovima,
+* aktivno doprinositi projektu.
+
+## 3. Owner — Vlasnik
+
+Kreator projekta ima potpunu kontrolu, uključujući mogućnost da odlučuje ko može da vidi projekat.
+
+Može:
+
+* deliti projekat sa određenim ljudima,
+* učiniti projekat vidljivim celoj organizaciji.
+
+---
+
+# Deljenje projekta
+
+Da biste podelili projekat:
+
+1. Otvorite projekat koji želite da podelite.
+2. Kliknite **Share project** desno od naziva projekta.
+3. Dodajte pojedinačne članove koristeći njihovo ime ili email.
+4. Za masovno deljenje možete kopirati i nalepiti listu email adresa.
+
+U tom slučaju projekat će se pojaviti u njihovom odeljku **Shared with you**.
+
+Alternativno, možete izabrati:
+
+> **Everyone at [your organization]**
+
+kako bi projekat bio vidljiv i dostupan za pronalaženje unutar **Team** taba.
+
+Članovi tima će dobiti email obaveštenje kada im podelite projekat.
+
+Deljene projekte mogu pronaći u tabu:
+
+**Shared with me**
+
+---
+
+# Primeri projekata za inspiraciju
+
+Niste sigurni odakle da počnete?
+
+Evo nekoliko uobičajenih tipova projekata iz različitih poslovnih funkcija.
+
+### • Q4 lansiranje proizvoda
+
+Uploadujte:
+
+* specifikacije proizvoda,
+* analizu konkurencije,
+* beleške iz brainstorminga o messagingu.
+
+Claude će imati ovaj kontekst pri ruci za sva pitanja ili izradu dokumenata u vezi sa projektom.
+
+### • Podrška istraživanju
+
+Centralizujte:
+
+* konkurentske analize,
+* podatke o istraživanju korisnika,
+* povratne informacije klijenata.
+
+Claude vam može pomoći da:
+
+* objedinite izvore,
+* napišete izveštaje,
+* održavate doslednost preporuka.
+
+### • Hub za klijentski nalog
+
+Čuvajte na jednom mestu:
+
+* brand guidelines klijenta,
+* prethodne deliverable-e,
+* istoriju komunikacije.
+
+Podesite instrukcije tako da Claude prilikom kreiranja predloga ili izveštaja prati ton klijenta i koristi njegov specifičan kontekst.
+
+### • Workspace za organizovanje događaja
+
+Uploadujte:
+
+* ugovore sa lokacijama,
+* biografije govornika,
+* podatke o učesnicima.
+
+Claude može da pomogne pri izradi:
+
+* run-of-show dokumenata,
+* komunikacije sa učesnicima,
+* izveštaja nakon događaja.
+
+Sve ostaje usklađeno sa temom događaja.
+
+### • Generator opisa radnih mesta
+
+Prikupite:
+
+* prethodne opise radnih mesta,
+* team charters,
+* interne zahteve za zapošljavanje.
+
+Zatim radite sa Claudeom na izradi novih opisa radnih mesta koji odražavaju **stvarni posao i kulturu vašeg tima**.
+
+---
+
+# Najbolje prakse za Projects
+
+Da biste izvukli maksimum iz projekata:
+
+### • Počnite usko, a zatim proširujte
+
+Počnite sa konkretnim slučajem upotrebe umesto da napravite jedan projekat za sve.
+
+Uvek možete naknadno dodavati sadržaj.
+
+### • Održavajte bazu znanja ažurnom
+
+Zastareli dokumenti mogu dovesti do zastarelih odgovora.
+
+Periodično pregledajte i ažurirajte znanje projekta.
+
+### • Pišite jasne instrukcije
+
+Budite konkretni u vezi sa onim što želite.
+
+Nejasne instrukcije vode do nedoslednih rezultata.
+
+### • Dajte dokumentima opisna imena
+
+Na primer:
+
+> `Q4-2025-Sales-Report.pdf`
+
+umesto:
+
+> `report.pdf`
+
+Takođe grupišite povezane fajlove.
+
+Claude koristi **nazive fajlova i blizinu povezanih dokumenata** kako bi razumeo odnose među njima.
+
+### • Referencirajte dokumente po imenu
+
+Kada postavljate pitanje, možete navesti konkretan dokument kako biste pomogli Claudeu da se fokusira na odgovarajući deo baze znanja.
+
+Na primer:
+
+> „Na osnovu našeg Q3 izveštaja, koje su bile najveće brige korisnika?“
+
+---
+
+# Razmišljanje o lekciji
+
+Pre nego što nastavite, razmislite:
+
+* **Koji posao koji traje duže vreme bi imao koristi od posebnog projekta sa trajnim kontekstom?**
+
+* **Koje dokumente trenutno iznova uploadujete ili ponovo objašnjavate Claudeu?**
+
+* **Ako radite u timu, koji projekti bi imali koristi od zajedničkog znanja i instrukcija?**
+
+---
+
+# Šta sledi?
+
+U sledećoj lekciji naučićemo kako da pomoću **Artifacts** pravite mini-aplikacije — stvarne rezultate koje Claude napravi i koje možete odmah da podelite.
+
+Za više informacija o početku rada sa Projects možete posetiti **Anthropic Help Center**.
+
+---
+
+# Kreiranje pomoću Artifacts
+
+**Procenjeno vreme: 20 minuta**
+
+## Ciljevi učenja
+
+Na kraju ove lekcije moći ćete da:
+
+* Objasnite šta su **Artifacts** i kada ih Claude kreira.
+* Delite Artifacts sa kolegama i objavljujete ih javno.
+* Rešavate uobičajene probleme sa Artifacts.
+
+---
+
+# Šta su Artifacts?
+
+**Artifacts** su samostalni, interaktivni rezultati koje Claude kreira u posebnom prozoru pored vašeg razgovora.
+
+Umesto da dobijete veliki blok koda ili teksta „zakopan“ u razgovoru, sadržaj vidite **renderovan i spreman za korišćenje**.
+
+To može biti, na primer:
+
+* funkcionalan sajt,
+* interaktivni grafikon,
+* dokument koji možete odmah preuzeti.
+
+Claude automatski kreira Artifact kada sadržaj ispunjava određene kriterijume:
+
+* **Značajan je i samostalan**, obično ima više od 15 linija.
+* Verovatno ćete želeti da ga **menjate, dorađujete ili ponovo koristite**.
+* Predstavlja složen sadržaj koji može samostalno da postoji bez ostatka razgovora.
+* To je sadržaj kojem ćete želeti da se **vratite ili da ga kasnije koristite**.
+
+---
+
+# Uobičajeni tipovi Artifacts
+
+Claude može da kreira različite vrste Artifacts, u zavisnosti od toga šta vam je potrebno.
+
+## • Documents — dokumenti
+
+**Markdown i običan tekst.**
+
+Odlični su za sadržaj koji je pretežno tekstualan, a koji ćete želeti da:
+
+* eksportujete,
+* nastavite da uređujete,
+* ponovo koristite.
+
+Na primer:
+
+* beleške sa sastanka,
+* izveštaji,
+* projektni planovi,
+* blog postovi,
+* drugi pisani sadržaji.
+
+---
+
+## • Code snippets — isečci koda
+
+Funkcionalan kod u praktično bilo kom programskom jeziku:
+
+* Python,
+* JavaScript,
+* C++,
+* i mnogim drugim.
+
+Možete:
+
+* pregledati kod,
+* kopirati ga,
+* preuzeti ga,
+
+i koristiti u sopstvenim projektima.
+
+---
+
+## • HTML stranice
+
+Kompletne web stranice sa:
+
+* HTML-om,
+* CSS-om,
+* JavaScriptom,
+
+u jednom fajlu.
+
+Odlične su za:
+
+* landing stranice,
+* forme,
+* interaktivne demonstracije,
+* brze prototipe.
+
+---
+
+## • SVG slike
+
+Skalabilna vektorska grafika za:
+
+* logotipe,
+* ikone,
+* ilustracije,
+* druge vizuelne elemente.
+
+Renderuju se direktno u Artifact prozoru, tako da odmah možete videti šta ste dobili.
+
+---
+
+## • Mermaid dijagrami
+
+Claude može da kreira:
+
+* flowchart-e,
+* sekvencijske dijagrame,
+* Gantt dijagrame,
+* organizacione šeme,
+* i druge vrste dijagrama.
+
+Vi opišete odnose koje želite da prikažete, a Claude kreira dijagram koji zatim možete dorađivati.
+
+---
+
+## • React komponente
+
+Interaktivni UI elementi sa stvarnom funkcionalnošću, kao što su:
+
+* kalkulatori,
+* dashboardi,
+* igre,
+* vizuelizacije podataka.
+
+Ovo nisu samo mockup-i.
+
+Imaju **stvarnu logiku** i reaguju na korisnički unos.
+
+---
+
+# A šta je sa Word, Excel, PowerPoint i PDF fajlovima?
+
+Oni rade malo drugačije.
+
+Claude ih kreira pomoću **posebne mogućnosti za kreiranje fajlova**, a ne kao Artifacts.
+
+Rezultat dobijate kao fajl koji možete preuzeti.
+
+Dakle, važno je razlikovati:
+
+**Artifact ≠ svaki fajl koji Claude napravi.**
+
+---
+
+# Kreiranje prvog Artifakta
+
+Kreiranje Artifakta je jednostavno koliko i razgovor sa Claudeom.
+
+Samo opišite šta želite, a Claude će proceniti da li sadržaj treba prikazati kao Artifact.
+
+Na primer:
+
+> „Napravi flowchart koji prikazuje naš proces onboardinga novih korisnika.“
+
+**Napomena:** Claude sada može da generiše vizuelne dijagrame poput flowchart-a i kao HTML koristeći Imagine, pored klasičnih code-based Artifacts.
+
+Možete reći i:
+
+> „Napravi interaktivni dashboard u koji mogu da unosim mesečne troškove i vidim njihovu raspodelu.“
+
+Ili:
+
+> „Dizajniraj landing stranicu za productivity aplikaciju sa hero sekcijom i listom funkcionalnosti.“
+
+Ili:
+
+> „Napiši template projektnog briefa koji mogu da koristim za nove inicijative.“
+
+---
+
+## Ako Claude ne napravi Artifact automatski
+
+Ako očekujete Artifact, ali Claude odgovori običnim tekstom u chatu, jednostavno recite:
+
+> **„Napravi ovo kao Artifact.“**
+
+ili:
+
+> **„Prikaži mi ovo kao Artifact.“**
+
+---
+
+# Šta možete da radite sa Artifactom?
+
+Kada Claude napravi Artifact, on se pojavljuje u **posebnom prozoru desno od razgovora**.
+
+Odatle možete:
+
+### • Pregledati različite formate
+
+Prebacivati se između:
+
+* **Preview** — kako sadržaj izgleda,
+* **Code** — osnovni kod.
+
+### • Kopirati sadržaj
+
+Kliknite na ikonicu za kopiranje da biste sadržaj koristili negde drugde.
+
+### • Preuzeti fajl
+
+Sačuvajte Artifact kao fajl na svom računaru.
+
+### • Pregledati kod
+
+Možete videti **tačno šta je Claude generisao u pozadini**.
+
+---
+
+# Deljenje i objavljivanje Artifacts
+
+Kada napravite nešto korisno, imate nekoliko mogućnosti za deljenje.
+
+## • Kopiranje ili preuzimanje
+
+Za ličnu upotrebu ili deljenje preko drugih kanala koristite dugmad **Copy** ili **Download** u donjem desnom uglu Artifact prozora.
+
+---
+
+# • Deljenje unutar organizacije
+
+Za **Claude for Work — Team i Enterprise** korisnike moguće je interno deliti Artifacts sa kolegama.
+
+Podeljeni Artifact ostaje **unutar vaše organizacije** i za pristup je potrebna autentifikacija članova tima.
+
+---
+
+# • Javno objavljivanje
+
+Za **Free, Pro i Max** korisnike moguće je objaviti Artifact tako da bude dostupan svakome ko ima link.
+
+Kada objavite Artifact:
+
+* samo izabrana verzija postaje javna,
+* vaš razgovor ostaje privatan,
+* svako može da pregleda i koristi Artifact,
+* korisniku nije potreban Claude nalog.
+
+Da biste objavili Artifact, kliknite **Share** ili **Publish** u gornjem desnom uglu Artifact prozora.
+
+Javnu dostupnost možete u bilo kom trenutku ukloniti tako što ćete se vratiti na Artifact i isključiti javni pristup.
+
+### ⚠️ Važna napomena
+
+Kada objavite Artifact, on postaje **javno dostupan putem svog linka**.
+
+To znači da ga može videti svako ko poseduje link — čak i bez Claude naloga.
+
+Međutim, objavljeni Artifacts **nisu indeksirani od strane pretraživača**, tako da se neće pojavljivati u Google rezultatima.
+
+---
+
+# Saveti za maksimalno korišćenje Artifacts
+
+## 1. Budite konkretni
+
+Nije loše reći:
+
+> „Napravi budget tracker.“
+
+Ali je mnogo bolje reći:
+
+> „Napravi mesečni budget tracker u koji mogu da unosim troškove po kategorijama, da vidim raspodelu kroz pie chart i da dobijem upozorenje kada prekoračim budžet.“
+
+Što jasnije opišete rezultat, to Claude može preciznije da ga napravi.
+
+---
+
+## 2. Opišite krajnjeg korisnika
+
+Recite Claudeu **ko će koristiti Artifact**.
+
+Na primer:
+
+> „Ovaj flowchart je namenjen novim zaposlenima.“
+
+dovešće do drugačijih dizajnerskih odluka nego:
+
+> „Ovaj flowchart je namenjen engineering timu.“
+
+Kontekst korisnika utiče na način na koji Claude treba da dizajnira rezultat.
+
+---
+
+## 3. Iterirajte postepeno
+
+Tražite od Claudea da:
+
+* doda jednu funkciju,
+* napravi jednu izmenu,
+* poboljša jedan deo.
+
+Nemojte nužno odjednom zahtevati deset velikih promena.
+
+Postepena iteracija olakšava da:
+
+* vidite šta funkcioniše,
+* pronađete probleme,
+* lakše pratite promene.
+
+---
+
+## 4. Eksplicitno tražite Artifact kada je potrebno
+
+Ako zatražite nešto značajno, a Claude vam umesto Artifakta odgovori direktno u chatu, samo recite:
+
+> **„Molim te, napravi ovo kao Artifact.“**
+
+---
+
+# Razmišljanje o lekciji
+
+Pre nego što nastavite, razmislite:
+
+* **Koji posao koji se ponavlja bi imao koristi od interaktivnog Artifakta koji možete ponovo koristiti?**
+* **Da li postoje procesi u vašem radu koje bi bilo jasnije prikazati kao flowchart ili dijagram?**
+* **Koji prototip ili alat bi vam pomogao da brzo testirate neku ideju?**
+
+---
+
+# Šta sledi?
+
+U sledećoj lekciji naučićete o **Skills** — skupovima instrukcija koje možete ponovo koristiti i koji Claudeu omogućavaju da savlada specijalizovane workflow-e.
+
+---
+
+# Rad sa Skills
+
+**Procenjeno vreme: 15 minuta**
+
+## Ciljevi učenja
+
+Na kraju ove lekcije moći ćete da:
+
+* Objasnite šta su **Skills** i kako ih Claude koristi.
+* Prepoznate Anthropicove ugrađene Skills za kreiranje dokumenata.
+* Omogućite i upravljate Skills funkcijama u podešavanjima.
+
+---
+
+## Dostupnost po planovima
+
+**Skills su trenutno u fazi preview-a** za:
+
+* Pro
+* Max
+* Team
+* Enterprise
+
+Ako koristite **Free** plan, možete pratiti lekciju i razumeti koncept, ali preskočiti praktične korake.
+
+---
+
+# Šta su Skills?
+
+**Skills su folderi koji sadrže instrukcije, skripte i resurse koje Claude dinamički učitava kako bi poboljšao rad na specijalizovanim zadacima.**
+
+Možete ih zamisliti kao **pakete stručnog znanja** — oni uče Claudea kako da određene zadatke izvršava na ponovljiv i dosledan način.
+
+Već ste verovatno koristili Skills ako ste pomoću Claudea kreirali:
+
+* Excel tabele,
+* PowerPoint prezentacije,
+* Word dokumente,
+* PDF fajlove.
+
+Mogućnosti za kreiranje ovih fajlova pokreću **Skills koji rade u pozadini**.
+
+Ali Skills idu mnogo dalje od kreiranja dokumenata.
+
+## Custom Skills
+
+Možete napraviti sopstveni Skill koji kodifikuje kompletan ponovljivi workflow.
+
+Na primer:
+
+* metodologiju analize odstupanja na kvartalnom nivou,
+* proces provere usklađenosti sa brand voice smernicama,
+* checklistu za compliance,
+* metodologiju analize podataka.
+
+Tako Claude može da prati **iste rigorozne korake svaki put**.
+
+---
+
+# Vrste Skills
+
+Postoje dve kategorije Skills sa kojima ćete se susresti.
+
+## • Anthropic Skills
+
+Njih kreira i održava **Anthropic**.
+
+Obuhvataju poboljšane mogućnosti za kreiranje:
+
+* Excel fajlova,
+* Word dokumenata,
+* PowerPoint prezentacija,
+* PDF fajlova.
+
+Anthropic Skills su dostupni svim korisnicima koji imaju plaćeni plan.
+
+Claude ih **automatski poziva kada su relevantni**, tako da ne morate ništa posebno da uradite.
+
+---
+
+## • Custom Skills
+
+To su Skills koje kreirate vi ili vaša organizacija za:
+
+* specijalizovane workflow-e,
+* zadatke specifične za određenu oblast.
+
+Na primer, možete napraviti Skill koji:
+
+* primenjuje pravila vašeg brenda na prezentacije,
+* strukturira beleške sa sastanaka u tačno određenom formatu,
+* izvršava workflow vaše organizacije za analizu podataka.
+
+---
+
+# Omogućavanje Skills
+
+Skills su trenutno dostupni kao **feature preview** korisnicima:
+
+* Pro
+* Max
+* Team
+* Enterprise
+
+Da biste koristili Skills, morate imati omogućene:
+
+**Code execution and file creation**
+
+Razlog je što Skills zahtevaju Claudeovo **bezbedno sandboxed computing okruženje**.
+
+## Kako omogućiti Skills?
+
+1. Otvorite **Settings → Capabilities**
+2. Proverite da je **Code execution and file creation** uključeno.
+3. Skrolujte do sekcije **Skills**.
+4. Uključite ili isključite pojedinačne Skills po potrebi.
+
+### Enterprise
+
+Kod Enterprise plana, **Owners organizacije** prvo moraju omogućiti:
+
+* Code execution
+* Skills
+
+u Admin podešavanjima.
+
+Tek nakon toga pojedinačni članovi mogu da ih koriste.
+
+### Team
+
+Kod Team plana ova funkcija je **podrazumevano omogućena na nivou organizacije**.
+
+Kada omogućite Skills, u podešavanjima ćete videti dostupne Skills, uključujući:
+
+* Anthropicove ugrađene Skills,
+* Custom Skills koje ste uploadovali.
+
+---
+
+# Kako se Skills koriste u praksi?
+
+Najbolja stvar kod Skills je što **uglavnom ne morate ni da razmišljate o njima**.
+
+Claude automatski bira odgovarajući Skill na osnovu vašeg zahteva.
+
+Na primer:
+
+> „Napravi Excel tabelu za praćenje mesečnih troškova sa formulama za ukupne iznose.“
+
+ili:
+
+> „Pretvori ovaj dokument sa beleškama sa sastanka u PowerPoint prezentaciju.“
+
+ili:
+
+> „Generiši PDF izveštaj koji sažima ove podatke.“
+
+ili:
+
+> „Napravi finansijski model u Excelu sa analizom različitih scenarija.“
+
+Kada Claude koristi Skill, videćete da je Skill pomenut u njegovom procesu rada.
+
+Rezultat će biti **fajl koji možete preuzeti** i sačuvati na računaru ili direktno otvoriti u Google Drive-u.
+
+---
+
+# Rad sa fajlovima
+
+Ova ista mogućnost omogućava Claudeu da radi sa **vašim stvarnim fajlovima** u kontrolisanom okruženju.
+
+Na primer, možete uploadovati:
+
+* prezentacije,
+* spreadsheets,
+* ugovore,
+* `.xlsx`,
+* `.pptx`,
+* `.docx`,
+* `.pdf` fajlove.
+
+Claude može da:
+
+* napravi ažuriranu verziju,
+* analizira podatke,
+* napravi nove slajdove,
+* predloži izmene,
+* radi sa sadržajem fajla.
+
+### Važna napomena
+
+U **Chatu**, Claude pravi **novu verziju dokumenta**, umesto da menja originalni fajl direktno na mestu.
+
+Kada završi, možete:
+
+* preuzeti fajl,
+* otvoriti ga u Google Drive-u.
+
+---
+
+## Pristup eksternim podacima
+
+Da biste koristili ove mogućnosti, potrebno je da Claudeu omogućite pristup eksternim izvorima podataka.
+
+Kada vas Claude pita za dozvolu, uključite:
+
+**Allow limited network access**
+
+---
+
+# ⚠️ Bezbednosne napomene
+
+Pošto Skills mogu sadržati **izvršni kod**, važno je pažljivo ih koristiti.
+
+### Preporuke:
+
+* Instalirajte Custom Skills samo iz **pouzdanih izvora**.
+* Anthropicove ugrađene Skills testira i održava Anthropic.
+* Custom Skills koje sami uploadujete su **privatne za vaš individualni nalog**.
+* Ako instalirate Custom Skill iz eksternog izvora, pregledajte njegov sadržaj pre korišćenja kako biste razumeli šta radi.
+
+---
+
+# Kreiranje sopstvenih Custom Skills
+
+Iako Anthropicovi ugrađeni Skills pokrivaju česte zadatke kreiranja dokumenata, **prava snaga Skills sistema dolazi do izražaja kada napravite sopstvene Skills**.
+
+Custom Skills omogućavaju da Claude naučite:
+
+* vašim specifičnim workflow-ima,
+* brand guidelines-ima,
+* načinima rada.
+
+Claude zatim može automatski primenjivati to znanje kada je relevantno.
+
+---
+
+# Kako napraviti Skill pomoću razgovora sa Claudeom?
+
+Najlakši način je da **razgovarate sa Claudeom i zatražite od njega da napravi Skill**.
+
+Ne morate:
+
+* pisati kod,
+* ručno kreirati fajlove,
+* razumeti tehničku strukturu Skills sistema.
+
+Claude će se pobrinuti za tehnički deo.
+
+## 1. Započnite novi chat
+
+Recite Claudeu šta želite da napravite.
+
+Na primer:
+
+> „Želim da napravim Skill za pisanje kvartalnih poslovnih izveštaja.“
+
+Ili:
+
+> „Treba mi Skill koji primenjuje naše brand guidelines na prezentacije.“
+
+---
+
+## 2. Odgovorite na Claudeova pitanja
+
+Claude će vas „intervjuisati“ o vašem workflow-u.
+
+Može pitati:
+
+* Šta Skill treba da radi?
+* Kako izgleda dobar rezultat za ovu vrstu posla?
+* Možete li dati primere kada biste koristili ovaj Skill?
+
+---
+
+## 3. Uploadujte referentne materijale
+
+Ako ih imate, dodajte:
+
+* template-e,
+* style guide-ove,
+* brand materijale,
+* primere rada na koje ste ponosni.
+
+Oni pomažu Claudeu da precizno razume šta želite.
+
+---
+
+## 4. Sačuvajte Skill
+
+Kada završite, Claude generiše fajl koji sadrži **pravilno strukturiran Skill**.
+
+Vi samo treba da ga sačuvate i Skill će biti spreman za korišćenje.
+
+---
+
+# Gde možete videti svoje Skills?
+
+Otvorite **Customize** tab u levoj bočnoj traci.
+
+Tamo možete videti sve Skills koji su vam dostupni.
+
+Možete ih čak i ručno uređivati ili menjati tako što razgovarate sa Claudeom.
+
+Vaš Custom Skill će se pojaviti na listi zajedno sa Anthropicovim ugrađenim Skills.
+
+Od tog trenutka Claude će ga **automatski koristiti kada radite relevantne zadatke**.
+
+Ne morate svaki put ručno da ga aktivirate.
+
+---
+
+# Iterativno poboljšavanje Skills
+
+Skills nisu nešto što napravite jednom i nikada više ne dirate.
+
+Možete ih poboljšavati kroz iteraciju.
+
+Na primer, možete reći Claudeu:
+
+> „Izmeni ovaj Skill tako da uvek dodaje sažetak na početku izveštaja.“
+
+Claude će ažurirati fajlove Skill-a za vas.
+
+---
+
+# Skills vs. Projects
+
+Ovo je veoma važna razlika.
+
+Ako i **Projects** i **Skills** daju Claudeu dodatni kontekst, kada treba koristiti jedno, a kada drugo?
+
+Najlakše je zapamtiti:
+
+> **Projects čuvaju znanje. Skills izvršavaju zadatke.**
+
+---
+
+## Projects = centri znanja
+
+Projects sadrže referentne materijale koji su Claudeu potrebni da razume vaš posao.
+
+Na primer:
+
+* specifikacije projekta,
+* beleške sa sastanaka,
+* istraživačke dokumente.
+
+Kada uploadujete fajlove u Project, Claude može koristiti te informacije u **svim razgovorima unutar tog projekta**.
+
+---
+
+## Skills = proceduralne mašine
+
+Skills definišu **kako Claude treba da izvrši zadatak**.
+
+Oni kodifikuju:
+
+* konkretne korake,
+* redosled operacija,
+* metodologiju.
+
+Skills su posebno korisni kada imate **ponovljive workflow-e** koje želite da Claude svaki put izvršava na isti način.
+
+---
+
+# Projects i Skills rade zajedno
+
+Ove dve funkcije nisu konkurenti — one se **dopunjuju**.
+
+Skill može da koristi znanje koje se nalazi u Projectu.
+
+Na primer:
+
+**Skill:** „Priprema za razgovor sa klijentom“
+
+može koristiti:
+
+**Project:** profile klijenata koji su uploadovani u bazu znanja projekta.
+
+Drugim rečima:
+
+> **Project daje „šta“ — informacije.**
+> **Skill daje „kako“ — proces.**
+
+---
+
+# Projects vs. Skills — poređenje
+
+|                 | **Projects**                                               | **Skills**                                                        |
+| --------------- | ---------------------------------------------------------- | ----------------------------------------------------------------- |
+| **Svrha**       | Čuvaju znanje na koje se Claude poziva                     | Definišu procese koje Claude izvršava                             |
+| **Najbolje za** | Dugoročni kontekst, referentne materijale, timsku saradnju | Ponovljive workflow-e, višekoračne zadatke, doslednu metodologiju |
+| **Primer**      | Customer hub, research buddy, feedback generator           | Brand/legal procedure, pisanje bloga, kreiranje PDF-a             |
+| **Trajnost**    | Znanje je dostupno kroz sve chatove u projektu             | Instrukcije se primenjuju kada se Skill pozove                    |
+
+---
+
+# Kako da zapamtite razliku?
+
+Jednostavan mentalni model:
+
+**Project = „Ovo je sve što Claude treba da zna.“**
+
+**Skill = „Ovako treba da uradi posao.“**
+
+Na primer:
+
+> **Project:** svi podaci, dokumenti i istorija jednog klijenta.
+
+> **Skill:** procedura koju Claude treba da prati svaki put kada priprema sastanak sa tim klijentom.
+
+Kombinacija ova dva može biti mnogo moćnija od bilo kojeg pojedinačno.
+
+---
+
+# Razmišljanje o lekciji
+
+Pre nego što nastavite, razmislite:
+
+* **Koje vrste dokumenata redovno kreirate, a koje bi mogle imati koristi od Claudeovih ugrađenih Skills?**
+* **Koji ponavljajući workflow-i u vašem poslu bi mogli biti dobri kandidati za Custom Skills?**
+* **Kako bi Skills mogli promeniti način na koji razmišljate o kreiranju dokumenata i analizi podataka?**
+
+---
+
+# Šta sledi?
+
+U sledećem skupu lekcija počećete da **proširujete Claudeov domet pomoću Connectors**.
+
+Ovi moćni alati omogućavaju da prikupljanje informacija bude jednostavnije i mogu Claudeu dati mogućnost da **izvršava radnje direktno u alatima u kojima obavljate svoj posao**.
+
+Za više informacija o Skills, uključujući detalje o kreiranju sopstvenih Custom Skills, pogledajte **Anthropic Help Center**.
