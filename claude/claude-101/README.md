@@ -3649,3 +3649,245 @@ U sledećem delu kursa sve se povezuje.
 Videćete kako se ono što ste naučili primenjuje kroz **stvarne use-caseove organizovane prema različitim ulogama**, a upoznaćete i dodatne načine interakcije sa Claudeom koji prevazilaze klasični web interfejs.
 
 Za više informacija o Research-u, uključujući video tutorijale, pogledajte **Anthropic Help Center**.
+
+---
+
+Naravno — evo prevoda na srpski:
+
+# Claude na delu: primeri upotrebe po ulogama
+
+**Procenjeno vreme: 10 minuta**
+
+## Ciljevi lekcije
+
+Na kraju ove lekcije moći ćete da:
+
+* navedete 2–3 načina upotrebe **claude.ai** koje možete odmah da isprobate;
+* znate gde možete pronaći dodatne ideje i primere za korišćenje Claude-a.
+
+---
+
+Bez obzira na to čime se bavite, Claude može pomoći da pojednostavite i ubrzate vaš rad. Ova lekcija prikazuje praktične načine upotrebe organizovane prema različitim poslovnim ulogama, kako biste videli kako Claude može da se uklopi baš u vaš način rada.
+
+Svaki primer vodi ka detaljnom vodiču u našoj **Galeriji primera upotrebe (Use Case Gallery)**, sa uputstvima korak po korak koja možete pratiti.
+
+## Opšta profesionalna upotreba
+
+Ovi primeri mogu se primeniti u različitim ulogama i industrijama.
+
+* **Generisanje izveštaja o statusu projekta** – održavajte zainteresovane strane informisanim kroz jasne i konzistentne izveštaje.
+* **Analiza obrazaca u povratnim informacijama korisnika** – izvucite korisne uvide iz komentara korisnika i odgovora iz anketa.
+* **Pretvaranje smernica brenda u Skill** – napravite Claude Skill koji se može ponovo koristiti i koji automatski primenjuje standarde vašeg brenda.
+
+## Prodaja
+
+Prodajni timovi mogu koristiti Claude za ubrzavanje pripreme za prodajne prilike, kreiranje ubedljivih materijala i praćenje konkurencije.
+
+* **Napravite biblioteku „battle card“ materijala** – kreirajte resurse sa informacijama o konkurenciji koji vašem timu pomažu da dobije poslove.
+* **Priprema za prodajne sastanke** – istražite potencijalne klijente i organizujte ključne tačke za razgovor pre važnih sastanaka.
+* **Kreiranje prodajnih izveštaja** – pretvorite podatke o prodajnom levku u jasne izveštaje sa konkretnim zaključcima i preporukama.
+
+## Marketing
+
+Marketinški stručnjaci mogu koristiti Claude za analizu podataka o performansama i efikasno prilagođavanje sadržaja različitim kanalima.
+
+* **Analiza uspešnosti kampanja** – izvucite uvide iz metrika kampanja kako biste unapredili strategiju.
+* **Prilagođavanje sadržaja različitim platformama** – efikasno preradite postojeći sadržaj za različite kanale i publike.
+
+## Finansije
+
+Finansijski stručnjaci mogu koristiti Claude za izradu modela, pisanje dokumenata i razumevanje složenih tabela.
+
+* **Izrada finansijskih modela** – kreirajte i unapređujte finansijske projekcije uz Claude-ovu pomoć.
+* **Pisanje investicionih memoranduma** – efikasnije strukturirajte i napišite investicione analize.
+* **Razumevanje i proširivanje postojeće tabele** – dešifrujte složene spreadsheet-e i dodajte im nove funkcionalnosti.
+
+## Ljudski resursi (HR)
+
+HR timovi mogu koristiti Claude za kreiranje boljeg iskustva prilikom uvođenja novih zaposlenih i za izradu dokumentacije.
+
+* **Kreiranje vodiča za onboarding novih zaposlenih** – napravite sveobuhvatne materijale za uvođenje novih zaposlenih, prilagođene različitim pozicijama.
+
+## Pravo
+
+Pravnici mogu koristiti Claude za praćenje složenih vremenskih linija i upravljanje procesima otkrivanja dokaza (*discovery*).
+
+* **Praćenje rokova i vremenskih linija discovery procesa i analiza obrazaca** – organizujte hronologiju slučaja i identifikujte važne obrasce u pravnim dokumentima.
+
+## Istraživanje
+
+Istraživači mogu koristiti Claude za planiranje pregleda literature i proveru analiza podataka.
+
+* **Planiranje pregleda literature** – organizujte pristup pregledu akademskih izvora.
+* **Provera statističkih podataka iz sirovih podataka** – proverite proračune i statističke analize.
+
+## Istražite još
+
+Ovi primeri su samo početak. Posetite **Galeriju primera upotrebe (Use Case Gallery)** da biste pregledali kompletnu kolekciju i pronašli inspiraciju za načine na koje Claude može pomoći upravo u vašem poslu.
+
+## Šta sledi
+
+U našem poslednjem modulu upoznaćete još nekoliko načina rada sa Claude-om, uključujući:
+
+* **Claude Code**
+* **@Claude**
+* **Claude Design**
+* **Claude za Microsoft 365**
+* **Claude u Chrome-u**
+
+Svaki od ovih načina rada prilagođen je mestu na kojem se posao zaista obavlja.
+
+---
+
+# Drugi načini rada sa Claude-om
+
+**Procenjeno vreme: 10 minuta**
+
+## Ciljevi lekcije
+
+Na kraju ove lekcije moći ćete da:
+
+* razumete kada treba koristiti dodatne Claude proizvode, uključujući **Claude Code, @Claude, Claude Design, Claude za Microsoft 365 i Claude u Chrome-u**.
+
+---
+
+Kao što smo pomenuli na početku kursa, **Claude je inteligencija**. **Claude.ai** je samo jedan od načina na koji možete raditi sa njom.
+
+Claude je dostupan i kroz nekoliko specijalizovanih alata koji su dizajnirani da se uključe direktno u okruženja u kojima već radite. Ova lekcija predstavlja dodatne načine rada sa Claude-om, pri čemu je svaki prilagođen određenim procesima i vrstama zadataka.
+
+---
+
+## Claude Code
+
+**Claude Code** je agentni alat za programiranje koji radi tamo gde vi radite — u terminalu, IDE-u, browseru ili čak u Slack-u. Razume vaš codebase, izvršava komande i može da obavlja kompletne razvojne procese koristeći prirodni jezik.
+
+### Kada koristiti Claude Code:
+
+* Želite da napravite novu funkcionalnost tako što ćete običnim jezikom opisati šta vam je potrebno, a Claude napiše kod, pokrene testove i napravi commit.
+* Treba da otklonite grešku tako što ćete proslediti poruke o grešci, a Claude analizira codebase, pronađe problem i popravi ga.
+* Radite sa nepoznatim codebase-om i želite da postavljate pitanja o tome kako različiti delovi sistema međusobno funkcionišu.
+* Želite da automatizujete dosadne zadatke, poput ispravljanja lint grešaka, rešavanja merge konflikata ili pisanja release notes-a.
+* Više volite da radite u terminalu zajedno sa svojim postojećim IDE-om i razvojnim alatima, umesto da prelazite u zaseban interfejs.
+
+---
+
+## @Claude
+
+**@Claude** dovodi Claude direktno u **Slack**, tako da možete dobiti pomoć u kanalima i thread-ovima ili preneti kontekst iz Slack-a u Claude razgovore — jednostavnim označavanjem **@Claude** u bilo kom thread-u.
+
+### Kada koristiti @Claude:
+
+* Želite da sastavite odgovor na poruku, sažmete dugačak thread ili razložite složenu diskusiju bez napuštanja Slack-a.
+* Treba da se pripremite za sastanak tako što će Claude objediniti relevantne razgovore i deljene dokumente iz vašeg workspace-a.
+* Tek ste se pridružili novom timu i želite da razumete postojeće projekte pregledom istorije kanala.
+* Želite da prosledite razvojni zadatak direktno iz prijave greške ili diskusije o funkcionalnosti — označite @Claude i on može pokrenuti Claude Code sesiju koristeći okolni kontekst.
+* Potrebni su vam brzi odgovori o trendovima u industriji, tehničkim konceptima ili informacijama o kompaniji tokom razgovora.
+
+---
+
+## Claude Design
+
+**Claude Design** je posebno okruženje namenjeno pretvaranju ideja u funkcionalne interfejse.
+
+Opišite šta želite običnim jezikom — ili počnite od skice ili screenshota — a Claude će napraviti interaktivni prototip koji možete dalje dorađivati kroz razgovor i proslediti svom timu.
+
+### Kada koristiti Claude Design:
+
+* Želite da od pisanog brief-a, skice ili referentnog screenshota napravite funkcionalni UI prototip bez pisanja koda.
+* Istražujete različite dizajnerske pravce i želite brzo da napravite i uporedite više varijanti.
+* Želite da menjate raspored, tekst ili interakcije tako što ćete opisati promenu umesto da ručno menjate markup.
+* Želite prototip koji koristi dizajn sistem vašeg tima, tako da ono što predate development timu odgovara onome što će oni implementirati.
+
+---
+
+## Claude za Excel
+
+**Claude za Excel** dovodi Claude direktno u Microsoft Excel kroz bočnu traku (*sidebar*), omogućavajući vam da analizirate, razumete i menjate spreadsheet-e kroz razgovor.
+
+### Kada koristiti Claude za Excel:
+
+* Radite sa kompleksnim workbook-om koji ima više tabova i želite da razumete kako određene formule ili tokovi izračunavanja funkcionišu između različitih sheet-ova.
+* Treba da promenite pretpostavke ili ulazne podatke u modelu, a da pritom očuvate zavisnosti i odnose između formula.
+* Otklanjate greške poput `#REF!`, `#VALUE!` ili kružnih referenci i želite da Claude pronađe njihov uzrok i predloži rešenje.
+* Želite da kreirate nove spreadsheet-e ili popunite postojeće šablone podacima uz očuvanje pravilne strukture formula.
+* Potrebno vam je da brzo napravite pivot tabele ili grafikone za vizuelizaciju podataka.
+
+---
+
+## Claude za PowerPoint
+
+**Claude za PowerPoint** dovodi Claude u Microsoft PowerPoint kao bočnu traku, tako da možete kroz razgovor da kreirate, uređujete i reorganizujete prezentacije, uz očuvanje postojećeg template-a i vizuelnog identiteta.
+
+### Kada koristiti Claude za PowerPoint:
+
+* Želite da od outline-a, dokumenta ili beleški napravite prvi nacrt prezentacije bez ručnog pravljenja svakog slajda.
+* Treba da prepravite ili skratite tekst na slajdovima — skratite bullet-e, dodate speaker notes ili prilagodite ton određenoj publici.
+* Reorganizujete postojeću prezentaciju i želite pomoć pri promeni redosleda sekcija, razdvajanju pretrpanih slajdova ili spajanju sličnih delova.
+* Želite konzistentno formatiranje kroz celu prezentaciju — naslove, bullet stilove i layout-e — bez ručnog popravljanja svakog slajda.
+* Želite brze vizuelne predloge za određeni slajd, poput preporuke koji layout ili tip grafikona najbolje predstavlja određenu ideju.
+
+---
+
+## Claude za Word
+
+**Claude za Word** dovodi Claude direktno u Microsoft Word kao bočnu traku, tako da možete da pišete, uređujete i reorganizujete dokument koji je već otvoren — uz rad sa praćenim izmenama i komentarima, kao i korišćenje konteksta iz povezanih izvora.
+
+### Kada koristiti Claude za Word:
+
+* Želite da od outline-a ili grubih beleški napravite strukturirani prvi nacrt u template-u vašeg tima.
+* Treba da izmenite određeni deo dokumenta — skratite tekst, prilagodite ton određenom čitaocu ili promenite strukturu — bez napuštanja dokumenta.
+* Odgovarate na komentare recenzenata i želite da uz pomoć Claude-a rešavate njihove sugestije i tracked changes direktno u dokumentu.
+* Želite da dokument bude zasnovan na povezanim izvorima podataka, tako da tvrdnje u njemu mogu da se povežu sa mestom iz kojeg potiču.
+
+---
+
+## Claude za Outlook
+
+**Claude za Outlook** dovodi Claude u vaš inbox kao bočnu traku, tako da možete da:
+
+* sortirate i obrađujete emailove;
+* pišete odgovore koristeći kontekst povezanih thread-ova i kalendara;
+* pretvorite dugu email prepisku u jasan sažetak ili listu sledećih koraka.
+
+**Dostupnost:** Claude za Outlook je trenutno u beta verziji i instalira se odvojeno od ostalih Microsoft 365 dodataka. Za podešavanje pogledajte **Claude za Outlook**.
+
+---
+
+## Claude u Chrome-u
+
+**Claude u Chrome-u** je ekstenzija za browser koja dodaje Claude kao bočnu traku u Google Chrome-u. Claude može da posmatra ono na čemu radite i izvršava radnje direktno u browseru.
+
+### Kada koristiti Claude u Chrome-u:
+
+* Želite da sažmete članke, istraživačke radove ili web stranice dok ih pregledate.
+* Potrebna vam je pomoć pri pisanju odgovora na emailove ili upravljanju inboxom.
+* Popunjavate repetitivne forme i želite da automatizujete taj proces.
+* Želite da testirate funkcionalnosti web sajta ili prođete kroz višekoračne procedure bez ručnog klikanja.
+* Potreban vam je browser asistent koji zadržava kontekst dok prelazite između tabova i različitih zadataka. Ovo je posebno korisno za rad sa specifičnim internim alatima, CRM sistemima ili dashboard-ima.
+
+### Važna napomena
+
+**Claude u Chrome-u je trenutno u javnoj beta verziji.** Anthropic preporučuje korišćenje za zadatke niskog rizika na pouzdanim web sajtovima.
+
+Ekstenzija traži dozvolu pre izvršavanja rizičnih radnji, poput kupovine ili deljenja ličnih podataka, dok su određene kategorije sajtova — na primer finansijske usluge i sadržaj za odrasle — podrazumevano blokirane.
+
+---
+
+# Sažetak
+
+Svaki od ovih alata proširuje Claude-ove mogućnosti u konkretnom okruženju u kojem radite:
+
+| Alat                        | Najbolji za                                                                                     | Gde radi                                                                  |
+| --------------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| **Claude.ai**               | Opšti zadaci, istraživanje, pisanje, analiza, kreiranje fajlova                                 | Web, desktop i mobilne aplikacije                                         |
+| **Claude Code**             | Razvoj softvera, navigacija kroz codebase, Git workflow                                         | Terminal/command line, IDE ili browser                                    |
+| **Claude Cowork**           | Kompleksni višekoračni zadaci: istraživanja, dokumenti, organizovanje fajlova, analiza podataka | Desktop, plus web i mobilni uređaji u beta verziji na podržanim planovima |
+| **@Claude**                 | Timska saradnja, priprema sastanaka, brzi odgovori u kontekstu                                  | Slack workspace                                                           |
+| **Claude Design**           | UI prototipi, istraživanje dizajna, mockup-i usklađeni sa dizajn sistemom                       | Web                                                                       |
+| **Claude za Microsoft 365** | Uređivanje direktno u dokumentu i prenošenje konteksta između dokumenata                        | Excel, PowerPoint, Word i Outlook sidebar                                 |
+| **Claude u Chrome-u**       | Web istraživanje, upravljanje emailom, automatizacija browsera                                  | Chrome sidebar                                                            |
+
+## Šta sledi
+
+Sledi završetak kursa kroz **kratak rezime i kviz**, nakon čega možete osvojiti **sertifikat o završenom kursu** koji možete podeliti na LinkedIn-u i sa svojim timom.
+
