@@ -3891,3 +3891,100 @@ Svaki od ovih alata proširuje Claude-ove mogućnosti u konkretnom okruženju u 
 
 Sledi završetak kursa kroz **kratak rezime i kviz**, nakon čega možete osvojiti **sertifikat o završenom kursu** koji možete podeliti na LinkedIn-u i sa svojim timom.
 
+---
+
+# Šta sledi?
+
+**Procenjeno vreme: 5 minuta**
+
+Čestitamo na završetku kursa **Claude 101!** Izgradili ste solidnu osnovu za efikasan rad sa Claude-om. Hajde da ponovimo šta ste naučili i pogledamo resurse koji vam mogu pomoći da nastavite da napredujete.
+
+---
+
+# Šta ste naučili
+
+## Početak rada sa Claude-om
+
+* Claude je AI asistent dizajniran da bude **koristan, bezbedan i iskren** — više od običnog chatbot-a, on je partner za razmišljanje koji može da pomogne u kompleksnom radu.
+* Claude-u možete pristupiti preko **web-a, desktopa i mobilnih aplikacija**, a razgovori se sinhronizuju između uređaja.
+* Efikasni promptovi treba da:
+
+  1. **postave kontekst** — objasne situaciju i pozadinu;
+  2. **definišu zadatak** — navedu šta Claude treba da uradi;
+  3. **specifikuju pravila** — odrede format, stil i ton.
+
+## Kako dobiti bolje rezultate
+
+* **Iteracija je ključna** — posmatrajte prvi odgovor kao početnu verziju i unapređujte ga kroz razgovor.
+* Uobičajeni problemi, poput previše generičkih odgovora ili pogrešnog tona, mogu se rešiti dodavanjem **preciznijeg konteksta**.
+* **AI Fluency** obuhvata četiri kompetencije:
+
+  * **Delegation (Delegiranje)** – odlučivanje šta treba da radi čovek, šta AI i kako ih kombinovati;
+  * **Description (Opisivanje)** – jasno komuniciranje zadatka i očekivanog rezultata;
+  * **Discernment (Prosuđivanje)** – kritičko procenjivanje AI rezultata;
+  * **Diligence (Marljivost/Odgovornost)** – odgovorno i etičko korišćenje AI-ja.
+
+---
+
+# Organizovanje rada
+
+* **Projects** stvaraju posebne radne prostore sa trajnim znanjem, prilagođenim instrukcijama i mogućnošću timske saradnje.
+* **Artifacts** su samostalni rezultati, kao što su dokumenti, kod, dijagrami i interaktivni alati, koje Claude kreira uz vaš razgovor.
+* **Skills** su paketi instrukcija koji Claude-u omogućavaju da obavlja specijalizovane radne procese — uključujući ugrađene mogućnosti za kreiranje dokumenata i prilagođene Skills koje sami možete napraviti.
+
+---
+
+# Proširivanje Claude-ovih mogućnosti
+
+* **Connectors** povezuju Claude sa vašim alatima — Google Workspace-om, Slack-om, Notion-om i mnogim drugim — tako da može da radi sa vašim stvarnim podacima.
+* **Enterprise Search** pruža namenski projekat za pretraživanje izvora znanja vaše organizacije.
+* **Research** obavlja sistematska istraživanja iz više izvora koja bi ručno mogla zahtevati sate ili dane rada.
+
+---
+
+# Sve zajedno
+
+* Claude može da se koristi u različitim poslovnim oblastima — **prodaji, marketingu, finansijama, HR-u, pravu, istraživanju** i mnogim drugim.
+* Pored **claude.ai**, sa Claude-om možete raditi kroz **Claude Code, Slack, Excel i Chrome**.
+
+---
+
+# Dodatni resursi
+
+## Učenje više o AI-ju i Claude-u
+
+* **AI Fluency kursevi** – besplatni kursevi o efikasnoj saradnji sa AI-em.
+* **AI Capabilities and Limitations** – besplatan uvodni kurs o tome šta AI može, a šta ne može.
+* **Use Case Gallery** – vodiči korak po korak i promptovi za napredne radne procese.
+* **Anthropic Help Center** – detaljna dokumentacija i rešavanje problema.
+* **Prompting dokumentacija** – sveobuhvatan vodič za dobijanje najboljih rezultata.
+
+## Resursi za konkretne proizvode
+
+* **Claude Code in Action** – besplatan kurs o korišćenju Claude-a u razvoju softvera.
+* **Introduction to Claude Cowork** – besplatan kurs o korišćenju Claude desktop asistenta za višekoračne zadatke.
+* **Connector Directory** – pregled i povezivanje vaših alata.
+
+---
+
+# Reč ohrabrenja
+
+Najvažnija stvar koju sada možete da uradite jeste **da jednostavno počnete da koristite Claude**.
+
+Veštine koje ste ovde naučili postajaće bolje kroz praksu, a vremenom ćete razviti intuiciju o tome **kada i na koji način Claude može da vam pomogne**.
+
+**Počnite jednostavno.**
+
+Izaberite jedan zadatak koji redovno obavljate ove nedelje i pokušajte da ga uradite uz Claude. Na primer:
+
+* napišite email;
+* sažmite beleške sa sastanka;
+* analizirajte spreadsheet.
+
+Pogledajte šta će se dogoditi. **Iterirajte.** Naučite šta funkcioniše najbolje za vaše konkretne potrebe.
+
+> **Zapamtite: Claude je dizajniran kao saradnik, a ne kao zamena za vas.**
+
+Najbolji rezultati nastaju kada vi unesete **svoje znanje, kontekst i procenu**, a Claude koristi svoje sposobnosti da vam pomogne u radu.
+
+**Sada imate osnovu. Sve ostalo dolazi kroz praktičan rad.**
