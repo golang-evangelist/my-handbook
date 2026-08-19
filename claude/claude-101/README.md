@@ -2609,3 +2609,1043 @@ U sledećem skupu lekcija počećete da **proširujete Claudeov domet pomoću Co
 Ovi moćni alati omogućavaju da prikupljanje informacija bude jednostavnije i mogu Claudeu dati mogućnost da **izvršava radnje direktno u alatima u kojima obavljate svoj posao**.
 
 Za više informacija o Skills, uključujući detalje o kreiranju sopstvenih Custom Skills, pogledajte **Anthropic Help Center**.
+
+---
+
+# Povezivanje vaših alata
+
+**Procenjeno vreme: 20 minuta**
+
+## Ciljevi učenja
+
+Na kraju ove lekcije moći ćete da:
+
+* objasnite šta su **Connectors** i zašto su važni za rad sa Claudeom;
+* pronađete direktorijum konektora i podesite svoju prvu konekciju;
+* efikasno koristite povezane alate u razgovorima sa Claudeom.
+
+---
+
+# Šta su Connectors?
+
+## Ključne poruke
+
+### • Connectors pretvaraju Claudea iz asistenta u informisanog saradnika
+
+Connectors daju Claudeu pristup istim alatima, podacima i kontekstu koje svakodnevno koristite.
+
+Umesto da svaki razgovor počinjete od nule, Claude može da radi direktno sa vašim stvarnim informacijama.
+
+Na primer, umesto da ručno kopirate podatke iz Slacka, Google Drive-a i Asane u Claude, povezani alati omogućavaju Claudeu da sam pronađe relevantne informacije.
+
+---
+
+### • Connectors omogućavaju Claudeu da čita informacije i izvršava radnje u vaše ime
+
+U zavisnosti od konkretnog konektora i dozvola koje mu date, Claude može da:
+
+* pretražuje vaše fajlove,
+* pronalazi dokumente,
+* analizira podatke,
+* kreira novi sadržaj,
+* ažurira zapise,
+* izvršava zadatke u povezanim aplikacijama.
+
+Sve to može da se radi **direktno iz razgovora sa Claudeom**.
+
+---
+
+### • Model Context Protocol (MCP) pokreće Connectors
+
+MCP možete zamisliti kao **USB-C za AI** — univerzalni standard koji omogućava Claudeu da se poveže sa velikim brojem različitih aplikacija preko jednog, doslednog interfejsa.
+
+Pošto je MCP otvoreni standard, developeri mogu napraviti konektore za praktično bilo koji alat, a ti konektori mogu raditi sa Claudeom na standardizovan način.
+
+---
+
+# Dve vrste Connectors
+
+Postoje dve glavne kategorije:
+
+### 1. Web Connectors
+
+Povezuju Claude sa cloud servisima, kao što su:
+
+* Google Drive
+* Notion
+* Slack
+* Asana
+
+i mnogi drugi.
+
+### 2. Desktop Extensions
+
+Rade lokalno na vašem računaru kroz **Claude Desktop** aplikaciju.
+
+Omogućavaju Claudeu pristup:
+
+* lokalnim fajlovima,
+* lokalnim aplikacijama,
+* funkcijama operativnog sistema.
+
+---
+
+# Pronalaženje i povezivanje alata
+
+Anthropic održava direktorijum preporučenih konektora na:
+
+**claude.ai/directory**
+
+Direktorijum je organizovan u dve kategorije:
+
+### Web
+
+Cloud servisi i aplikacije, kao što su:
+
+* Gmail
+* Notion
+* Slack
+* Asana
+* Linear
+* Stripe
+* i mnogi drugi.
+
+### Desktop extensions
+
+Lokalni alati koji rade na vašem računaru kroz Claude Desktop.
+
+Konektore možete pronaći i direktno u razgovoru:
+
+**+ → Connectors**
+
+u donjem levom delu prozora za chat.
+
+---
+
+# Kako povezati Web Connector?
+
+Evo postupka za povezivanje cloud servisa.
+
+### 1. Pronađite konektor
+
+Otvorite direktorijum na `claude.ai/directory`
+
+ili u bilo kom razgovoru izaberite:
+
+**+ → Connectors**
+
+### 2. Kliknite „Connect“
+
+Izaberite konektor koji želite da dodate.
+
+### 3. Autentifikujte se
+
+Bićete preusmereni na stranicu tog servisa.
+
+Prijavite se svojim postojećim nalogom.
+
+### 4. Odobrite dozvole
+
+Pregledajte konkretne dozvole koje Claude traži i odobrite pristup.
+
+### 5. Testirajte konekciju
+
+Vratite se u Claude i probajte jednostavan zahtev, na primer:
+
+> „Možeš li da pristupiš mom [naziv alata]?“
+
+Nakon povezivanja, Claude može da **pretražuje, čita i, u nekim slučajevima, izvršava radnje** u tom servisu — u zavisnosti od dozvola koje ste mu dali.
+
+---
+
+# Desktop Extensions
+
+Desktop Extensions zahtevaju **Claude Desktop** aplikaciju, a ne web verziju.
+
+Omogućavaju Claudeu da komunicira sa:
+
+* lokalnim aplikacijama,
+* vašim fajl sistemom,
+* izvornim funkcijama macOS-a ili Windowsa.
+
+Neki primeri:
+
+* pristup lokalnim fajlovima za čitanje i organizovanje dokumenata;
+* kontrola browsera za automatizovane web zadatke;
+* integracija sa izvornim aplikacijama, na primer Figma za dizajn.
+
+## Instalacija Desktop Extension-a
+
+1. Preuzmite i instalirajte **Claude Desktop**.
+2. Otvorite aplikaciju.
+3. Idite na **Settings → Extensions**.
+4. Pronađite željenu ekstenziju i kliknite **Install**.
+5. Pratite dodatna uputstva specifična za tu ekstenziju.
+
+---
+
+# Kako koristiti Connectors u svakodnevnom radu?
+
+Kada povežete svoje alate, Claude ih uzima u obzir prilikom odgovaranja na vaše zahteve.
+
+Evo nekoliko praktičnih primera.
+
+## 📋 Upravljanje projektima
+
+**Asana, Linear, Jira**
+
+Možete pitati:
+
+> „Koji su moji zadaci najvišeg prioriteta koji dospevaju ove nedelje?“
+
+> „Napravi novi zadatak za pregled Q4 budžeta.“
+
+> „Sažmi status našeg projekta lansiranja proizvoda.“
+
+---
+
+## 💬 Komunikacija
+
+**Slack, Gmail**
+
+Na primer:
+
+> „Pronađi email prepisku u kojoj smo razgovarali o ugovoru sa dobavljačem.“
+
+> „Napiši odgovor na poslednju poruku u #marketing kanalu.“
+
+> „Šta je tim juče odlučio u vezi sa vremenskim planom?“
+
+---
+
+## 📚 Dokumentacija
+
+**Notion, Google Drive, Confluence**
+
+Na primer:
+
+> „Pretraži našu dokumentaciju i pronađi smernice za ton našeg brenda.“
+
+> „Sažmi beleške sa prošlonedeljnog sastanka o proizvodu.“
+
+> „Šta naš style guide kaže o korišćenju skraćenih oblika?“
+
+---
+
+## 💰 Poslovni alati
+
+**Stripe, PayPal, Salesforce**
+
+Na primer:
+
+> „Prikaži trendove prihoda za prethodni kvartal.“
+
+> „Koji je status opportunity-ja za Acme Corp?“
+
+> „Prikaži poslednje transakcije veće od 1.000 dolara.“
+
+---
+
+# 🔐 Bezbednost i dozvole
+
+Kada Claude povežete sa eksternim servisima, dajete mu pristup da **čita**, a ponekad i **menja**, podatke u tim servisima.
+
+Zato je važno razumeti nekoliko stvari.
+
+### • Ograničene dozvole
+
+Dozvole su određene prema onome što konkretan konektor zahteva.
+
+U meniju aplikacije možete uključivati ili isključivati pojedinačne dozvole.
+
+---
+
+### • Claude vidi ono što vi vidite
+
+Claude može pristupiti samo podacima kojima **vi sami imate pristup**.
+
+Na primer, povezivanje vašeg poslovnog emaila ne daje Claudeu pristup inboxu vašeg CEO-a.
+
+Claude dobija pristup samo onome čemu možete pristupiti vi.
+
+---
+
+### • Konekciju možete opozvati
+
+Servis možete isključiti:
+
+* kroz Claudeova podešavanja;
+* ili kroz bezbednosna podešavanja samog servisa treće strane.
+
+Kao i kod Skills, možete pronaći ili napraviti Custom Connectors.
+
+I ovde važi isto pravilo:
+
+> **Instalirajte konektore samo iz pouzdanih izvora.**
+
+---
+
+# Jedna važna ideja
+
+Bez Connectors:
+
+> **Vi → kopirate informacije → Claude → obrađuje ih**
+
+Sa Connectors:
+
+> **Vi → postavite pitanje → Claude sam pronalazi relevantne informacije u vašim alatima**
+
+To je suštinska promena.
+
+Claude više nije samo mesto gde **ubacujete informacije**, već može postati sloj koji **povezuje informacije iz vašeg radnog okruženja**.
+
+---
+
+# Razmišljanje o lekciji
+
+Pre nego što nastavite, razmislite:
+
+* **Koji od vaših svakodnevnih alata bi bilo najvrednije povezati sa Claudeom?**
+* **Koji zadaci trenutno zahtevaju da ručno kopirate i lepite informacije, a koje bi Connectors mogli da automatizuju?**
+* **Postoje li workflow-i gde bi kombinovanje podataka iz više povezanih izvora značajno uštedelo vaše vreme?**
+
+---
+
+# Šta sledi?
+
+U sledećoj lekciji naučićete o **Enterprise Search-u** — specijalizovanoj funkciji za Claude for Work korisnike koja povezuje Claude sa izvorima znanja vaše organizacije.
+
+Enterprise Search koristi prilagođene promptove optimizovane za kontekst vaše kompanije.
+
+Za više informacija o Connectors i **Model Context Protocol-u (MCP)**, pogledajte Anthropic Help Center ili istražite direktorijum konektora na `claude.ai/directory`.
+
+---
+
+# Enterprise Search
+
+**Procenjeno vreme: 15 minuta**
+
+## Ciljevi učenja
+
+Na kraju ove lekcije moći ćete da:
+
+* objasnite šta je **Enterprise Search** i na koja pitanja može da odgovori;
+* razumete kako izgleda podešavanje za administratore i korisnike;
+* objasnite kako bezbednost i dozvole štite podatke organizacije.
+
+---
+
+## Dostupnost po planovima
+
+**Enterprise Search** je dostupan na **Team** i **Enterprise** planovima i mora ga omogućiti administrator workspace-a.
+
+Ako koristite **Free, Pro ili Max**, ovu lekciju možete preskočiti.
+
+---
+
+# Šta je Enterprise Search?
+
+Enterprise Search dodaje posebnu opciju **„Ask {Naziv vaše organizacije}“** u bočnu traku Claudea.
+
+Namenjen je prvenstveno pronalaženju i objedinjavanju znanja koje je rasuto kroz alate i izvore podataka vaše kompanije.
+
+Najlakše ga je zamisliti kao:
+
+> **unapred napravljen Project za celu organizaciju.**
+
+Baza znanja vaše kompanije je već povezana, tako da možete odmah postavljati pitanja i dobijati odgovore koji uzimaju u obzir kontekst vaše organizacije.
+
+---
+
+## Enterprise Search vs. običan Chat sa Connectors
+
+Postoji važna razlika.
+
+Kod običnog razgovora sa uključenim Connectors, vi razgovarate sa Claudeom i povezani alati mu mogu obezbediti dodatni kontekst.
+
+**Enterprise Search je posebno napravljen za prikupljanje informacija.**
+
+Koristi prilagođene instrukcije koje je konfigurisao Anthropic tim i namenjen je tome da pronađe informacije kroz veliki broj izvora i zatim ih **sintetizuje u jedan odgovor**.
+
+---
+
+# Šta možete pitati Enterprise Search?
+
+Enterprise Search je naročito koristan za pitanja koja:
+
+* obuhvataju više izvora;
+* zahtevaju kombinovanje informacija;
+* traže širi kontekst iz vaše organizacije.
+
+---
+
+## 📌 Praćenje onoga što se dešavalo
+
+Na primer:
+
+> „Šta se juče dešavalo dok nisam bio tu?“
+
+> „Sažmi najvažnija dešavanja u kompaniji tokom prošle nedelje.“
+
+> „Koje su trenutne prepreke na Platform projektu?“
+
+Claude može da pronađe relevantne informacije kroz različite interne izvore i objedini ih.
+
+---
+
+## 📋 Pitanja o pravilima i procedurama
+
+Na primer:
+
+> „Koja je politika naše kompanije u vezi sa radom na daljinu?“
+
+> „Kako podnosim zahtev za refundaciju troškova?“
+
+> „Koja je procedura za traženje slobodnih dana?“
+
+Umesto da pitate kolegu ili ručno pretražujete interne dokumente, možete postaviti pitanje Claudeu.
+
+---
+
+## 🔎 Istraživanje i analiza
+
+Na primer:
+
+> „Koji su glavni razlozi koje klijenti navode kada biraju konkurenciju?“
+
+> „Sažmi diskusije o roadmapu proizvoda za Q4.“
+
+> „Pronađi informacije o našem procesu onboardinga klijenata.“
+
+---
+
+## 👋 Onboarding novih članova tima
+
+Enterprise Search može biti posebno koristan novim zaposlenima.
+
+Na primer:
+
+> „Kako funkcioniše naš authentication sistem?“
+
+> „Kome treba da se obratim da naučim billing sistem?“
+
+> „Koje alate engineering tim koristi za deployment?“
+
+Na ovaj način novi član tima može brže da pronađe odgovore koji su već negde zapisani unutar organizacije.
+
+---
+
+## 📊 Praćenje projekata i učinka
+
+Na primer:
+
+> „Pronađi diskusije i dokumente povezane sa marketing kampanjom.“
+
+> „Koje su bile ključne odluke sa prošlonedeljnih sastanaka leadership tima?“
+
+> „Sažmi doprinose tima Infrastructure inicijativi.“
+
+---
+
+# Kako Enterprise Search radi?
+
+Kada postavite pitanje, Claude pretražuje sve povezane alate kojima imate pristup.
+
+To mogu biti, na primer:
+
+* SharePoint dokumenti,
+* Slack razgovori,
+* Gmail prepiske,
+* Google Drive fajlovi,
+* Microsoft 365 sadržaj.
+
+Zatim Claude **sintetizuje informacije u jedinstven odgovor**.
+
+Još jedna važna stvar:
+
+> **Claude navodi izvore svojih odgovora.**
+
+To vam omogućava da otvorite izvor i proverite puni kontekst.
+
+---
+
+# Podešavanje Enterprise Search-a
+
+Enterprise Search ima **dva koraka podešavanja**:
+
+**1. Administrator ga konfiguriše za organizaciju.**
+
+**2. Svaki korisnik se autentifikuje svojim ličnim nalogom.**
+
+---
+
+# 👑 Za administratore / Owners
+
+Enterprise Search projekat je podrazumevano omogućen za Team i Enterprise organizacije.
+
+Međutim, **Owner mora završiti početno podešavanje** pre nego što članovi tima mogu da ga koriste.
+
+### 1. Kliknite „Ask Your Org“
+
+Opcija se nalazi u levoj bočnoj traci.
+
+### 2. Kliknite „Set up for your org“
+
+Nastavite sa podešavanjem.
+
+Ako želite da isključite funkciju, postoji opcija **Disable**.
+
+### 3. Povežite alate organizacije
+
+Biće potrebno da izaberete konektor za:
+
+**Documents** — na primer:
+
+* Google Drive
+* SharePoint
+
+i konektor za:
+
+**Chat** — na primer:
+
+* Slack
+* Microsoft Teams
+
+Email je **preporučen, ali nije obavezan**.
+
+### 4. Dodajte još alata
+
+Kliknite:
+
+**+ Add more**
+
+ako želite da povežete dodatne izvore koje vaš tim koristi.
+
+### 5. Prilagodite naziv projekta
+
+Naziv koji unesete pojavljivaće se kao:
+
+> **Ask [Naziv]**
+
+u bočnoj traci svih članova organizacije.
+
+### 6. Dodajte opis
+
+Unesite opis projekta, a zatim kliknite:
+
+**Finish set up**
+
+Nakon završetka podešavanja, projekat postaje dostupan svim članovima organizacije.
+
+---
+
+# 👤 Za korisnike
+
+Nakon što administrator podesi Enterprise Search, u vašoj bočnoj traci videćete projekat:
+
+> **Ask {Naziv organizacije}**
+
+Biće označen zvezdicom.
+
+### Početak korišćenja:
+
+1. Kliknite na projekat u bočnoj traci.
+2. Pratite vođeni proces za povezivanje preporučenih servisa.
+3. Autentifikujte se u svakom servisu koji želite da pretražujete — Slack, Google, Microsoft 365 itd.
+4. Počnite da postavljate Claudeu pitanja o znanju vaše organizacije.
+
+---
+
+## Što više konektora, to šira pretraga
+
+Što više relevantnih izvora povežete, Claude može da napravi **sveobuhvatniju pretragu**.
+
+Ne morate sve povezati odmah.
+
+Dodatne konektore možete kasnije dodati klikom na **Connect** u sekciji **Instructions** projekta.
+
+---
+
+# 🔐 „To je mnogo podataka… da li je bezbedno?“
+
+Kratak odgovor prema lekciji:
+
+**Da.**
+
+Enterprise Search prikazuje samo podatke kojima **vi već imate dozvolu da pristupite u originalnom povezanom alatu**.
+
+Na primer, ako u Slacku nemate pristup određenom privatnom kanalu, Enterprise Search vam neće omogućiti da ga zaobiđete.
+
+Takođe:
+
+* vaši razgovori ostaju privatni;
+* povezani podaci se ne indeksiraju niti čuvaju odvojeno.
+
+Drugim rečima:
+
+> **Enterprise Search ne bi trebalo da proširi vaše postojeće privilegije pristupa — on koristi postojeće dozvole iz povezanih sistema.**
+
+---
+
+# Najvažnija ideja
+
+Možete zamisliti razliku ovako:
+
+**Connectors**
+
+> „Claude, idi pogledaj ovaj konkretan alat.“
+
+**Enterprise Search**
+
+> „Claude, pronađi mi odgovor kroz znanje cele moje organizacije.“
+
+Enterprise Search je zato naročito koristan kada **ne znate tačno gde se informacija nalazi**.
+
+Ne morate znati da li je odgovor u Slacku, emailu, Google Drive-u ili SharePointu — Claude pretražuje povezane izvore i pokušava da ih objedini.
+
+---
+
+# Razmišljanje o lekciji
+
+Pre nego što nastavite, razmislite:
+
+* **Koja pitanja često postavljate kolegama, a na koja bi se moglo odgovoriti pretragom dokumenata i komunikacije vaše organizacije?**
+* **Postoje li onboarding ili training situacije u kojima bi Enterprise Search mogao pomoći novim članovima tima da brže pronađu potrebne informacije?**
+* **Koji izvori podataka bi bili najvredniji za vašu konkretnu ulogu?**
+
+---
+
+# Šta sledi?
+
+U sledećoj lekciji naučićete o **Research-u** — Claudeovoj mogućnosti za dubinska istraživanja u više koraka.
+
+Za razliku od brzog pronalaženja jedne informacije, Research je namenjen **sveobuhvatnoj analizi i istraživanju složenijih pitanja**.
+
+---
+
+# Research za dubinska istraživanja
+
+**Procenjeno vreme: 15 minuta**
+
+## Ciljevi učenja
+
+Na kraju ove lekcije moći ćete da:
+
+* objasnite šta **Research** radi: sistematsko istraživanje iz više izvora;
+* prepoznate kada treba koristiti Research za sveobuhvatno prikupljanje informacija;
+* razumete kako Research koristi **Thinking** da isplanira pristup pre prikupljanja informacija;
+* napišete efikasne Research promptove za složena istraživanja.
+
+---
+
+# Istraživanje pomoću Claudea
+
+## Ključne poruke
+
+### • Research menja način na koji Claude pronalazi i analizira informacije
+
+Umesto jedne pretrage, Claude radi **agentically** — izvršava više pretraga koje se međusobno nadovezuju i na osnovu rezultata odlučuje šta sledeće treba istražiti.
+
+Automatski istražuje različite uglove vašeg pitanja i sistematski rešava otvorena pitanja.
+
+Drugim rečima, ne radite:
+
+> pitanje → jedna Google pretraga → odgovor
+
+već nešto više nalik:
+
+> pitanje → plan → više pretraga → analiza rezultata → nove pretrage → povezivanje izvora → konačni zaključak.
+
+---
+
+### • Research traje duže od obične pretrage
+
+Research može trajati **nekoliko minuta ili duže**, u zavisnosti od pitanja.
+
+Razlog je jednostavan: nije u pitanju jedno traženje.
+
+Claude može:
+
+* poslati veliki broj pretraga;
+* istovremeno istraživati više pravaca;
+* koristiti stotine izvora;
+* objediniti rezultate u jedan odgovor.
+
+Zato ovaj proces nije trenutan.
+
+---
+
+### • Research radi zajedno sa Thinking funkcijom
+
+Claude prvo može da **razmisli kako će pristupiti istraživanju**.
+
+Složeni zahtev razbija na manje delove, a zatim prikuplja informacije potrebne za svaki od njih.
+
+---
+
+### • Citati olakšavaju proveru
+
+Research generiše detaljne odgovore sa **citiranim izvorima**.
+
+To vam omogućava da:
+
+* proverite tvrdnje;
+* otvorite originalni izvor;
+* dublje istražite temu ako je potrebno.
+
+---
+
+# Šta je Research?
+
+**Research je napredna funkcija koja Claude pretvara iz konverzacionog asistenta u sistematskog istraživača.**
+
+Kada uključite Research, Claude ne radi samo na tome da odgovori na pitanje.
+
+On:
+
+* istražuje pitanje iz više uglova;
+* pretražuje više izvora;
+* povezuje informacije;
+* sintetizuje rezultate;
+* koristi web i povezane integracije.
+
+Možete ga zamisliti kao **iskusnog istraživačkog asistenta** koji:
+
+1. prikuplja informacije;
+2. upoređuje različite izvore;
+3. proverava perspektive;
+4. sastavlja sveobuhvatan izveštaj;
+
+dok vi nastavite da radite nešto drugo.
+
+---
+
+# Kada koristiti Research?
+
+Važno je razlikovati Research od drugih Claudeovih mogućnosti.
+
+## Koristite Research kada vam treba:
+
+* sveobuhvatan izveštaj koji objedinjuje više izvora;
+* detaljna analiza weba i vaših povezanih integracija;
+* istraživanje koje bi inače zahtevalo sate ručnog rada;
+* poređenje konkurenata ili dobavljača;
+* izveštaj sa izvorima koje možete proveriti.
+
+---
+
+## Primeri zadataka za Research
+
+### 📊 Analiza tržišta
+
+> „Analiziraj tržište električnih vozila i identifikuj ključne igrače, tehnološke trendove i probleme u lancu snabdevanja koji mogu uticati na investicione odluke.“
+
+### 🏢 Konkurentsko istraživanje
+
+> „Uporedi tri konkurenta, njihove cene, proizvode, pozicioniranje i strategiju.“
+
+### ✈️ Planiranje kompleksnog projekta
+
+Na primer:
+
+* organizovanje team offsite-a;
+* planiranje lansiranja proizvoda;
+* istraživanje lokacija.
+
+### 📚 Tehnička dokumentacija
+
+Kada informacije potrebne za dokumentaciju dolaze iz više izvora.
+
+### 📰 Briefing
+
+Kada vam treba aktuelan i proverljiv pregled neke teme.
+
+---
+
+# Research ili nešto drugo?
+
+Ovo je jedna od najvažnijih stvari u lekciji.
+
+## 🔎 Research
+
+Koristite kada vam treba:
+
+> **duboko istraživanje iz mnogo izvora.**
+
+Primer:
+
+> „Uporedi tri payroll provajdera koje razmatramo — cenu, vreme implementacije i kvalitet podrške, i navedi izvore koje mogu proveriti.“
+
+**→ Research**
+
+---
+
+## 🌐 Web Search
+
+Koristite kada vam treba:
+
+> **brza, konkretna činjenica.**
+
+Na primer:
+
+* današnja cena akcije;
+* adresa kompanije;
+* jedna konkretna informacija.
+
+Ako su dovoljna jedan ili dva izvora i brzina je važnija od sveobuhvatnosti, koristite **Web Search**.
+
+---
+
+## 🧠 Thinking
+
+Koristite kada je problem kompleksan, ali **ne zahteva spoljne informacije**.
+
+Na primer:
+
+* matematički problem;
+* debugging koda;
+* logička analiza;
+* kompleksno rezonovanje.
+
+Ako odgovor treba da nastane prvenstveno **razmišljanjem**, a ne prikupljanjem podataka → **Thinking**.
+
+---
+
+## 🏢 Enterprise Search
+
+Koristite kada vam trebaju informacije iz **interne baze znanja vaše kompanije**:
+
+* dokumenti;
+* Slack;
+* email;
+* beleške sa sastanaka;
+* interne procedure.
+
+Na primer:
+
+> „Kako naša kompanija rešava proces onboardinga?“
+
+Ako je pitanje specifično za vašu kompaniju, a odgovor se nalazi u internim izvorima → **Enterprise Search**.
+
+---
+
+# Kako Research funkcioniše?
+
+Kada uključite Research, aktivirate **agentic proces u više koraka**.
+
+Claude sam odlučuje šta treba istražiti sledeće na osnovu onoga što je već pronašao.
+
+## 1. Claude planira pristup
+
+Pre nego što počne sa pretragom, Claude razmišlja o pristupu.
+
+Razbija zahtev na manje delove, određuje koje informacije su potrebne i planira kako da istraži različite uglove pitanja.
+
+---
+
+## 2. Claude izvršava više pretraga
+
+Umesto jedne pretrage, Claude izvršava **više povezanih pretraga**.
+
+Na osnovu rezultata odlučuje:
+
+* šta dalje da istraži;
+* koje izvore treba pratiti;
+* gde postoje praznine u informacijama.
+
+Drugim rečima, istraživanje se dinamički razvija na osnovu onoga što Claude pronalazi.
+
+---
+
+## 3. Claude objedinjuje rezultate
+
+Nakon prikupljanja informacija iz više izvora — uključujući web i povezane integracije poput:
+
+* Gmaila,
+* Google Calendar-a,
+* Google Drive-a,
+
+Claude sve rezultate pretvara u **sveobuhvatan i organizovan izveštaj**.
+
+---
+
+## 4. Claude dodaje citate
+
+Tvrdnje u Research izveštaju povezane su sa izvorima.
+
+To omogućava da:
+
+* proverite informacije;
+* otvorite originalni izvor;
+* nastavite istraživanje.
+
+---
+
+# Kako koristiti Research?
+
+Postupak je jednostavan:
+
+### 1.
+
+Kliknite na **+** u donjem levom delu chat interfejsa.
+
+### 2.
+
+Izaberite **Research**.
+
+Kada je aktivan, biće vizuelno označen.
+
+### 3.
+
+Napišite prompt i pošaljite ga.
+
+### 4.
+
+Claude će raditi u pozadini.
+
+Videćete indikatore napretka dok Claude:
+
+* pretražuje;
+* analizira;
+* povezuje rezultate.
+
+### ⚠️ Važno
+
+**Web Search mora biti uključen** da bi Research mogao da funkcioniše.
+
+Ako ga još niste uključili, možete to uraditi preko istog **+** menija.
+
+---
+
+# Kako napisati dobar Research prompt?
+
+Pošto Research traje **minute, a ne sekunde**, vredi uložiti malo više vremena u formulaciju prompta.
+
+---
+
+## 1. Budite precizni u vezi sa ciljem
+
+Loše:
+
+> „Reci mi nešto o EV tržištu.“
+
+Bolje:
+
+> „Analiziraj tržište baterija za električna vozila. Identifikuj ključne igrače, tehnološke trendove i probleme u lancu snabdevanja koji bi mogli uticati na investicione odluke.“
+
+Što je cilj jasniji, Claude može preciznije usmeriti istraživanje.
+
+---
+
+## 2. Definišite strukturu
+
+Recite Claudeu koje sekcije želite.
+
+Na primer:
+
+> „Uporedi lokacije za team offsite i uključi:
+>
+> * lokaciju i dostupnost,
+> * prostor za sastanke i sadržaje,
+> * opcije za catering,
+> * očekivane troškove.“
+
+Claude će organizovati istraživanje prema toj strukturi.
+
+---
+
+## 3. Navedite ograničenja
+
+Uključite relevantne parametre, kao što su:
+
+* budžet;
+* rokovi;
+* geografska ograničenja;
+* broj ljudi;
+* tehnički zahtevi;
+* druge specifične kriterijume.
+
+To pomaže Claudeu da se fokusira na **relevantne rezultate**.
+
+---
+
+## 4. Zamolite Claudea da poboljša prompt
+
+Ako niste sigurni kako da formulišete kompleksno istraživačko pitanje, možete prvo pitati Claudea:
+
+> „Pomozi mi da napišem dobar Research prompt za ovo istraživanje.“
+
+Claude može pomoći da pitanje postane preciznije pre nego što uključite Research.
+
+---
+
+# Research + povezane integracije
+
+Kada povežete **Google Workspace** ili druge integracije, Research postaje još moćniji.
+
+Claude može kombinovati:
+
+**vaše interne informacije + web istraživanje**
+
+Na primer:
+
+> „Sažmi šta je diskutovano o Project X kroz moje emailove i Slack, a zatim istraži najbolje prakse u industriji za slične inicijative.“
+
+Ili:
+
+> „Pregledaj moje obaveze u kalendaru za sledeću nedelju i istraži svaku kompaniju sa kojom imam sastanak.“
+
+Ili:
+
+> „Pronađi sve interne dokumente o našoj pricing strategiji i uporedi ih sa načinom na koji konkurenti pozicioniraju svoje proizvode.“
+
+---
+
+## Možete eksplicitno usmeriti Claudea
+
+Na primer:
+
+> „Pronađi relevantan kontekst u mom Google Drive-u.“
+
+ili:
+
+> „Uključi uvide iz mojih nedavnih emailova o ovoj temi.“
+
+Tako Research može da kombinuje **javno dostupne informacije sa vašim privatnim poslovnim kontekstom**, u okviru dozvola koje ste dali povezanim servisima.
+
+---
+
+# Jednostavan mentalni model
+
+Možete zapamtiti ovako:
+
+| Potreba                                        | Koristite             |
+| ---------------------------------------------- | --------------------- |
+| Jedna brza činjenica                           | **Web Search**        |
+| Kompleksno razmišljanje bez spoljnjih podataka | **Thinking**          |
+| Informacije iz vaše kompanije                  | **Enterprise Search** |
+| Dubinsko istraživanje iz mnogo izvora          | **Research**          |
+
+A najmoćnija kombinacija često izgleda ovako:
+
+> **Research + Connectors = web istraživanje + vaši poslovni podaci**
+
+---
+
+# Razmišljanje o lekciji
+
+Pre nego što nastavite, razmislite:
+
+* **Koji zadaci u vašem poslu zahtevaju prikupljanje informacija iz više različitih izvora?**
+* **Kako bi kombinovanje Research-a sa povezanim integracijama, poput Google Workspace-a, promenilo vaš workflow?**
+* **Koje kompleksno pitanje odlažete zato što bi njegovo istraživanje zahtevalo previše vremena?**
+
+---
+
+# Šta sledi?
+
+U sledećem delu kursa sve se povezuje.
+
+Videćete kako se ono što ste naučili primenjuje kroz **stvarne use-caseove organizovane prema različitim ulogama**, a upoznaćete i dodatne načine interakcije sa Claudeom koji prevazilaze klasični web interfejs.
+
+Za više informacija o Research-u, uključujući video tutorijale, pogledajte **Anthropic Help Center**.
