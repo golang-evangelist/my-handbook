@@ -8,13 +8,81 @@
 
 ---
 
-## Deo #1/7
+## Sadržaj
 
-## 1. Buffered vs. Unbuffered Channels
+1. [Koja je suštinska razlika između buffered i unbuffered channel-a?](#pitanje-01--koja-je-suštinska-razlika-između-buffered-i-unbuffered-channel-a)
+2. [Da li buffered channel znači da je komunikacija asinhrona?](#pitanje-02--da-li-buffered-channel-znači-da-je-komunikacija-asinhrona)
+3. [Kada send na unbuffered channel-u blokira?](#pitanje-03--kada-send-na-unbuffered-channel-u-blokira)
+4. [Kada receive na unbuffered channel-u blokira?](#pitanje-04--kada-receive-na-unbuffered-channel-u-blokira)
+5. [Kada send na buffered channel-u blokira?](#pitanje-05--kada-send-na-buffered-channel-u-blokira)
+6. [Kada receive na buffered channel-u blokira?](#pitanje-06--kada-receive-na-buffered-channel-u-blokira)
+7. [Kako možemo saznati kapacitet channel-a?](#pitanje-07--kako-možemo-saznati-kapacitet-channel-a)
+8. [Zašto postoje channel directions?](#pitanje-08--zašto-postoje-channel-directions)
+9. [Da li bidirectional channel možemo proslediti funkciji koja očekuje send-only channel?](#pitanje-09--da-li-bidirectional-channel-možemo-proslediti-funkciji-koja-očekuje-send-only-channel)
+10. [Šta je bolje: `chan int` ili `<-chan int` kada funkcija samo prima podatke?](#pitanje-10--šta-je-bolje-chan-int-ili--chan-int-kada-funkcija-samo-prima-podatke)
+11. [Kako `range` funkcioniše kada se koristi nad channel-om?](#pitanje-11--kako-range-funkcioniše-kada-se-koristi-nad-channel-om)
+12. [Da li `range` automatski zatvara channel?](#pitanje-12--da-li-range-automatski-zatvara-channel)
+13. [Zašto se channel zatvara?](#pitanje-13--zašto-se-channel-zatvara)
+14. [Šta se dešava kada pokušamo da primimo vrednost sa zatvorenog channel-a?](#pitanje-14--šta-se-dešava-kada-pokušamo-da-primimo-vrednost-sa-zatvorenog-channel-a)
+15. [Da li `close(ch)` odmah odbacuje vrednosti koje se već nalaze u buffered channel-u?](#pitanje-15--da-li-closech-odmah-odbacuje-vrednosti-koje-se-već-nalaze-u-buffered-channel-u)
+16. [Ko je odgovoran za zatvaranje channel-a?](#pitanje-16--ko-je-odgovoran-za-zatvaranje-channel-a)
+17. [Zašto receiver uglavnom ne treba da zatvara channel?](#pitanje-17--zašto-receiver-uglavnom-ne-treba-da-zatvara-channel)
+18. [Koji praktični princip možemo koristiti kada odlučujemo ko zatvara channel?](#pitanje-18--koji-praktični-princip-možemo-koristiti-kada-odlučujemo-ko-zatvara-channel)
+19. [Šta znači channel ownership?](#pitanje-19--šta-znači-channel-ownership)
+20. [Zašto vraćati `<-chan T` umesto `chan T`?](#pitanje-20--zašto-vraćati--chan-t-umesto-chan-t)
+21. [Koji je idiomatski način da producer signalizira consumer-u da je završio proizvodnju?](#pitanje-21--koji-je-idiomatski-način-da-producer-signalizira-consumer-u-da-je-završio-proizvodnju)
+22. [Šta se dešava ako koristimo `range` nad channel-om koji nikada neće biti zatvoren?](#pitanje-22--šta-se-dešava-ako-koristimo-range-nad-channel-om-koji-nikada-neće-biti-zatvoren)
+23. [Šta se dešava ako dva različita dela programa pokušaju da zatvore isti channel?](#pitanje-23--šta-se-dešava-ako-dva-različita-dela-programa-pokušaju-da-zatvore-isti-channel)
+24. [Kada send operacija na channel-u blokira goroutine?](#pitanje-24--kada-send-operacija-na-channel-u-blokira-goroutine)
+25. [Kada receive operacija blokira goroutine?](#pitanje-25--kada-receive-operacija-blokira-goroutine)
+26. [Da li je svako blokiranje goroutine deadlock?](#pitanje-26--da-li-je-svako-blokiranje-goroutine-deadlock)
+27. [Šta će se desiti u programu sa send-om na unbuffered channel bez receiver-a?](#pitanje-27--šta-će-se-desiti-u-programu-sa-send-om-na-unbuffered-channel-bez-receiver-a)
+28. [Kako možemo popraviti deadlock izazvan slanjem na unbuffered channel?](#pitanje-28--kako-možemo-popraviti-deadlock-izazvan-slanjem-na-unbuffered-channel)
+29. [Može li receive sam po sebi izazvati deadlock?](#pitanje-29--može-li-receive-sam-po-sebi-izazvati-deadlock)
+30. [Zašto redosled send/receive operacija može biti važan?](#pitanje-30--zašto-redosled-sendreceive-operacija-može-biti-važan)
+31. [Šta znači da unbuffered channel predstavlja rendezvous između goroutines?](#pitanje-31--šta-znači-da-unbuffered-channel-predstavlja-rendezvous-između-goroutines)
+32. [Šta se događa kada buffered channel postane pun?](#pitanje-32--šta-se-događa-kada-buffered-channel-postane-pun)
+33. [Da li povećavanje kapaciteta buffered channel-a rešava problem sporog consumer-a?](#pitanje-33--da-li-povećavanje-kapaciteta-buffered-channel-a-rešava-problem-sporog-consumer-a)
+34. [Kako dve goroutines mogu međusobno da čekaju jedna drugu?](#pitanje-34--kako-dve-goroutines-mogu-međusobno-da-čekaju-jedna-drugu)
+35. [Šta je circular wait u concurrency programu?](#pitanje-35--šta-je-circular-wait-u-concurrency-programu)
+36. [Koja je razlika između deadlock-a i starvation-a?](#pitanje-36--koja-je-razlika-između-deadlock-a-i-starvation-a)
+37. [Da li je goroutine leak isto što i deadlock?](#pitanje-37--da-li-je-goroutine-leak-isto-što-i-deadlock)
+38. [Šta znači zatvoriti channel u Go-u?](#pitanje-38--šta-znači-zatvoriti-channel-u-go-u)
+39. [Da li receiver treba da zatvara channel?](#pitanje-39--da-li-receiver-treba-da-zatvara-channel)
+40. [Šta se događa ako pokušamo da pošaljemo vrednost na zatvoren channel?](#pitanje-40--šta-se-događa-ako-pokušamo-da-pošaljemo-vrednost-na-zatvoren-channel)
+41. [Šta se događa kada pokušamo da primimo vrednost sa zatvorenog channel-a?](#pitanje-41--šta-se-događa-kada-pokušamo-da-primimo-vrednost-sa-zatvorenog-channel-a)
+42. [Kako možemo proveriti da li je channel zatvoren?](#pitanje-42--kako-možemo-proveriti-da-li-je-channel-zatvoren)
+43. [Šta se događa ako zatvorimo buffered channel koji još ima podatke?](#pitanje-43--šta-se-događa-ako-zatvorimo-buffered-channel-koji-još-ima-podatke)
+44. [Kako `range` radi sa channel-om?](#pitanje-44--kako-range-radi-sa-channel-om)
+45. [Šta se događa ako channel nikada nije zatvoren pri korišćenju `range`?](#pitanje-45--šta-se-događa-ako-channel-nikada-nije-zatvoren-pri-korišćenju-range)
+46. [Zašto producer često treba da zatvori channel kada završi proizvodnju?](#pitanje-46--zašto-producer-često-treba-da-zatvori-channel-kada-završi-proizvodnju)
+47. [Da li `close` služi samo za sprečavanje novih send operacija?](#pitanje-47--da-li-close-služi-samo-za-sprečavanje-novih-send-operacija)
+48. [Zašto se za signalizaciju često koristi `chan struct{}`?](#pitanje-48--zašto-se-za-signalizaciju-često-koristi-chan-struct)
+49. [Šta se događa ako više goroutines čeka na channel koji se zatvori?](#pitanje-49--šta-se-događa-ako-više-goroutines-čeka-na-channel-koji-se-zatvori)
+50. [Da li zatvaranje channel-a automatski prekida goroutine?](#pitanje-50--da-li-zatvaranje-channel-a-automatski-prekida-goroutine)
+51. [Koje je praktično pravilo za ownership channel-a?](#pitanje-51--koje-je-praktično-pravilo-za-ownership-channel-a)
+52. [Čemu služi `select` u Go-u?](#pitanje-52--čemu-služi-select-u-go-u)
+53. [Šta se događa ako je više `case` grana spremno istovremeno?](#pitanje-53--šta-se-događa-ako-je-više-case-grana-spremno-istovremeno)
+54. [Šta se događa kada nijedan `case` nije spreman u `select`-u bez `default`?](#pitanje-54--šta-se-događa-kada-nijedan-case-nije-spreman-u-select-u-bez-default)
+55. [Čemu služi `default` unutar `select` statement-a?](#pitanje-55--čemu-služi-default-unutar-select-statement-a)
+56. [Kako možemo pokušati da primimo vrednost bez blokiranja?](#pitanje-56--kako-možemo-pokušati-da-primimo-vrednost-bez-blokiranja)
+57. [Šta je busy loop i zašto je problematičan?](#pitanje-57--šta-je-busy-loop-i-zašto-je-problematičan)
+58. [Kako možemo implementirati timeout za channel operaciju?](#pitanje-58--kako-možemo-implementirati-timeout-za-channel-operaciju)
+59. [Da li je `time.After` uvek najbolji izbor za timeout?](#pitanje-59--da-li-je-timeafter-uvek-najbolji-izbor-za-timeout)
+60. [Da li timeout automatski prekida goroutine koja radi posao?](#pitanje-60--da-li-timeout-automatski-prekida-goroutine-koja-radi-posao)
+61. [Kako možemo omogućiti worker-u da reaguje na signal za završetak?](#pitanje-61--kako-možemo-omogućiti-worker-u-da-reaguje-na-signal-za-završetak)
+62. [Šta se događa ako je jedan od channel-a u `select`-u zatvoren?](#pitanje-62--šta-se-događa-ako-je-jedan-od-channel-a-u-select-u-zatvoren)
+63. [Zašto zatvoreni channel može izazvati problem u `select` petlji?](#pitanje-63--zašto-zatvoreni-channel-može-izazvati-problem-u-select-petlji)
+64. [Zašto se `select` često opisuje kao mehanizam za multipleksiranje channel događaja?](#pitanje-64--zašto-se-select-često-opisuje-kao-mehanizam-za-multipleksiranje-channel-događaja)
+65. [Da li se svi `case` blokovi izvršavaju ako su spremni?](#pitanje-65--da-li-se-svi-case-blokovi-izvršavaju-ako-su-spremni)
+66. [Možemo li jednostavnim redosledom `case` grana dati prioritet jednom channel-u?](#pitanje-66--možemo-li-jednostavnim-redosledom-case-grana-dati-prioritet-jednom-channel-u)
+67. [Kada je dovoljan običan receive, a kada je potreban `select`?](#pitanje-67--kada-je-dovoljan-običan-receive-a-kada-je-potreban-select)
 
-### Pitanje 1.1
+---
 
-**Koja je suštinska razlika između buffered i unbuffered channel-a?**
+## Pitanje 01 — Koja je suštinska razlika između buffered i unbuffered channel-a?
+
+### Odgovor
 
 Osnovna razlika je u tome što buffered channel poseduje interni bafer za određeni broj elemenata, dok unbuffered channel nema prostor za skladištenje vrednosti.
 
@@ -59,11 +127,28 @@ ch <- 30
 
 blokiraće dok se iz kanala ne pročita najmanje jedna vrednost.
 
+### Šta interviewer očekuje?
+
+* Razliku između `make(chan int)` i `make(chan int, N)`.
+* Da unbuffered channel zahteva istovremeni send i receive.
+* Da buffered channel dozvoljava asinhronost do kapaciteta bafera.
+* Da pun buffered channel i dalje blokira sender-a.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Buffered channel nikada ne blokira."
+
+Preciznije je:
+
+> "Buffered channel blokira kada se buffer napuni. Buffering menja trenutak blokiranja, ali ga ne eliminiše."
+
 ---
 
-### Pitanje 1.2
+## Pitanje 02 — Da li buffered channel znači da je komunikacija asinhrona?
 
-**Da li buffered channel znači da je komunikacija asinhrona?**
+### Odgovor
 
 Ne nužno.
 
@@ -108,13 +193,27 @@ Bafer znači:
 
 > "Dozvoli određen broj vrednosti da čeka između sender-a i receiver-a."
 
+### Šta interviewer očekuje?
+
+* Da buffered channel ne eliminiše blokiranje.
+* Da send blokira kada je bafer pun.
+* Da je buffered channel ograničeni queue, a ne potpuno asinhrona komunikacija.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Koristim buffered channel da se nikad ne brinem o blokiranju."
+
+Preciznije je:
+
+> "Buffered channel odlaže blokiranje, ali ga ne eliminiše. Pun buffer i dalje blokira sender-a."
+
 ---
 
-## 2. Blocking Semantics
+## Pitanje 03 — Kada send na unbuffered channel-u blokira?
 
-### Pitanje 2.1
-
-**Kada send na unbuffered channel-u blokira?**
+### Odgovor
 
 Send na unbuffered channel-u blokira dok druga goroutine ne bude spremna da primi vrednost.
 
@@ -157,11 +256,27 @@ Kod unbuffered channel-a komunikacija predstavlja istovremeno:
 1. prenos podatka;
 2. synchronization point.
 
+### Šta interviewer očekuje?
+
+* Da send na unbuffered channel blokira dok nema odgovarajućeg receiver-a.
+* Da unbuffered channel predstavlja tačku susreta — rendezvous.
+* Da je komunikacija istovremeno prenos podataka i sinhronizacija.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Send na channel uvek odmah završi."
+
+Preciznije je:
+
+> "Send na unbuffered channel blokira dok receiver nije spreman. Nema odlaganja — nema buffer-a."
+
 ---
 
-### Pitanje 2.2
+## Pitanje 04 — Kada receive na unbuffered channel-u blokira?
 
-**Kada receive na unbuffered channel-u blokira?**
+### Odgovor
 
 Receive blokira kada nema vrednosti koja može biti primljena.
 
@@ -183,13 +298,27 @@ receiver ostaje blokiran.
 
 Zato channel operacije treba posmatrati kao deo synchronization modela, a ne samo kao način prenosa podataka.
 
+### Šta interviewer očekuje?
+
+* Da receive bez sender-a blokira goroutine.
+* Da blokiranje bez mogućnosti napretka dovodi do deadlock-a.
+* Da je odgovornost za obe strane komunikacije važan deo dizajna.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Receive sa praznog channel-a odmah vraća zero value."
+
+Preciznije je:
+
+> "Receive na unbuffered channel-u bez sender-a blokira zauvek. Zero value se dobija samo pri receive-u sa zatvorenog channel-a."
+
 ---
 
-## 3. Blocking kod Buffered Channels
+## Pitanje 05 — Kada send na buffered channel-u blokira?
 
-### Pitanje 3.1
-
-**Kada send na buffered channel-u blokira?**
+### Odgovor
 
 Send blokira kada je bafer pun.
 
@@ -227,11 +356,27 @@ value := <-ch
 
 jedna vrednost napušta bafer i sender može da nastavi.
 
+### Šta interviewer očekuje?
+
+* Da send na buffered channel blokira kada je buffer pun.
+* Da buffer popunjava i prazni po FIFO redosledu.
+* Da je blokiranje privremeno — čeka se dok se buffer ne oslobodi.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Buffered channel ne blokira nikada."
+
+Preciznije je:
+
+> "Buffered channel blokira send kada je buffer pun. Kapacitet buffer-a samo definiše koliko send-ova može da se izvrši pre blokiranja."
+
 ---
 
-### Pitanje 3.2
+## Pitanje 06 — Kada receive na buffered channel-u blokira?
 
-**Kada receive na buffered channel-u blokira?**
+### Odgovor
 
 Receive blokira kada nema vrednosti u kanalu.
 
@@ -256,19 +401,33 @@ receive može da se nastavi.
 Dakle, kod buffered channel-a postoje dve osnovne granice:
 
 ```text
-send  → blokira kada je buffer pun
+send    → blokira kada je buffer pun
 receive → blokira kada je buffer prazan
 ```
 
 Ovo je jedan od najvažnijih mentalnih modela za razumevanje channel-a.
 
+### Šta interviewer očekuje?
+
+* Da receive blokira kada je buffer prazan i channel nije zatvoren.
+* Da obe granice — pun buffer i prazan buffer — mogu izazvati blokiranje.
+* Da je ovo ključni mentalni model za razumevanje channel-a.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Receive na buffered channel-u nikada ne blokira."
+
+Preciznije je:
+
+> "Receive na buffered channel-u blokira kada je buffer prazan i nema aktivnog sender-a koji bi poslao vrednost."
+
 ---
 
-## 4. Channel Capacity
+## Pitanje 07 — Kako možemo saznati kapacitet channel-a?
 
-### Pitanje 4.1
-
-**Kako možemo saznati kapacitet channel-a?**
+### Odgovor
 
 Koristimo `cap`:
 
@@ -320,13 +479,27 @@ Važno je razumeti da `len(ch)` i `cap(ch)` nisu zamena za pravilnu synchronizat
 
 Posebno u concurrent kodu, stanje koje pročitate može se promeniti odmah nakon tog čitanja.
 
+### Šta interviewer očekuje?
+
+* Da `cap(ch)` vraća ukupni kapacitet bafera.
+* Da `len(ch)` vraća broj trenutno dostupnih elemenata.
+* Da ove vrednosti nisu bezbedne za synchronization logiku u concurrent kodu.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Koristim `len(ch)` da znam da li mogu da pošaljem bez blokiranja."
+
+Preciznije je:
+
+> "U concurrent kodu, `len(ch)` može biti zastarela informacija čim je pročitana. Nije zamena za pravilnu koordinaciju."
+
 ---
 
-## 5. Channel Directions
+## Pitanje 08 — Zašto postoje channel directions?
 
-### Pitanje 5.1
-
-**Zašto postoje channel directions?**
+### Odgovor
 
 Go omogućava da channel u funkcionalnom API-ju ograničimo na određeni smer komunikacije.
 
@@ -338,9 +511,7 @@ chan<- T
 <-chan T
 ```
 
-`chan T` je bidirectional channel.
-
-Može da šalje i prima:
+`chan T` je bidirectional channel. Može da šalje i prima:
 
 ```go
 func process(ch chan int) {
@@ -371,11 +542,27 @@ func consume(ch <-chan int) {
 
 Ovo je važno za API dizajn zato što funkciji možemo eksplicitno dati samo operacije koje su joj potrebne.
 
+### Šta interviewer očekuje?
+
+* Poznavanje sva tri tipa direction-a: `chan T`, `chan<- T`, `<-chan T`.
+* Da direction ograničava kako se channel može koristiti unutar funkcije.
+* Da je direction deo API dizajna, a ne samo konvencija.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Channel direction je samo hint za programera — compiler ih ionako ne proverava."
+
+Preciznije je:
+
+> "Channel direction je deo type sistema. Compiler odbija pogrešnu upotrebu — send na receive-only channel je compile error."
+
 ---
 
-### Pitanje 5.2
+## Pitanje 09 — Da li bidirectional channel možemo proslediti funkciji koja očekuje send-only channel?
 
-**Da li bidirectional channel možemo proslediti funkciji koja očekuje send-only channel?**
+### Odgovor
 
 Da.
 
@@ -407,25 +594,27 @@ func consume(ch <-chan int) {
 
 Ovo omogućava da se channel ownership i dozvoljene operacije izraze kroz tip sistema.
 
+### Šta interviewer očekuje?
+
+* Da bidirectional channel može biti implicitno konvertovan u directional channel pri pozivu funkcije.
+* Da ovo nije eksplicitni cast, već automatska konverzija u skladu sa tipom.
+* Da se na ovaj način izražava ownership kroz tip sistem.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Bidirectional i send-only channel nisu kompatibilni tipovi — ne mogu se koristiti zajedno."
+
+Preciznije je:
+
+> "Bidirectional channel (`chan T`) može biti prosleđen tamo gde se očekuje `chan<- T` ili `<-chan T`. Obrnuto nije dozvoljeno."
+
 ---
 
-## 6. Zašto je Directional Channel važan u API dizajnu?
+## Pitanje 10 — Šta je bolje: `chan int` ili `<-chan int` kada funkcija samo prima podatke?
 
-### Pitanje 6.1
-
-**Šta je bolje?**
-
-```go
-func worker(ch chan int)
-```
-
-ili:
-
-```go
-func worker(ch <-chan int)
-```
-
-ako `worker` samo prima podatke?
+### Odgovor
 
 Druga verzija je preciznija:
 
@@ -457,56 +646,27 @@ consumer
 
 Ovo je posebno korisno kada concurrency kod postane veći i kada više komponenti deli iste channel-e.
 
----
+### Šta interviewer očekuje?
 
-## 7. Junior mentalni model
+* Da direction komunicira nameru funkcije čitaocu koda.
+* Da compiler proverava ispravnost i sprečava greške.
+* Da je precizna direction bolja praksa od bidirectional-a kada je uloga funkcije jasna.
 
-Na Junior nivou kandidat više ne treba samo da zna:
+### Česta greška
 
-```go
-go worker()
-```
+Nije precizno reći:
 
-ili:
+> "Svejedno je da li koristim `chan int` ili `<-chan int` — rezultat je isti."
 
-```go
-ch <- value
-```
+Preciznije je:
 
-Već treba da razume šta se dešava kada se izvršavanje susretne sa channel operacijom.
-
-Osnovni model treba da bude:
-
-```text
-                 CHANNEL
-                    │
-          ┌─────────┴─────────┐
-          │                   │
-       unbuffered           buffered
-          │                   │
-          │              ┌────┴────┐
-          │              │         │
-    sender/receiver   capacity   queue
-    synchronization
-```
-
-I za svaku channel operaciju treba postaviti pitanje:
-
-> **Da li ova operacija može da blokira? Ako može — pod kojim uslovom?**
-
-To pitanje predstavlja osnovu za razumevanje složenijih concurrency problema.
+> "Korišćenjem `<-chan int` jasno komuniciramo da funkcija samo prima. Compiler tada može sprečiti slučajni send unutar te funkcije."
 
 ---
 
-# Interview Questions — Junior
+## Pitanje 11 — Kako `range` funkcioniše kada se koristi nad channel-om?
 
-## Deo #2/7
-
-## 8. `range` nad Channel-om
-
-### Pitanje 8.1
-
-**Kako `range` funkcioniše kada se koristi nad channel-om?**
+### Odgovor
 
 `range` omogućava da goroutine uzima vrednosti iz channel-a sve dok channel ne bude zatvoren.
 
@@ -548,11 +708,28 @@ može da blokira sve dok:
 1. ne stigne nova vrednost;
 2. ili channel ne bude zatvoren.
 
+### Šta interviewer očekuje?
+
+* Sintaksu `for value := range ch`.
+* Da `range` blokira između vrednosti dok channel nije zatvoren.
+* Da `range` završava tek kada je channel eksplicitno zatvoren sa `close` i sve vrednosti pročitane.
+* Veza između `range` i `close`.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "`range` nad channel-om završava kada channel ostane prazan."
+
+Preciznije je:
+
+> "`range` završava tek kada je channel eksplicitno zatvoren sa `close`. Bez `close` petlja ostaje blokirana zauvek."
+
 ---
 
-### Pitanje 8.2
+## Pitanje 12 — Da li `range` automatski zatvara channel?
 
-**Da li `range` automatski zatvara channel?**
+### Odgovor
 
 Ne.
 
@@ -594,13 +771,27 @@ Rezultat:
 
 Nakon `close(ch)`, `range` može da završi jer zna da više neće biti novih vrednosti.
 
+### Šta interviewer očekuje?
+
+* Da `range` samo čita — ne zatvara channel.
+* Da `close` mora biti eksplicitno pozvan od strane sender-a.
+* Da sender koji kontroliše kraj slanja obično zatvara channel.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Receiver zatvara channel kada završi sa čitanjem pomoću `range`."
+
+Preciznije je:
+
+> "`range` ne zatvara channel. Sender koji zna da je slanje završeno je odgovoran za `close`."
+
 ---
 
-## 9. `close` Channel-a
+## Pitanje 13 — Zašto se channel zatvara?
 
-### Pitanje 9.1
-
-**Zašto se channel zatvara?**
+### Odgovor
 
 `close` signalizira receiver-ima:
 
@@ -640,15 +831,29 @@ zatvaranje channel-a
 "nema više podataka"
 ```
 
-`close` nije poruka koja predstavlja jednu dodatnu poslovnu vrednost.
+`close` nije poruka koja predstavlja jednu dodatnu poslovnu vrednost. On menja stanje channel-a i omogućava receiver-u da sazna da je stream završen.
 
-On menja stanje channel-a i omogućava receiver-u da sazna da je stream završen.
+### Šta interviewer očekuje?
+
+* Da `close` signalizira kraj toka podataka.
+* Da `close` nije vrednost — već promena stanja channel-a.
+* Da receiver može pouzdano detektovati zatvaranje kroz `range` ili `value, ok := <-ch`.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Channel se zatvara da bi se oslobodila memorija."
+
+Preciznije je:
+
+> "`close` je signal receiver-ima da više neće biti novih vrednosti. On nije mehanizam za oslobađanje resursa — to radi garbage collector."
 
 ---
 
-### Pitanje 9.2
+## Pitanje 14 — Šta se dešava kada pokušamo da primimo vrednost sa zatvorenog channel-a?
 
-**Šta se dešava kada pokušamo da primimo vrednost sa zatvorenog channel-a?**
+### Odgovor
 
 Ako je channel zatvoren i više nema buffered vrednosti, receive operacija odmah vraća zero value odgovarajućeg tipa.
 
@@ -697,13 +902,28 @@ Ovo je važno zato što sama vrednost ne govori nužno da li je channel zatvoren
 
 Na primer, `0` može biti sasvim legitimna vrednost koju je sender poslao.
 
+### Šta interviewer očekuje?
+
+* Da receive sa zatvorenog i praznog channel-a ne izaziva panic.
+* Da se vraća zero value uz `ok == false`.
+* Da `value, ok := <-ch` omogućava detekciju zatvorenog channel-a.
+* Da `range` automatski hendluje ovo.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Receive sa zatvorenog channel-a izaziva panic."
+
+Preciznije je:
+
+> "Receive sa zatvorenog i praznog channel-a vraća zero value i `false` za `ok` — bez panica. Panic nastaje samo pri send-u na zatvoreni channel."
+
 ---
 
-## 10. Closed Channel i Buffered Values
+## Pitanje 15 — Da li `close(ch)` odmah odbacuje vrednosti koje se već nalaze u buffered channel-u?
 
-### Pitanje 10.1
-
-**Da li `close(ch)` odmah odbacuje vrednosti koje se već nalaze u buffered channel-u?**
+### Odgovor
 
 Ne.
 
@@ -752,13 +972,27 @@ Dakle:
 
 Ovo je posebno važno kod producer/consumer obrazaca.
 
+### Šta interviewer očekuje?
+
+* Da `close` ne briše buffered vrednosti.
+* Da buffered vrednosti mogu biti pročitane i nakon `close`.
+* Da zero value uz `ok == false` dolazi tek kada su sve buffered vrednosti iscrpljene.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "`close(ch)` odmah onemogućava sve receive operacije."
+
+Preciznije je:
+
+> "`close(ch)` samo signalizira kraj slanja. Sve prethodno buffered vrednosti mogu se normalno pročitati. Tek kada se buffer isprazni, receive vraća zero value uz `ok == false`."
+
 ---
 
-## 11. Ko treba da zatvori Channel?
+## Pitanje 16 — Ko je odgovoran za zatvaranje channel-a?
 
-### Pitanje 11.1
-
-**Ko je odgovoran za zatvaranje channel-a?**
+### Odgovor
 
 Najčešće channel treba da zatvori komponenta koja je odgovorna za slanje vrednosti i zna da više neće slati.
 
@@ -792,15 +1026,30 @@ for value := range producer() {
 }
 ```
 
-Consumer nema potrebu da zatvara channel.
+Consumer nema potrebu da zatvara channel. Ovakav model smanjuje mogućnost greške jer je ownership jasan.
 
-Ovakav model smanjuje mogućnost greške jer je ownership jasan.
+### Šta interviewer očekuje?
+
+* Da sender uglavnom zatvara channel.
+* Da receiver uglavnom ne treba da zatvara tuđi channel.
+* Da send na zatvoreni channel izaziva panic.
+* Pojam channel ownership-a.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Receiver treba da zatvori channel kada završi sa čitanjem."
+
+Preciznije je:
+
+> "Receiver uglavnom ne zatvara channel. To je odgovornost sender-a koji kontroliše lifecycle toka podataka."
 
 ---
 
-### Pitanje 11.2
+## Pitanje 17 — Zašto receiver uglavnom ne treba da zatvara channel?
 
-**Zašto receiver uglavnom ne treba da zatvara channel?**
+### Odgovor
 
 Receiver ne mora nužno znati da li postoje drugi sender-i koji još uvek šalju vrednosti.
 
@@ -826,13 +1075,27 @@ func consumer(ch chan int) {
 
 Ako consumer nije vlasnik send lifecycle-a, on ne treba da zatvara channel.
 
+### Šta interviewer očekuje?
+
+* Da receiver najčešće ne zna kada su svi sender-i završili.
+* Da zatvaranje channel-a od strane receiver-a može izazvati panic u aktivnom sender-u.
+* Da ownership mora biti jasan pre nego što se donese odluka o zatvaranju.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Receiver može zatvoriti channel kada mu više ne trebaju podaci."
+
+Preciznije je:
+
+> "Ako receiver zatvori channel dok sender još šalje, sender će doživeti panic. Receiver uglavnom nije u poziciji da zna kada su svi sender-i završili."
+
 ---
 
-## 12. "Closing Principle"
+## Pitanje 18 — Koji praktični princip možemo koristiti kada odlučujemo ko zatvara channel?
 
-### Pitanje 12.1
-
-**Koji praktični princip možemo koristiti kada odlučujemo ko zatvara channel?**
+### Odgovor
 
 Koristan princip je:
 
@@ -882,13 +1145,27 @@ func consumer(ch <-chan int) {
 
 samo konzumira stream.
 
+### Šta interviewer očekuje?
+
+* Princip: sender zatvara channel.
+* Da ownership treba biti jasan pre nego što se donese odluka o `close`.
+* Da `defer close(ch)` u producer-u je uobičajen idiom.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Ko god završi prvi — on zatvori channel."
+
+Preciznije je:
+
+> "Channel treba da zatvori onaj ko kontroliše tok podataka i zna kada je slanje završeno. Najčešće je to producer."
+
 ---
 
-## 13. Channel Ownership
+## Pitanje 19 — Šta znači channel ownership?
 
-### Pitanje 13.1
-
-**Šta znači channel ownership?**
+### Odgovor
 
 Channel ownership predstavlja odgovornost za lifecycle channel-a i tok podataka koji preko njega prolazi.
 
@@ -929,27 +1206,29 @@ Spoljašnji kod dobija:
 
 što znači da može samo da prima.
 
-Ovo je snažan API dizajn jer ownership nije samo dokumentovan komentarom — on je delimično izražen kroz Go type system.
+Ovo je snažan API dizajn jer ownership nije samo dokumentovan komentarom — on je delimično izražen kroz Go type sistem.
+
+### Šta interviewer očekuje?
+
+* Da ownership obuhvata kreiranje, slanje, primanje i zatvaranje channel-a.
+* Da se ownership može delimično izraziti kroz directional types.
+* Da nejasan ownership vodi ka greškama kao što su double-close ili send na zatvoren channel.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Ownership channel-a nije bitan — svako može da uradi šta treba."
+
+Preciznije je:
+
+> "Nejasan channel ownership je čest uzrok panic-a i goroutine leak-ova. Ownership treba biti eksplicitno definisan i po mogućnosti izražen kroz type sistem."
 
 ---
 
-## 14. Zašto vraćati `<-chan T` umesto `chan T`?
+## Pitanje 20 — Zašto vraćati `<-chan T` umesto `chan T`?
 
-### Pitanje 14.1
-
-Posmatrajmo:
-
-```go
-func generate() chan int
-```
-
-i:
-
-```go
-func generate() <-chan int
-```
-
-Zašto je druga verzija često bolja?
+### Odgovor
 
 Zato što caller-u ne treba omogućiti operacije koje nisu deo njegovog ugovora.
 
@@ -987,13 +1266,27 @@ Ovo je primer principa:
 
 Directional channels zato nisu samo sintaktička pogodnost, već alat za dizajn concurrency API-ja.
 
+### Šta interviewer očekuje?
+
+* Da `<-chan T` ograničava caller-a na receive operacije.
+* Da ovo sprečava slučajno slanje ili zatvaranje channel-a od strane caller-a.
+* Da je ovo primer principa minimalnih privilegija u API dizajnu.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Svejedno je da li vraćamo `chan T` ili `<-chan T` — caller može ionako uraditi šta hoće."
+
+Preciznije je:
+
+> "Vraćanjem `<-chan T` compiler sprečava caller-a da pošalje ili zatvori channel. To su compile error-i, ne runtime greške."
+
 ---
 
-## 15. `range` + `close` kao standardni producer/consumer obrazac
+## Pitanje 21 — Koji je idiomatski način da producer signalizira consumer-u da je završio proizvodnju?
 
-### Pitanje 15.1
-
-**Koji je idiomatski način da producer signalizira consumer-u da je završio proizvodnju?**
+### Odgovor
 
 Producer zatvara channel:
 
@@ -1043,13 +1336,27 @@ Consumer
 
 Ovaj obrazac je jedan od osnovnih building block-ova Go concurrency modela.
 
+### Šta interviewer očekuje?
+
+* Da `defer close(ch)` u producer-u je standardni obrazac.
+* Da `range` na strani consumer-a automatski završava po `close`.
+* Da je ownership i lifecycle jasan: producer kreira, šalje i zatvara.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Consumer treba da provjeri svaku vrednost da vidi da li je signal za kraj."
+
+Preciznije je:
+
+> "Idiomatski Go koristi `close(ch)` kao signal završetka i `range` za automatsku detekciju. Nema potrebe za sentinel vrednostima."
+
 ---
 
-## 16. Tipične greške Junior developera
+## Pitanje 22 — Šta se dešava ako koristimo `range` nad channel-om koji nikada neće biti zatvoren?
 
-### Pitanje 16.1
-
-**Šta se dešava ako koristimo `range` nad channel-om koji nikada neće biti zatvoren?**
+### Odgovor
 
 Ako nema više vrednosti, `range` može ostati blokiran zauvek.
 
@@ -1087,17 +1394,33 @@ range
 
 Ovo može dovesti do:
 
-* blokiranih goroutine-a;
+* blokiranih goroutines;
 * goroutine leak-a;
 * deadlock-a u zavisnosti od ostatka programa;
 * testova koji vise;
 * problema pri graceful shutdown-u.
 
+### Šta interviewer očekuje?
+
+* Da `range` bez `close` može ostati blokiran zauvek.
+* Da je ovo jedan od najčešćih uzroka goroutine leak-a.
+* Da producer mora eksplicitno pozvati `close` kada je završio.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "`range` završava kada producer prestane da šalje vrednosti."
+
+Preciznije je:
+
+> "`range` završava samo kada je channel zatvoren. Pauza u slanju nije ista stvar kao zatvaranje — `range` čeka zauvek ako channel nije zatvoren."
+
 ---
 
-### Pitanje 16.2
+## Pitanje 23 — Šta se dešava ako dva različita dela programa pokušaju da zatvore isti channel?
 
-**Šta se dešava ako dva različita dela programa pokušaju da zatvore isti channel?**
+### Odgovor
 
 Drugi `close` izaziva panic:
 
@@ -1135,35 +1458,27 @@ producer(s)
 
 Kod više sender-a pitanje zatvaranja postaje posebno važno i zahteva eksplicitnu koordinaciju.
 
+### Šta interviewer očekuje?
+
+* Da dvostruko zatvaranje channel-a izaziva panic.
+* Da ownership nad channel lifecycle-om mora biti jedinstven.
+* Da kod više sender-a treba koristiti koordinatora (npr. `sync.WaitGroup`).
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Drugi `close` je bezopasan — channel je već zatvoren."
+
+Preciznije je:
+
+> "Drugi poziv `close` na već zatvorenom channel-u izaziva panic. Zato ownership i odgovornost za `close` moraju biti jasni."
+
 ---
 
-## Junior checklist
+## Pitanje 24 — Kada send operacija na channel-u blokira goroutine?
 
-Na ovom nivou kandidat treba pouzdano da razume sledeće:
-
-* `range` nad channel-om čita dok channel ne bude zatvoren;
-* `range` sam ne zatvara channel;
-* `close` signalizira da više neće biti novih send-ova;
-* zatvoren buffered channel može još sadržati vrednosti;
-* receive sa zatvorenog i ispražnjenog channel-a vraća zero value;
-* `value, ok := <-ch` omogućava detekciju zatvorenog channel-a;
-* sender koji kontroliše kraj slanja obično zatvara channel;
-* receiver uglavnom ne treba da zatvara channel;
-* directional channels izražavaju dozvoljeni smer komunikacije;
-* `<-chan T` može ograničiti caller-a na receive;
-* `chan<- T` može ograničiti caller-a na send;
-* `range` nad channel-om koji nikada neće biti zatvoren može ostati blokiran;
-* višestruko zatvaranje istog channel-a izaziva panic.
-
-# Interview Questions — Junior
-
-## Deo #3/7
-
-## 17. Blokiranje pri slanju na Channel
-
-### Pitanje 17.1
-
-**Kada send operacija na channel-u blokira goroutine?**
+### Odgovor
 
 Send operacija:
 
@@ -1210,13 +1525,27 @@ ch <- 3
 
 blokira dok se ne oslobodi mesto u buffer-u.
 
+### Šta interviewer očekuje?
+
+* Da send blokira kada channel ne može prihvatiti vrednost.
+* Razliku između unbuffered i buffered ponašanja.
+* Da buffer kapacitet određuje koliko send-ova može proći bez blokiranja.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Send uvek odmah završi."
+
+Preciznije je:
+
+> "Send blokira kada unbuffered channel nema receiver-a, ili kada je buffer buffered channel-a pun."
+
 ---
 
-## 18. Blokiranje pri Receive operaciji
+## Pitanje 25 — Kada receive operacija blokira goroutine?
 
-### Pitanje 18.1
-
-**Kada receive operacija blokira goroutine?**
+### Odgovor
 
 Receive:
 
@@ -1252,13 +1581,27 @@ value := <-ch
 
 Ako niko nije poslao vrednost, goroutine čeka.
 
+### Šta interviewer očekuje?
+
+* Da receive blokira kada nema dostupne vrednosti.
+* Razliku između unbuffered (čeka sender-a) i buffered (čeka dok buffer nije prazan).
+* Da receive sa zatvorenog i praznog channel-a ne blokira — vraća zero value.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Receive uvek odmah dobija vrednost."
+
+Preciznije je:
+
+> "Receive blokira dok vrednost ne postane dostupna. Na unbuffered channel-u to znači čekanje na sender-a."
+
 ---
 
-## 19. Blokiranje nije isto što i Deadlock
+## Pitanje 26 — Da li je svako blokiranje goroutine deadlock?
 
-### Pitanje 19.1
-
-**Da li je svako blokiranje goroutine-a deadlock?**
+### Odgovor
 
 Ne.
 
@@ -1282,7 +1625,7 @@ Main goroutine može kratko čekati na receive, ali druga goroutine šalje vredn
 
 Čim komunikacija postane moguća, blokiranje se završava.
 
-Deadlock nastaje kada goroutine-i čekaju događaj koji se više nikada neće dogoditi.
+Deadlock nastaje kada goroutines čekaju događaj koji se više nikada neće dogoditi.
 
 Dakle:
 
@@ -1295,15 +1638,33 @@ blokiranje
         očekivani progress → deadlock
 ```
 
-Ovo je jedna od najvažnijih razlika koju Junior developer mora da razume.
+Ovo je jedna od najvažnijih razlika koju treba razumeti.
+
+### Šta interviewer očekuje?
+
+* Da blokiranje nije isto što i deadlock.
+* Da je privremeno blokiranje normalan deo concurrency modela.
+* Da deadlock nastaje kada nijedna goroutine ne može napredovati.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Svako blokiranje je deadlock."
+
+Preciznije je:
+
+> "Blokiranje je privremeno čekanje — goroutine čeka uslov koji će biti ispunjen. Deadlock nastaje kada taj uslov nikada neće biti ispunjen."
 
 ---
 
-## 20. Najjednostavniji Deadlock
+## Pitanje 27 — Šta će se desiti u programu sa send-om na unbuffered channel bez receiver-a?
 
-### Pitanje 20.1
+### Odgovor
 
-**Šta će se desiti u sledećem programu?**
+Program će deadlock-ovati.
+
+Razlog je što je `ch` unbuffered channel, a `main` goroutine pokušava da pošalje vrednost bez postojanja receiver-a.
 
 ```go
 func main() {
@@ -1314,10 +1675,6 @@ func main() {
 	fmt.Println("done")
 }
 ```
-
-Program će deadlock-ovati.
-
-Razlog je što je `ch` unbuffered channel, a `main` goroutine pokušava da pošalje vrednost bez postojanja receiver-a.
 
 Tok:
 
@@ -1337,21 +1694,35 @@ Niko ne izvršava:
 
 Zato nema mogućnosti za nastavak.
 
-Go runtime detektuje situaciju u kojoj su sve goroutine blokirane i može prijaviti:
+Go runtime detektuje situaciju u kojoj su sve goroutines blokirane i može prijaviti:
 
 ```text
 fatal error: all goroutines are asleep - deadlock!
 ```
 
+### Šta interviewer očekuje?
+
+* Da send na unbuffered channel bez receiver-a blokira goroutine.
+* Da blokiranje bez mogućnosti napretka dovodi do deadlock-a.
+* Da Go runtime detektuje i prijavljuje ovaj deadlock.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Program nastavlja jer `main` nije blokiran."
+
+Preciznije je:
+
+> "`main` goroutine blokira na `ch <- 42`. Nema druge goroutine koja bi izvršila receive, pa runtime detektuje deadlock."
+
 ---
 
-## 21. Kako rešiti ovaj Deadlock?
+## Pitanje 28 — Kako možemo popraviti deadlock izazvan slanjem na unbuffered channel?
 
-### Pitanje 21.1
+### Odgovor
 
-**Kako možemo popraviti prethodni program?**
-
-Jedna mogućnost je pokretanje receiver-a u drugoj goroutine-i:
+Jedna mogućnost je pokretanje receiver-a u drugoj goroutine:
 
 ```go
 func main() {
@@ -1387,13 +1758,27 @@ Ali važno je razumeti:
 
 On samo menja uslove pod kojima send može da napreduje.
 
+### Šta interviewer očekuje?
+
+* Da pokretanje receiver-a u goroutine rešava problem.
+* Da buffered channel može eliminisati rendezvous zahtev.
+* Da buffered channel nije generalno rešenje za sve deadlock situacije.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Uvek koristi buffered channel da izbegneš deadlock."
+
+Preciznije je:
+
+> "Buffered channel menja uslove blokiranja, ali ne rešava fundamentalne probleme dizajna. Deadlock može nastati i sa buffered channel-om ako je buffer pun i nema receiver-a."
+
 ---
 
-## 22. Deadlock sa Receive operacijom
+## Pitanje 29 — Može li receive sam po sebi izazvati deadlock?
 
-### Pitanje 22.1
-
-**Može li receive sam po sebi izazvati deadlock?**
+### Odgovor
 
 Da.
 
@@ -1421,7 +1806,7 @@ Zato nema progress-a.
 
 Program završava u deadlock-u.
 
-Ovo je suprotna varijanta prethodnog primera:
+Ovo je suprotna varijanta deadlock-a na send:
 
 ```text
 send bez receiver-a
@@ -1433,13 +1818,27 @@ receive bez sender-a
     deadlock
 ```
 
+### Šta interviewer očekuje?
+
+* Da receive bez sender-a blokira goroutine.
+* Da blokiranje bez izlaza dovodi do deadlock-a.
+* Da obe strane komunikacije moraju biti prisutne.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Receive nikada ne može izazvati deadlock — on samo čeka."
+
+Preciznije je:
+
+> "Receive bez sender-a blokira zauvek. Ako je to jedina aktivna goroutine, runtime detektuje deadlock."
+
 ---
 
-## 23. Deadlock zbog Pogrešnog Redosleda Operacija
+## Pitanje 30 — Zašto redosled send/receive operacija može biti važan?
 
-### Pitanje 23.1
-
-**Zašto redosled send/receive operacija može biti važan?**
+### Odgovor
 
 Kod unbuffered channel-a send i receive moraju da se "sretnu".
 
@@ -1472,13 +1871,27 @@ sada sender može da čeka dok receiver ne bude spreman.
 
 Ovo je tipičan primer **rendezvous** semantike unbuffered channel-a.
 
+### Šta interviewer očekuje?
+
+* Da sekvencijalni send i receive na unbuffered channel-u u istoj goroutine dovode do deadlock-a.
+* Da sender mora biti u zasebnoj goroutine da bi rendezvous bio moguć.
+* Da redosled operacija mora biti dizajniran u skladu sa semantikom channel-a.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Send i receive mogu biti bilo gde u kodu — Go to automatski sinhronizuje."
+
+Preciznije je:
+
+> "Send i receive moraju biti u stanju da se izvrše istovremeno. Ako su sekvencijalni u istoj goroutine, send blokira i receive se nikada ne dostiže."
+
 ---
 
-## 24. Unbuffered Channel kao Rendezvous
+## Pitanje 31 — Šta znači da unbuffered channel predstavlja rendezvous između goroutines?
 
-### Pitanje 24.1
-
-**Šta znači da unbuffered channel predstavlja rendezvous između goroutine-a?**
+### Odgovor
 
 Kod unbuffered channel-a nema prostora za skladištenje vrednosti.
 
@@ -1508,15 +1921,29 @@ Zato unbuffered channel istovremeno predstavlja:
 
 * komunikaciju;
 * sinhronizaciju;
-* koordinaciju između goroutine-a.
+* koordinaciju između goroutines.
+
+### Šta interviewer očekuje?
+
+* Da rendezvous znači da sender i receiver moraju biti istovremeno aktivni.
+* Da unbuffered channel kombinuje prenos podataka i sinhronizaciju.
+* Da je ovo fundamentalna razlika od buffered channel-a.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Unbuffered channel je isti kao buffered sa kapacitetom 0 — samo sporiji."
+
+Preciznije je:
+
+> "Unbuffered channel nije sporiji buffered channel. On ima drugačiju semantiku — send i receive su tačka susreta, a sama komunikacija je akt sinhronizacije."
 
 ---
 
-## 25. Buffered Channel i Backpressure
+## Pitanje 32 — Šta se događa kada buffered channel postane pun?
 
-### Pitanje 25.1
-
-**Šta se događa kada buffered channel postane pun?**
+### Odgovor
 
 Kada je buffer pun, sledeći send blokira.
 
@@ -1565,13 +1992,27 @@ Producer BLOCKED
 
 Producer tako ne može beskonačno brzo da proizvodi podatke ako consumer ne može da ih obrađuje dovoljno brzo.
 
+### Šta interviewer očekuje?
+
+* Da pun buffer blokira sender-a.
+* Pojam backpressure-a — prirodno ograničavanje brzine producer-a.
+* Da buffer nije beskonačan red.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Ako buffer postane pun, vrednosti se gube."
+
+Preciznije je:
+
+> "Pun buffer blokira sender-a — vrednosti se ne gube, sender čeka dok se ne oslobodi prostor."
+
 ---
 
-## 26. Kapacitet Buffer-a nije "Brzina"
+## Pitanje 33 — Da li povećavanje kapaciteta buffered channel-a rešava problem sporog consumer-a?
 
-### Pitanje 26.1
-
-**Da li povećavanje kapaciteta buffered channel-a rešava problem sporog consumer-a?**
+### Odgovor
 
 Ne nužno.
 
@@ -1603,13 +2044,27 @@ Veći buffer samo odlaže trenutak kada producer počinje da blokira.
 
 Zato buffer treba posmatrati kao deo concurrency dizajna, a ne kao zamenu za kontrolu protoka.
 
+### Šta interviewer očekuje?
+
+* Da veći buffer odlaže, ali ne eliminiše blokiranje.
+* Da je backpressure — ne buffer size — pravo rešenje za sporog consumer-a.
+* Da buffer treba biti dimenzionisan na osnovu konkretnih potreba, ne kao "fail-safe".
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Dovoljno veliki buffer uvek rešava problem sporog consumer-a."
+
+Preciznije je:
+
+> "Veći buffer samo odlaže blokiranje. Ako producer trajno nadmašuje consumer, buffer će se popuniti bez obzira na veličinu."
+
 ---
 
-## 27. Deadlock zbog Očekivanja Dve Strane
+## Pitanje 34 — Kako dve goroutines mogu međusobno da čekaju jedna drugu?
 
-### Pitanje 27.1
-
-**Kako dve goroutine-e mogu međusobno da čekaju jedna drugu?**
+### Odgovor
 
 Na primer:
 
@@ -1644,7 +2099,7 @@ Obe su na unbuffered channel-ima.
 
 Nijedna ne može da završi svoj send dok druga ne izvrši odgovarajući receive.
 
-Ali obe goroutine pokušavaju prvo da izvrše send.
+Ali obe goroutines pokušavaju prvo da izvrše send.
 
 Dobijamo:
 
@@ -1664,13 +2119,27 @@ ch1 <- 1                     ch2 <- 2
 
 Ovo je klasičan **circular wait**.
 
+### Šta interviewer očekuje?
+
+* Razumevanje circular wait-a kao uzroka deadlock-a.
+* Da oba send-a blokiraju jer nema odgovarajućih receive-ova.
+* Da redosled operacija mora biti dizajniran da izbegne cikličnu zavisnost.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Dve goroutines koje šalju jednovremeno nikad ne mogu deadlock-ovati."
+
+Preciznije je:
+
+> "Ako goroutines šalju na unbuffered channel-e pri čemu svaka čeka drugu da uradi receive, nastaje circular wait i deadlock."
+
 ---
 
-## 28. Circular Wait
+## Pitanje 35 — Šta je circular wait u concurrency programu?
 
-### Pitanje 28.1
-
-**Šta je circular wait u concurrency programu?**
+### Odgovor
 
 Circular wait nastaje kada svaki učesnik čeka resurs ili događaj koji zavisi od drugog učesnika u istom ciklusu.
 
@@ -1689,17 +2158,31 @@ B → čeka C
 C → čeka A
 ```
 
-Kod channel-a ovo može nastati kada goroutine-i imaju pogrešno definisan redosled komunikacije.
+Kod channel-a ovo može nastati kada goroutines imaju pogrešno definisan redosled komunikacije.
 
 Kod većih sistema circular wait može biti mnogo teže uočiti jer se lanac proteže kroz više komponenti.
 
+### Šta interviewer očekuje?
+
+* Definiciju circular wait-a.
+* Da circular wait je jedan od uzroka deadlock-a.
+* Da se teže detektuje u složenim sistemima sa više komponenti.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Circular wait može uvek da se reši bez promene dizajna."
+
+Preciznije je:
+
+> "Circular wait zahteva promenu redosleda operacija ili uvođenje posrednika koji narušava krug zavisnosti."
+
 ---
 
-## 29. Deadlock vs. Starvation
+## Pitanje 36 — Koja je razlika između deadlock-a i starvation-a?
 
-### Pitanje 29.1
-
-**Koja je razlika između deadlock-a i starvation-a?**
+### Odgovor
 
 Kod **deadlock-a** sistem više ne može da napravi progress zbog međusobnog čekanja.
 
@@ -1721,13 +2204,27 @@ B stalno čeka
 
 Ovo su različiti concurrency problemi i zahtevaju različite dijagnostičke pristupe.
 
+### Šta interviewer očekuje?
+
+* Da deadlock znači da nijedna goroutine ne može napredovati.
+* Da starvation znači da jedna goroutine sistemski ne dobija resurse.
+* Da su to različiti problemi sa različitim rešenjima.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Deadlock i starvation su isti problem."
+
+Preciznije je:
+
+> "Deadlock je potpuna blokada sistema. Starvation je nefer raspodela resursa gde jedna goroutine trajno ne dobija šansu, ali sistem u celini napreduje."
+
 ---
 
-## 30. Deadlock vs. Goroutine Leak
+## Pitanje 37 — Da li je goroutine leak isto što i deadlock?
 
-### Pitanje 30.1
-
-**Da li je goroutine leak isto što i deadlock?**
+### Odgovor
 
 Ne.
 
@@ -1756,55 +2253,27 @@ Moguće je imati:
 * goroutine leak bez globalnog deadlock-a;
 * i oba problema istovremeno.
 
----
+### Šta interviewer očekuje?
 
-## Junior mentalni model
+* Da goroutine leak i deadlock nisu sinonimi.
+* Da goroutine leak može postojati bez da program deadlock-uje.
+* Da lifecycle goroutine mora biti eksplicitno definisan.
 
-Kod channel concurrency-ja treba uvek postaviti sledeća pitanja:
+### Česta greška
 
-```text
-1. Ko šalje?
-2. Ko prima?
-3. Da li je channel buffered?
-4. Koliki je buffer?
-5. Kada send može da blokira?
-6. Kada receive može da blokira?
-7. Ko zatvara channel?
-8. Kada se channel zatvara?
-9. Šta se dešava ako producer završi?
-10. Šta se dešava ako consumer završi prvi?
-11. Može li neka goroutine ostati blokirana?
-12. Postoji li circular wait?
-```
+Nije precizno reći:
 
-Ako na ova pitanja ne postoji jasan odgovor, concurrency dizajn verovatno još nije dovoljno precizan.
+> "Goroutine leak uvek uzrokuje deadlock."
+
+Preciznije je:
+
+> "Goroutine leak znači da goroutine troši resurse duže nego što treba. Program može nastaviti da radi — leak ne mora odmah uzrokovati deadlock."
 
 ---
 
-## Ključne lekcije ovog dela
+## Pitanje 38 — Šta znači zatvoriti channel u Go-u?
 
-* Send na unbuffered channel-u zahteva odgovarajući receive.
-* Receive sa praznog otvorenog channel-a blokira.
-* Send na pun buffered channel blokira.
-* Blokiranje samo po sebi nije deadlock.
-* Deadlock nastaje kada potrebni progress više nije moguć.
-* Unbuffered channel predstavlja rendezvous između sender-a i receiver-a.
-* Buffered channel može obezbediti određeni stepen decoupling-a.
-* Buffer uvodi mogućnost backpressure-a kada se napuni.
-* Veći buffer ne rešava fundamentalno sporog consumer-a.
-* Circular wait je čest uzrok deadlock-a.
-* Goroutine leak i deadlock nisu sinonimi.
-* Concurrency dizajn mora eksplicitno definisati ownership, lifecycle i blocking ponašanje.
-
-# Interview Questions — Junior
-
-## Deo #4/7
-
-## 31. Zatvaranje Channel-a
-
-### Pitanje 31.1
-
-**Šta znači zatvoriti channel u Go-u?**
+### Odgovor
 
 Channel se zatvara pomoću ugrađene funkcije:
 
@@ -1820,7 +2289,7 @@ Važno je razumeti da `close`:
 
 * ne briše već poslate vrednosti;
 * ne zaustavlja automatski receiver-e;
-* ne prekida goroutine;
+* ne prekida goroutines;
 * ne znači da channel više ne može biti pročitan.
 
 Ako channel sadrži buffered vrednosti, one i dalje mogu biti primljene nakon `close`.
@@ -1848,13 +2317,27 @@ Output:
 
 Channel je zatvoren, ali postojeće vrednosti su i dalje dostupne.
 
+### Šta interviewer očekuje?
+
+* Da `close` signalizira kraj slanja, ne briše vrednosti.
+* Da buffered vrednosti ostaju dostupne i posle `close`.
+* Da `close` ne prekida goroutines — one moraju same proveriti signal.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "`close(ch)` briše sve vrednosti i onemogućava dalji pristup channel-u."
+
+Preciznije je:
+
+> "`close(ch)` samo signalizira kraj slanja. Sve prethodno buffered vrednosti se mogu normalno pročitati."
+
 ---
 
-## 32. Ko treba da zatvori Channel?
+## Pitanje 39 — Da li receiver treba da zatvara channel?
 
-### Pitanje 32.1
-
-**Da li receiver treba da zatvara channel?**
+### Odgovor
 
 Uobičajeno pravilo je:
 
@@ -1888,13 +2371,27 @@ Consumer to najčešće ne zna.
 
 Zbog toga producer ima informaciju potrebnu za donošenje odluke o zatvaranju.
 
+### Šta interviewer očekuje?
+
+* Da receiver uglavnom ne treba da zatvara channel.
+* Da sender ima informaciju o tome kada je slanje završeno.
+* Da zatvaranje od strane receiver-a može izazvati panic u sender-u.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Receiver treba da zatvori channel kada ne želi više vrednosti."
+
+Preciznije je:
+
+> "Receiver uglavnom ne treba da zatvara channel. To je odgovornost sender-a koji zna kada je tok podataka završen."
+
 ---
 
-## 33. Šta se događa kada se šalje na zatvoren Channel?
+## Pitanje 40 — Šta se događa ako pokušamo da pošaljemo vrednost na zatvoren channel?
 
-### Pitanje 33.1
-
-**Šta se događa ako pokušamo da pošaljemo vrednost na zatvoren channel?**
+### Odgovor
 
 Program će izazvati panic.
 
@@ -1916,7 +2413,7 @@ panic: send on closed channel
 
 Zato `close` nije operacija koju treba izvršavati proizvoljno.
 
-Ako više goroutine-a može da zatvara isti channel, postoji rizik od:
+Ako više goroutines može da zatvara isti channel, postoji rizik od:
 
 ```text
 panic: close of closed channel
@@ -1924,13 +2421,27 @@ panic: close of closed channel
 
 Zbog toga ownership nad channel lifecycle-om mora biti jasan.
 
+### Šta interviewer očekuje?
+
+* Da send na zatvoren channel izaziva panic — runtime greška.
+* Da double-close isto izaziva panic.
+* Da jasan ownership sprečava ove greške.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Send na zatvoren channel vraća grešku."
+
+Preciznije je:
+
+> "Send na zatvoren channel izaziva panic — ne vraća grešku. Zato ownership i životni ciklus channel-a moraju biti jasni."
+
 ---
 
-## 34. Šta se događa pri Receive-u sa zatvorenog Channel-a?
+## Pitanje 41 — Šta se događa kada pokušamo da primimo vrednost sa zatvorenog channel-a?
 
-### Pitanje 34.1
-
-**Šta se događa kada pokušamo da primimo vrednost sa zatvorenog channel-a?**
+### Odgovor
 
 Receive sa zatvorenog channel-a je validan.
 
@@ -1954,23 +2465,7 @@ Output:
 0
 ```
 
-Za `int` je zero value:
-
-```go
-0
-```
-
-Za `string`:
-
-```go
-""
-```
-
-Za pointer:
-
-```go
-nil
-```
+Za `int` je zero value `0`. Za `string`: `""`. Za pointer: `nil`.
 
 Zbog toga samo:
 
@@ -1992,13 +2487,27 @@ channel je otvoren, ali je primljena zero value vrednost
 
 Za to postoji drugi oblik receive operacije.
 
+### Šta interviewer očekuje?
+
+* Da receive sa zatvorenog channel-a ne izaziva panic.
+* Da se vraća zero value odgovarajućeg tipa.
+* Da sama zero value vrednost ne govori da li je channel zatvoren.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Receive sa zatvorenog channel-a izaziva panic."
+
+Preciznije je:
+
+> "Receive sa zatvorenog i praznog channel-a vraća zero value i `false` za `ok` — bez panica. Panic nastaje samo pri send-u na zatvoreni channel."
+
 ---
 
-## 35. Comma-ok idiom
+## Pitanje 42 — Kako možemo proveriti da li je channel zatvoren?
 
-### Pitanje 35.1
-
-**Kako možemo proveriti da li je channel zatvoren?**
+### Odgovor
 
 Koristimo oblik:
 
@@ -2025,7 +2534,7 @@ Ako je channel zatvoren i više nema vrednosti:
 
 ```text
 value = zero value
-ok = false
+ok    = false
 ```
 
 Ako je vrednost uspešno primljena:
@@ -2046,13 +2555,27 @@ if value == 0 {
 
 jer to nije tačno.
 
+### Šta interviewer očekuje?
+
+* Sintaksu `value, ok := <-ch`.
+* Da `ok == false` znači channel je zatvoren i ispražnjen.
+* Da zero value sama po sebi nije signal zatvaranja.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Proverim da li je vrednost zero value da bih znao da je channel zatvoren."
+
+Preciznije je:
+
+> "Zero value može biti legitimna poslovna vrednost. Jedini pouzdan način detekcije je `value, ok := <-ch` i provjera `ok`."
+
 ---
 
-## 36. Receive iz Buffered Closed Channel-a
+## Pitanje 43 — Šta se događa ako zatvorimo buffered channel koji još ima podatke?
 
-### Pitanje 36.1
-
-**Šta se događa ako zatvorimo buffered channel koji još ima podatke?**
+### Odgovor
 
 Podaci se i dalje mogu primiti.
 
@@ -2118,13 +2641,27 @@ Već:
 
 > "Neće biti novih send operacija."
 
+### Šta interviewer očekuje?
+
+* Da `close` na buffered channel-u sa podacima ne briše te podatke.
+* Da receiver može normalno pročitati sve buffered vrednosti posle `close`.
+* Da `range` završava tek kada su i channel zatvoren i buffer prazan.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "`close` odmah čini channel nedostupnim za čitanje."
+
+Preciznije je:
+
+> "`close` samo označava kraj slanja. Buffered vrednosti ostaju dostupne i mogu se normalno pročitati."
+
 ---
 
-## 37. `range` preko Channel-a
+## Pitanje 44 — Kako `range` radi sa channel-om?
 
-### Pitanje 37.1
-
-**Kako `range` radi sa channel-om?**
+### Odgovor
 
 Možemo iterirati preko channel-a:
 
@@ -2158,13 +2695,27 @@ for value := range ch
 
 idiomatski način za obradu stream-a vrednosti čiji je kraj eksplicitno označen zatvaranjem channel-a.
 
+### Šta interviewer očekuje?
+
+* Sintaksu `for value := range ch`.
+* Da `range` blokira između vrednosti.
+* Da `range` završava kada je channel zatvoren i sve vrednosti pročitane.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "`range` nad channel-om završava kada channel ostane prazan."
+
+Preciznije je:
+
+> "`range` završava tek kada je channel eksplicitno zatvoren sa `close`. Bez `close` petlja ostaje blokirana zauvek."
+
 ---
 
-## 38. Šta ako `range` koristi otvoren Channel?
+## Pitanje 45 — Šta se događa ako channel nikada nije zatvoren pri korišćenju `range`?
 
-### Pitanje 38.1
-
-**Šta se događa ako channel nikada nije zatvoren?**
+### Odgovor
 
 Ako nema više vrednosti, `range` će čekati sledeću vrednost.
 
@@ -2204,13 +2755,27 @@ Zato receiver ostaje blokiran.
 
 Ovo može dovesti do situacije u kojoj program ne može normalno da završi.
 
+### Šta interviewer očekuje?
+
+* Da `range` bez `close` može ostati blokiran zauvek.
+* Da je ovo jedan od najčešćih uzroka goroutine leak-a.
+* Da producer mora eksplicitno pozvati `close` kada je završio.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "`range` završava kada producer prestane da šalje vrednosti."
+
+Preciznije je:
+
+> "`range` završava samo kada je channel zatvoren. Tišina na channel-u nije ista stvar kao `close`."
+
 ---
 
-## 39. Producer određuje kraj Stream-a
+## Pitanje 46 — Zašto producer često treba da zatvori channel kada završi proizvodnju?
 
-### Pitanje 39.1
-
-**Zašto producer često treba da zatvori channel kada završi proizvodnju?**
+### Odgovor
 
 Zato što producer zna kada više nema podataka.
 
@@ -2257,13 +2822,27 @@ Producer
 
 Ovo daje jasnu lifecycle granicu između producer-a i consumer-a.
 
+### Šta interviewer očekuje?
+
+* Da producer ima informaciju o kraju toka podataka.
+* Da `defer close(out)` je standardni idiom u producer funkcijama.
+* Da `close` od strane producer-a omogućava `range` termination na strani consumer-a.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Consumer može sam da zaključi kada je producer završio."
+
+Preciznije je:
+
+> "Consumer ne zna kada je producer završio osim ako producer eksplicitno ne pozove `close`. Zato je producer odgovoran za `close`."
+
 ---
 
-## 40. Channel Close kao Signal
+## Pitanje 47 — Da li `close` služi samo za sprečavanje novih send operacija?
 
-### Pitanje 40.1
-
-**Da li `close` služi samo za sprečavanje novih send operacija?**
+### Odgovor
 
 Ne.
 
@@ -2292,15 +2871,29 @@ Ovde ne šaljemo nikakvu konkretnu vrednost.
 
 Samo zatvaranje channel-a predstavlja signal da je posao završen.
 
-Ovaj obrazac je koristan kada više goroutine-a treba da bude obavešteno o završetku određenog događaja.
+Ovaj obrazac je koristan kada više goroutines treba da bude obavešteno o završetku određenog događaja.
+
+### Šta interviewer očekuje?
+
+* Da `close` može biti korišćen kao broadcast signal.
+* Obrazac `done := make(chan struct{})` + `close(done)` + `<-done`.
+* Da channel služi i kao sinhronizacioni mehanizam, ne samo za prenos vrednosti.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "`close` se koristi samo da zaustavi `range` petlje."
+
+Preciznije je:
+
+> "`close` je opštiji signal završetka. Može biti korišćen i bez `range` — kao broadcast signal svim goroutines koje čekaju na tom channel-u."
 
 ---
 
-## 41. Zašto se često koristi `chan struct{}`?
+## Pitanje 48 — Zašto se za signalizaciju često koristi `chan struct{}`?
 
-### Pitanje 41.1
-
-**Zašto se za signalizaciju često koristi `chan struct{}`?**
+### Odgovor
 
 Zato što nam nije potrebna stvarna vrednost.
 
@@ -2345,15 +2938,29 @@ fmt.Println("worker finished")
 
 Za ozbiljnije cancellation obrasce koristiće se `context.Context`, ali je `close` nad signalnim channel-om važan osnovni concurrency obrazac.
 
+### Šta interviewer očekuje?
+
+* Da `struct{}` zauzima nula bajtova memorije.
+* Da `chan struct{}` semantički jasno komunicira da je channel signal, a ne prenos podataka.
+* Da je ovo standardni idiom za signalizaciju u Go-u.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Koristim `chan bool` za signalizaciju jer `struct{}` izgleda čudno."
+
+Preciznije je:
+
+> "`chan struct{}` je idiomatski Go za signalizaciju. `struct{}` zauzima 0 bajtova i jasno komunicira namenu — signal, ne podatak."
+
 ---
 
-## 42. Može li više goroutine-a primiti signal nakon `close`?
+## Pitanje 49 — Šta se događa ako više goroutines čeka na channel koji se zatvori?
 
-### Pitanje 42.1
+### Odgovor
 
-**Šta se događa ako više goroutine-a čeka na channel koji se zatvori?**
-
-Sve goroutine koje čekaju receive mogu biti probuđene kada channel bude zatvoren.
+Sve goroutines koje čekaju receive mogu biti probuđene kada channel bude zatvoren.
 
 Na primer:
 
@@ -2378,17 +2985,31 @@ To je fundamentalno drugačije od slanja jedne vrednosti:
 done <- struct{}{}
 ```
 
-Jedan send ne znači automatski da će sve čekajuće goroutine dobiti isti signal.
+Jedan send ne znači automatski da će sve čekajuće goroutines dobiti isti signal.
 
 `close(done)` može signalizirati završetak svim receiver-ima koji čekaju na taj channel.
 
+### Šta interviewer očekuje?
+
+* Da `close` na channel-u deluje kao broadcast signal.
+* Da slanje jedne vrednosti nije broadcast — prima je samo jedna goroutine.
+* Da je ovo fundamentalna razlika između `close` i `send`.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Slanjem vrednosti na channel obavešćavamo sve goroutines."
+
+Preciznije je:
+
+> "Jedan send prima samo jedna goroutine. `close` je broadcast — sve goroutines koje čekaju receive biće probuđene."
+
 ---
 
-## 43. `close` nije Cancellation mehanizam sam po sebi
+## Pitanje 50 — Da li zatvaranje channel-a automatski prekida goroutine?
 
-### Pitanje 43.1
-
-**Da li zatvaranje channel-a automatski prekida goroutine?**
+### Odgovor
 
 Ne.
 
@@ -2400,6 +3021,7 @@ func worker(done <-chan struct{}) {
 		select {
 		case <-done:
 			return
+
 		default:
 			// work
 		}
@@ -2415,17 +3037,31 @@ Zato cancellation zahteva:
 
 1. signal;
 2. kod koji taj signal posmatra;
-3. izlaznu putanju iz goroutine-e.
+3. izlaznu putanju iz goroutine.
 
 U većim sistemima ovo se često rešava pomoću `context.Context`.
 
+### Šta interviewer očekuje?
+
+* Da `close` ne prekida goroutine automatski.
+* Da goroutine mora aktivno proveravati signal kroz `select` ili `<-done`.
+* Da je `context.Context` standardni mehanizam za cancellation u produkcijskom kodu.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Pozivom `close(done)` goroutine se odmah prekida."
+
+Preciznije je:
+
+> "`close(done)` šalje signal. Goroutine sama mora proveriti taj signal i odlučiti da završi. Prekid nije trenutan."
+
 ---
 
-## 44. Pravilo Ownership-a
+## Pitanje 51 — Koje je praktično pravilo za ownership channel-a?
 
-### Pitanje 44.1
-
-**Koje je praktično pravilo za ownership channel-a?**
+### Odgovor
 
 Najbezbednije pravilo je:
 
@@ -2463,61 +3099,29 @@ value := <-in
 
 Ovakva API struktura dokumentuje nameru i smanjuje mogućnost pogrešne upotrebe.
 
----
+### Šta interviewer očekuje?
 
-## 45. Junior mentalni model: Channel Lifecycle
+* Da ownership obuhvata kreiranje, slanje, primanje i zatvaranje.
+* Da directional types pomažu da se ownership izrazi kroz type sistem.
+* Da jasno definisan ownership smanjuje mogućnost grešaka kao double-close ili send na zatvoren channel.
 
-Kod svakog channel-a treba moći jasno da odgovorimo na sledeća pitanja:
+### Česta greška
 
-```text
-1. Ko ga kreira?
-2. Ko šalje?
-3. Ko prima?
-4. Ko ga zatvara?
-5. Kada se zatvara?
-6. Šta znači close u ovom konkretnom API-ju?
-7. Da li channel ima buffer?
-8. Šta se događa kada je buffer pun?
-9. Šta se događa kada je channel prazan?
-10. Šta se događa nakon close?
-11. Koji goroutine-i zavise od njegovog zatvaranja?
-12. Može li receiver ostati zauvek u range petlji?
-13. Može li neko poslati nakon close?
-14. Može li više goroutine-a pokušati da zatvori isti channel?
-```
+Nije precizno reći:
 
-Ako odgovori na ova pitanja nisu jasni, lifecycle channel-a nije dovoljno dobro definisan.
+> "Ownership channel-a nije bitan — samo treba paziti da se ne zatvori dvaput."
+
+Preciznije je:
+
+> "Jasan ownership je jedini način da se garantovano izbegnu double-close i send-after-close greške. Type sistem (directional channels) je alat, ali nije dovoljan sam po sebi."
 
 ---
 
-## Ključne lekcije ovog dela
+## Pitanje 52 — Čemu služi `select` u Go-u?
 
-* `close(ch)` označava da više neće biti novih send operacija.
-* Zatvaranje channel-a ne briše već poslate vrednosti.
-* Buffered channel može nastaviti da vraća vrednosti i nakon `close`.
-* Send na zatvoren channel izaziva panic.
-* Receive sa zatvorenog channel-a je validan.
-* `value, ok := <-ch` omogućava detekciju zatvorenog channel-a.
-* `range` završava kada je channel zatvoren i kada su sve vrednosti pročitane.
-* `range` nad otvorenim channel-om može ostati blokiran zauvek.
-* Producer obično treba da zatvori channel kada završi proizvodnju.
-* `close` može služiti kao broadcast signal.
-* `chan struct{}` je čest obrazac za signalizaciju bez podataka.
-* Zatvaranje channel-a samo po sebi ne prekida goroutine.
-* Channel ownership treba jasno definisati.
-* Channel lifecycle je sastavni deo concurrency API dizajna.
+### Odgovor
 
-# Interview Questions — Junior
-
-## Deo #5/7
-
-## 46. `select` Statement
-
-### Pitanje 46.1
-
-**Čemu služi `select` u Go-u?**
-
-`select` omogućava goroutine-i da čeka na više channel operacija istovremeno.
+`select` omogućava goroutini da čeka na više channel operacija istovremeno.
 
 Najjednostavniji primer:
 
@@ -2545,13 +3149,27 @@ value := <-ch
 
 koji čeka samo jedan channel, `select` omogućava koordinaciju više mogućih događaja.
 
+### Šta interviewer očekuje?
+
+* Da `select` čeka više channel operacija istovremeno.
+* Da blokira dok nijedna case nije dostupna.
+* Da se koristi za timeout, cancellation i čekanje višestrukih izvora podataka.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "`select` izvršava prvu `case` opciju koja je navedena."
+
+Preciznije je:
+
+> "Ako je više `case` opcija istovremeno dostupno, `select` bira pseudo-nasumično. Redosled case-ova ne garantuje redosled izvršavanja."
+
 ---
 
-## 47. Kako `select` bira Case?
+## Pitanje 53 — Šta se događa ako je više `case` grana spremno istovremeno?
 
-### Pitanje 47.1
-
-**Šta se događa ako je više `case` grana spremno istovremeno?**
+### Odgovor
 
 Ako je više channel operacija spremno, Go runtime bira jednu od spremnih opcija.
 
@@ -2579,13 +3197,27 @@ ch1 će uvek biti izabran pre ch2
 
 Ako su oba slučaja spremna, izbor je nedeterministički iz perspektive programa.
 
+### Šta interviewer očekuje?
+
+* Da `select` bira pseudo-nasumično kada je više case-ova spremno.
+* Da redosled case-ova ne garantuje prioritet.
+* Da program ne sme zavisiti od pretpostavljenog redosleda selekcije.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "`select` uvek bira case koji je naveden prvi."
+
+Preciznije je:
+
+> "Kada je više case-ova istovremeno dostupno, `select` bira nasumično. Redosled case-ova ne implicira prioritet."
+
 ---
 
-## 48. `select` bez `default`
+## Pitanje 54 — Šta se događa kada nijedan `case` nije spreman u `select`-u bez `default`?
 
-### Pitanje 48.1
-
-**Šta se događa kada nijedan `case` nije spreman?**
+### Odgovor
 
 Ako `select` nema `default`, goroutine blokira dok jedan od `case`-ova ne postane spreman.
 
@@ -2623,13 +3255,27 @@ nijedan spreman
     BLOCK
 ```
 
+### Šta interviewer očekuje?
+
+* Da `select` bez `default` blokira kada nijedan case nije spreman.
+* Da je ovo namerno ponašanje — goroutine čeka na događaj.
+* Razliku između blokirajućeg i neblokrajućeg `select`-a.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "`select` bez `default` izaziva grešku ako nijedan case nije spreman."
+
+Preciznije je:
+
+> "`select` bez `default` legitimno blokira goroutine dok neki case ne postane spreman. To je normalan i željeni mehanizam čekanja."
+
 ---
 
-## 49. `select` sa `default`
+## Pitanje 55 — Čemu služi `default` unutar `select` statement-a?
 
-### Pitanje 49.1
-
-**Čemu služi `default` unutar `select` statement-a?**
+### Odgovor
 
 `default` omogućava **non-blocking** pokušaj channel operacije.
 
@@ -2663,13 +3309,27 @@ nastavi odmah
 
 Ovo je fundamentalno drugačije od `select`-a bez `default`, koji čeka.
 
+### Šta interviewer očekuje?
+
+* Da `default` omogućava non-blocking select.
+* Da se `default` izvršava kada nijedan drugi case nije spreman.
+* Da `default` u beskonačnoj petlji može izazvati busy loop.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "`default` se izvršava ako su svi case-ovi blokiranji duže od nekog vremena."
+
+Preciznije je:
+
+> "`default` se izvršava odmah ako nijedan case nije spreman u tom trenutku. Nema nikakve pauze ili čekanja."
+
 ---
 
-## 50. Non-blocking Receive
+## Pitanje 56 — Kako možemo pokušati da primimo vrednost bez blokiranja?
 
-### Pitanje 50.1
-
-**Kako možemo pokušati da primimo vrednost bez blokiranja?**
+### Odgovor
 
 Koristimo:
 
@@ -2706,13 +3366,27 @@ for {
 
 možemo dobiti **busy loop** koji nepotrebno troši CPU.
 
+### Šta interviewer očekuje?
+
+* Da `select` sa `default` omogućava non-blocking receive.
+* Kada je ovakav obrazac koristan i kada nije.
+* Rizik od busy loop-a u beskonačnoj petlji.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Non-blocking receive uvek je bolja opcija od blokirajućeg."
+
+Preciznije je:
+
+> "Non-blocking receive ima smisla kada goroutine ima šta da radi i bez podataka. U beskonačnoj petlji bez alternativnog rada postaje busy loop koji troši CPU."
+
 ---
 
-## 51. Busy Loop
+## Pitanje 57 — Šta je busy loop i zašto je problematičan?
 
-### Pitanje 51.1
-
-**Šta je busy loop i zašto je problematičan?**
+### Odgovor
 
 Busy loop nastaje kada goroutine neprekidno proverava stanje bez blokiranja ili čekanja.
 
@@ -2757,13 +3431,27 @@ case value := <-ch:
 
 ili kombinovati `select` sa `time.After`, `time.NewTimer` ili drugim signalom.
 
+### Šta interviewer očekuje?
+
+* Da busy loop nepotrebno troši CPU jer ne postoji tačka blokiranja.
+* Da `default` u petlji bez alternativnog rada izaziva busy loop.
+* Da blokirajući `select` je ispravniji izbor kada goroutine čeka na događaj.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Busy loop je uvek brži jer nema čekanja."
+
+Preciznije je:
+
+> "Busy loop troši CPU i može usporiti ostatak sistema. Blokirajući `select` je efikasniji jer goroutine prepušta CPU scheduler-u dok čeka."
+
 ---
 
-## 52. Timeout pomoću `select`
+## Pitanje 58 — Kako možemo implementirati timeout za channel operaciju?
 
-### Pitanje 52.1
-
-**Kako možemo implementirati timeout za channel operaciju?**
+### Odgovor
 
 Možemo kombinovati channel operaciju sa timer channel-om.
 
@@ -2793,13 +3481,27 @@ select ──────────┤
 
 Ovo je važan obrazac za mrežne pozive, RPC operacije, worker-e i druge concurrency scenarije.
 
+### Šta interviewer očekuje?
+
+* Obrazac `select` + `time.After` za timeout.
+* Da `time.After` vraća channel koji prima vrednost nakon isteka vremena.
+* Da je timeout nezavisan od bilo koje goroutine koja radi posao.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Timeout automatski prekida goroutine koja radi posao."
+
+Preciznije je:
+
+> "Timeout samo prekida čekanje u `select`-u. Worker goroutine može nastaviti da radi — timeout i cancellation su različite stvari."
+
 ---
 
-## 53. `time.After` i ponovljena upotreba
+## Pitanje 59 — Da li je `time.After` uvek najbolji izbor za timeout?
 
-### Pitanje 53.1
-
-**Da li je `time.After` uvek najbolji izbor za timeout?**
+### Odgovor
 
 Ne.
 
@@ -2839,13 +3541,27 @@ case <-timer.C:
 
 Ovaj obrazac daje eksplicitniju kontrolu nad timer-om.
 
+### Šta interviewer očekuje?
+
+* Da `time.After` je prikladan za jednokratni timeout.
+* Da `time.NewTimer` daje eksplicitniju kontrolu i mogućnost `Stop`.
+* Da u petljama `time.After` može akumulirati timer goroutines.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "`time.After` je uvek ekvivalent `time.NewTimer`."
+
+Preciznije je:
+
+> "`time.After` kreira timer koji se ne može zaustaviti pre isteka. U petljama ovo može akumulirati neopozive timer goroutines. `time.NewTimer` sa `defer timer.Stop()` je precizniji."
+
 ---
 
-## 54. Timeout ne znači Cancellation
+## Pitanje 60 — Da li timeout automatski prekida goroutine koja radi posao?
 
-### Pitanje 54.1
-
-**Da li timeout automatski prekida goroutine koja radi posao?**
+### Odgovor
 
 Ne.
 
@@ -2887,13 +3603,27 @@ cancellation
 
 U naprednijim programima timeout i cancellation često se kombinuju preko `context.Context`.
 
+### Šta interviewer očekuje?
+
+* Da timeout i cancellation su različiti koncepti.
+* Da timeout samo prekida čekanje, ne worker goroutine.
+* Da je `context.Context` standardni mehanizam za kombinovanje timeout-a i cancellation-a.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Timeout automatski otkazuje sve operacije koje traju predugo."
+
+Preciznije je:
+
+> "Timeout samo prekida čekanje u `select`-u. Worker goroutine nastavlja da radi ako nema eksplicitnog cancellation signala."
+
 ---
 
-## 55. `select` sa `done` Channel-om
+## Pitanje 61 — Kako možemo omogućiti worker-u da reaguje na signal za završetak?
 
-### Pitanje 55.1
-
-**Kako možemo omogućiti worker-u da reaguje na signal za završetak?**
+### Odgovor
 
 Tipičan obrazac:
 
@@ -2928,13 +3658,27 @@ Worker može da završi svoju goroutine.
 
 Ovo je osnovni model graceful cancellation-a.
 
+### Šta interviewer očekuje?
+
+* Obrazac `select` sa `jobs` i `done` channel-om.
+* Da worker mora aktivno proveravati `done` signal.
+* Da `close(done)` je broadcast signal svim radnicima koji dele isti `done` channel.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Worker se automatski zaustavlja kada nema posla."
+
+Preciznije je:
+
+> "Worker blokira dok ne dobije posao ili signal za završetak. Bez eksplicitnog `done` signala, worker može ostati blokiran zauvek."
+
 ---
 
-## 56. `select` nad zatvorenim Channel-om
+## Pitanje 62 — Šta se događa ako je jedan od channel-a u `select`-u zatvoren?
 
-### Pitanje 56.1
-
-**Šta se događa ako je jedan od channel-a u `select`-u zatvoren?**
+### Odgovor
 
 Receive iz zatvorenog channel-a je odmah spreman.
 
@@ -2965,13 +3709,29 @@ Zbog toga kod `select` petlji treba voditi računa o zatvorenim channel-ima.
 
 Ako channel ostane u `select`-u nakon što je zatvoren, njegov receive case može biti spreman praktično odmah.
 
+### Šta interviewer očekuje?
+
+* Da receive sa zatvorenog channel-a je odmah spreman u `select`-u.
+* Da ovo može izazvati unexpected ponašanje u `select` petljama.
+* Da treba koristiti comma-ok oblik za detekciju zatvorenog channel-a.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Zatvoren channel u `select`-u se ignoriše."
+
+Preciznije je:
+
+> "Receive sa zatvorenog channel-a je odmah spreman. U petlji sa `select`-om, zatvoren channel može dominirati jer je uvek spreman."
+
 ---
 
-## 57. Zašto zatvoreni Channel može izazvati problem u `select` petlji?
+## Pitanje 63 — Zašto zatvoreni channel može izazvati problem u `select` petlji?
 
-### Pitanje 57.1
+### Odgovor
 
-Posmatrajmo:
+Posmatramo:
 
 ```go
 for {
@@ -3017,13 +3777,27 @@ for {
 
 Time eksplicitno obrađujemo lifecycle channel-a.
 
+### Šta interviewer očekuje?
+
+* Da zatvoren channel u `select` petlji postaje stalno spreman.
+* Da bez comma-ok provere petlja može procesirati zero value vrednosti beskonačno.
+* Da ispravna obrada zahteva eksplicitnu provjeru `ok`.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Zatvoren channel u petlji automatski završava petlju."
+
+Preciznije je:
+
+> "Zatvoren channel u `select` petlji postaje stalno aktivan — petlja nastavlja da ga bira i dobija zero value. Bez `ok` provjere, ovo je beskonačna petlja nula."
+
 ---
 
-## 58. `select` kao Concurrency Multiplexer
+## Pitanje 64 — Zašto se `select` često opisuje kao mehanizam za multipleksiranje channel događaja?
 
-### Pitanje 58.1
-
-**Zašto se `select` često opisuje kao mehanizam za multipleksiranje channel događaja?**
+### Odgovor
 
 Zato što jedna goroutine može koordinisati više nezavisnih izvora događaja.
 
@@ -3050,13 +3824,27 @@ Jedna goroutine sada reaguje na:
 
 `select` time postaje centralna tačka koordinacije različitih concurrency događaja.
 
+### Šta interviewer očekuje?
+
+* Da `select` kombinuje više izvora događaja u jednoj goroutine.
+* Da `select` je osnova za izgradnju strukturisane konkurentnosti u Go-u.
+* Tipični primeri: posao + cancellation + timer.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "`select` je samo `switch` za channels."
+
+Preciznije je:
+
+> "`select` blokira dok jedan od case-ova ne postane moguć, a ako je više case-ova istovremeno dostupno, bira nasumično. `switch` nema ovu semantiku."
+
 ---
 
-## 59. Više `select` grana ne znači paralelno izvršavanje
+## Pitanje 65 — Da li se svi `case` blokovi izvršavaju ako su spremni?
 
-### Pitanje 59.1
-
-**Da li se svi `case` blokovi izvršavaju ako su spremni?**
+### Odgovor
 
 Ne.
 
@@ -3100,13 +3888,27 @@ for {
 
 onda se `select` ponavlja kroz petlju.
 
+### Šta interviewer očekuje?
+
+* Da `select` izvršava tačno jedan case po izvršavanju.
+* Da `for` petlja oko `select`-a je standardni obrazac za kontinuirano slušanje.
+* Da višestruka selekcija zahteva petlju.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "`select` izvršava sve case-ove koji su spremni."
+
+Preciznije je:
+
+> "`select` bira tačno jedan case i izvršava ga. Ostali case-ovi se ignorišu u tom prolazu."
+
 ---
 
-## 60. `select` i Prioritet
+## Pitanje 66 — Možemo li jednostavnim redosledom `case` grana dati prioritet jednom channel-u?
 
-### Pitanje 60.1
-
-**Možemo li jednostavnim redosledom `case` grana dati prioritet jednom channel-u?**
+### Odgovor
 
 Ne treba računati na to.
 
@@ -3128,13 +3930,27 @@ Ako aplikacija zahteva eksplicitnu prioritizaciju, potrebno je dizajnirati druga
 
 Na primer, može se prvo proveriti prioritetni channel non-blocking pristupom, a zatim izvršiti blocking select, ali takav obrazac treba koristiti samo kada stvarno postoji poslovna potreba.
 
+### Šta interviewer očekuje?
+
+* Da redosled case-ova ne definiše prioritet u `select`-u.
+* Da eksplicitni prioritet zahteva poseban dizajn.
+* Da program ne sme zavisiti od pretpostavljenog redosleda selekcije.
+
+### Česta greška
+
+Nije precizno reći:
+
+> "Stavim `urgent` case prvi u `select`-u i on će uvek biti prioritetan."
+
+Preciznije je:
+
+> "Redosled case-ova nema uticaj na selekciju. Kada su više case-ova istovremeno dostupni, `select` bira nasumično."
+
 ---
 
-## 61. Channel komunikacija ili `select`?
+## Pitanje 67 — Kada je dovoljan običan receive, a kada je potreban `select`?
 
-### Pitanje 61.1
-
-**Kada je dovoljan običan receive, a kada je potreban `select`?**
+### Odgovor
 
 Ako goroutine čeka samo jedan događaj:
 
@@ -3170,476 +3986,21 @@ više mogućih događaja
 select
 ```
 
----
+### Šta interviewer očekuje?
 
-## 62. Junior mentalni model za `select`
+* Razliku između `<-ch` (jedan channel) i `select` (više channels).
+* Da `select` reaguje na prvi dostupan case.
+* Primeri upotrebe: timeout, cancellation, višestruki izvori.
 
-Pre upotrebe `select` treba znati:
+### Česta greška
 
-```text
-1. Koji channel-i učestvuju?
-2. Koji case-ovi su send, a koji receive?
-3. Da li neki case može ostati zauvek blokiran?
-4. Da li postoji default?
-5. Ako postoji default, da li može nastati busy loop?
-6. Šta se dešava kada se channel zatvori?
-7. Da li postoji timeout?
-8. Da li timeout samo prekida čekanje ili zaista otkazuje posao?
-9. Koji signal završava worker?
-10. Da li postoji mogućnost goroutine leak-a?
-```
+Nije precizno reći:
 
----
+> "`select` je uvek bolji od običnog receive — koristim ga uvek."
 
-## Ključne lekcije ovog dela
+Preciznije je:
 
-* `select` čeka na više channel operacija.
-* Ako je više operacija spremno, bira se jedna spremna grana.
-* `select` bez `default` može blokirati.
-* `default` omogućava non-blocking ponašanje.
-* `default` u beskonačnoj petlji može izazvati busy loop.
-* `select` se često koristi za timeout.
-* Timeout i cancellation nisu ista stvar.
-* `done` channel može služiti kao signal za završetak.
-* Receive sa zatvorenog channel-a je odmah spreman.
-* Zatvoren channel može ostati stalno spreman u `select` petlji.
-* Zato treba proveravati `ok` kada channel lifecycle zahteva detekciju zatvaranja.
-* `select` izvršava jednu izabranu granu, ne sve spremne grane.
-* Redosled `case` grana ne treba koristiti kao implicitni prioritet.
-* `select` je osnovni alat za kompoziciju concurrency događaja.
-
-````markdown
-# Interview Questions — Junior
-
-## 6. Napredniji modeli komunikacije kanalima
-
-U prethodnim pitanjima fokus je bio na osnovnoj upotrebi kanala, razlikama između buffered i unbuffered kanala, channel directions, kao i pravilima vezanim za `range` i `close`.
-
-Na Junior nivou potrebno je otići korak dalje: razumeti **šta se zapravo dešava kada goroutine šalje ili prima podatke preko kanala i kada operacija može da blokira**.
-
----
-
-### Pitanje 6.1 — Kada send na kanal blokira?
-
-Send operacija:
-
-```go
-ch <- value
-````
-
-može da blokira trenutnu goroutine dok se ne ispuni uslov za slanje.
-
-Kod **unbuffered** kanala:
-
-```go
-ch := make(chan int)
-
-ch <- 42
-```
-
-send blokira dok druga goroutine ne izvrši receive:
-
-```go
-value := <-ch
-```
-
-Primer:
-
-```go
-ch := make(chan int)
-
-go func() {
-    ch <- 42
-}()
-
-value := <-ch
-
-fmt.Println(value)
-```
-
-Ovde sender i receiver moraju da se "sretnu" u trenutku komunikacije.
-
-Kod **buffered** kanala:
-
-```go
-ch := make(chan int, 2)
-
-ch <- 10
-ch <- 20
-```
-
-send može da se izvrši bez trenutnog receiver-a sve dok buffer nije pun.
-
-Treći send:
-
-```go
-ch <- 30
-```
-
-blokiraće dok se iz kanala ne pročita najmanje jedna vrednost.
-
-**Ključna ideja:**
-
-> Send na kanalu blokira kada kanal u tom trenutku ne može da prihvati novu vrednost.
-
----
-
-### Pitanje 6.2 — Kada receive sa kanala blokira?
-
-Receive:
-
-```go
-value := <-ch
-```
-
-blokira ako nema dostupne vrednosti koju može da primi.
-
-Kod unbuffered kanala:
-
-```go
-ch := make(chan int)
-
-value := <-ch
-```
-
-receive čeka sender-a.
-
-Kod buffered kanala:
-
-```go
-ch := make(chan int, 2)
-
-ch <- 10
-
-value := <-ch
-```
-
-receive se izvršava odmah jer buffer sadrži vrednost.
-
-Ako je buffer prazan:
-
-```go
-ch := make(chan int, 2)
-
-value := <-ch
-```
-
-receive blokira dok neka goroutine ne pošalje vrednost.
-
----
-
-### Pitanje 6.3 — Šta se dešava kada se zatvoren kanal čita?
-
-Ako je kanal zatvoren:
-
-```go
-close(ch)
-```
-
-receive ne blokira nakon što su sve prethodno poslate vrednosti pročitane.
-
-Na primer:
-
-```go
-ch := make(chan int, 2)
-
-ch <- 10
-ch <- 20
-
-close(ch)
-
-fmt.Println(<-ch)
-fmt.Println(<-ch)
-fmt.Println(<-ch)
-```
-
-Ispis će biti:
-
-```text
-10
-20
-0
-```
-
-Treći receive dobija **zero value** za tip kanala.
-
-Zbog toga se često koristi forma:
-
-```go
-value, ok := <-ch
-```
-
-gde:
-
-* `ok == true` znači da je vrednost regularno primljena;
-* `ok == false` znači da je kanal zatvoren i da više nema vrednosti.
-
-Primer:
-
-```go
-value, ok := <-ch
-
-if !ok {
-    fmt.Println("channel closed")
-    return
-}
-
-fmt.Println(value)
-```
-
----
-
-### Pitanje 6.4 — Zašto je `range` nad kanalom koristan?
-
-Umesto ručnog proveravanja:
-
-```go
-for {
-    value, ok := <-ch
-
-    if !ok {
-        break
-    }
-
-    fmt.Println(value)
-}
-```
-
-možemo koristiti:
-
-```go
-for value := range ch {
-    fmt.Println(value)
-}
-```
-
-`range` nastavlja da prima vrednosti sve dok kanal ne bude zatvoren i dok se ne potroše sve vrednosti koje su eventualno ostale u bufferu.
-
-Zbog toga je veoma čest obrazac:
-
-```go
-func worker(ch <-chan int) {
-    for value := range ch {
-        process(value)
-    }
-}
-```
-
-Producer je odgovoran za završetak toka:
-
-```go
-close(ch)
-```
-
-a consumer može jednostavno da radi:
-
-```go
-for value := range ch {
-    process(value)
-}
-```
-
----
-
-### Pitanje 6.5 — Ko bi trebalo da zatvori kanal?
-
-Praktično pravilo je:
-
-> Kanal treba da zatvori goroutine koja zna da više neće biti slanja na taj kanal.
-
-Najčešće je to **sender/producer**, a ne receiver.
-
-Primer:
-
-```go
-func producer() <-chan int {
-    ch := make(chan int)
-
-    go func() {
-        defer close(ch)
-
-        for i := 0; i < 5; i++ {
-            ch <- i
-        }
-    }()
-
-    return ch
-}
-```
-
-Consumer:
-
-```go
-for value := range producer() {
-    fmt.Println(value)
-}
-```
-
-Producer zna kada je proizvodnja završena, pa zato on zatvara kanal.
-
-Receiver uglavnom nema dovoljno informacija da zna da li će neki drugi producer kasnije poslati novu vrednost.
-
----
-
-## 7. Blocking kao deo dizajna konkurentnog programa
-
-Blokiranje samo po sebi nije greška.
-
-Ovo je veoma važna razlika.
-
-Na primer:
-
-```go
-value := <-ch
-```
-
-može legitimno da čeka jer program očekuje da će druga goroutine poslati vrednost.
-
-Problem nastaje kada **blokiranje nije deo očekivanog protokola**.
-
-Na primer:
-
-```go
-ch := make(chan int)
-
-ch <- 10
-
-fmt.Println("done")
-```
-
-Ako nema druge goroutine koja prima vrednost, program može završiti u deadlock-u.
-
-Kod `main` goroutine, runtime može detektovati situaciju u kojoj nijedna goroutine ne može da nastavi izvršavanje.
-
----
-
-## 8. Blocking i buffered kanali
-
-Buffered kanal može smanjiti direktnu zavisnost između sender-a i receiver-a.
-
-Na primer:
-
-```go
-ch := make(chan int, 3)
-
-ch <- 1
-ch <- 2
-ch <- 3
-```
-
-sva tri send-a mogu da se izvrše bez receiver-a.
-
-Ali:
-
-```go
-ch <- 4
-```
-
-blokira jer je buffer pun.
-
-To znači da buffered kanal **ne uklanja blokiranje**.
-
-On samo omogućava određenu količinu asinhronog rada.
-
----
-
-## 9. Tipično pitanje na intervjuu
-
-### "Da li buffered channel znači da send nikada neće blokirati?"
-
-**Ne.**
-
-Send na buffered channel-u blokira kada je buffer pun i nema receiver-a koji bi oslobodio prostor.
-
-Na primer:
-
-```go
-ch := make(chan int, 2)
-
-ch <- 1
-ch <- 2
-
-ch <- 3 // blocks
-```
-
-Kapacitet kanala je:
-
-```text
-2
-```
-
-Nakon dva send-a buffer je pun.
-
-Treći send mora da čeka.
-
----
-
-## 10. Važna mentalna slika
-
-Kod konkurentnog Go programa treba razmišljati o kanalu kao o delu **sinhronizacionog protokola**, a ne samo kao o strukturi za skladištenje podataka.
-
-Na primer:
-
-```text
-Producer
-   |
-   | send
-   v
-Channel
-   |
-   | receive
-   v
-Consumer
-```
-
-Kod unbuffered kanala:
-
-```text
-Producer ──────┐
-               ├── rendezvous ──> Consumer
-               └─────────────────
-```
-
-Kod buffered kanala:
-
-```text
-Producer
-   |
-   v
-┌───────────────┐
-│ Channel       │
-│ [1] [2] [3]   │
-└───────────────┘
-   |
-   v
-Consumer
-```
-
-Buffer predstavlja ograničenu količinu prostora između proizvođača i potrošača.
-
-Kada se prostor popuni, producer mora da čeka.
-
-Kada se prostor isprazni, consumer može da mora da čeka.
-
----
-
-## Šta Junior treba da razume
-
-Nakon ovog nivoa, kandidat treba da bude sposoban da objasni:
-
-* kada send blokira;
-* kada receive blokira;
-* razliku između blokiranja na unbuffered i buffered kanalima;
-* šta se dešava pri receive-u sa zatvorenog kanala;
-* kako `value, ok := <-ch` funkcioniše;
-* zašto se koristi `range` nad kanalom;
-* ko bi trebalo da zatvara kanal;
-* zašto buffered channel ne znači "non-blocking";
-* kako kapacitet buffera utiče na producer/consumer odnos;
-* zašto je blocking deo concurrency dizajna;
-* kako pogrešno dizajniran channel protocol može dovesti do deadlock-a.
-
-Ovo je osnova za sledeći nivo razumevanja: **lifecycle goroutine-a, ownership kanala i sprečavanje goroutine leak-ova**.
+> "Obični receive je jasniji kada čekamo samo jedan event. `select` dodaje kompleksnost koja ima smisla samo kada je potrebna koordinacija više događaja."
 
 ---
 
