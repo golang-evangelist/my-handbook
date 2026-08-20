@@ -1155,7 +1155,7 @@ Ovde channel predstavlja mehanizam komunikacije i koordinacije između dve gorou
 ### Šta interviewer očekuje?
 
 * Da send blokira dok nema receivera (unbuffered).
-* Da receive blokira dok nema sende-ra.
+* Da receive blokira dok nema sendera.
 * Da blokirajuća priroda channel-a čini ga sinhronizacionim mehanizmom.
 
 ### Česta greška
@@ -2108,7 +2108,7 @@ Go runtime raspoređuje goroutines na raspoložive OS thread-ove. Zbog toga Go m
 
 * Da goroutine i OS thread nisu isto.
 * Da Go runtime mapira goroutines na OS thread-ove (N:M odnos).
-* Da je jedan OS thread može izvršavati više goroutines naizmenično.
+* Da jedan OS thread može izvršavati više goroutines naizmenično.
 
 ### Česta greška
 
